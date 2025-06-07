@@ -1740,3 +1740,60 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about .content h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  padding: 10px 20px;
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  color: var(--accent-color);
+  border-radius: 7px;
+  display: inline-block;
+}
+
+.about .content p {
+  margin-bottom: 1.5rem;
+}
+
+.about .content .btn-read-more {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 12px 24px;
+  border-radius: 5px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about .content .btn-read-more i {
+  font-size: 18px;
+  margin-left: 5px;
+  line-height: 0;
+  transition: 0.3s;
+}
+
+.about .content .btn-read-more:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  padding-right: 19px;
+}
+
+.about .content .btn-read-more:hover i {
+  margin-left: 10px;
+}
+
+.about .img-fluid {
+  transition: transform 0.3s ease-in-out;
+}
+
+.about .img-fluid:hover {
+  transform: scale(1.05);
+}

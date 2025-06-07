@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import AboveFooter from './AboveFooter';
 
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -41,6 +42,12 @@ function App() {
         once: true,
         mirror: false
       });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (window.PureCounter) {
+      new window.PureCounter();
     }
   }, []);
 
@@ -92,12 +99,12 @@ function App() {
           <section id="hero" className="hero section dark-background">
             <div className="container">
               <div className="row gy-4 justify-content-between">
-                <div className="col-lg-4 order-lg-last hero-img">
-                  <img src="assets/img/hero-img.png" className="img-fluid animated" alt="" />
+                <div className="col-lg-4 order-lg-last hero-imgn">
+                  <img src="assets/img/hero-bgni.png" className="img-fluid animated" alt="" />
                 </div>
                 <div className="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
-                  <h1>Build Your Landing Page With <span>Bootslander</span></h1>
-                  <p>We are team of talented designers making websites with Bootstrap</p>
+                  <h1>Innovative Software Solutions by <span>Miracle Infosoft</span></h1>
+                  <p>We are a team of talented developers creating cutting-edge software solutions.</p>
                   <div className="d-flex">
                     <a href="#about" className="btn-get-started">Get Started</a>
                     <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" className="glightbox btn-watch-video d-flex align-items-center"><i className="bi bi-play-circle" /><span>Watch Video</span></a>
@@ -109,44 +116,42 @@ function App() {
           {/* About Section */}
           <section id="about" className="about section light-background">
             <div className="container" data-aos="fade-up" data-aos-delay={100}>
-              <div className="row align-items-xl-center gy-5">
-                <div className="col-xl-5 content">
+              <div className="row gy-5">
+                <div className="col-lg-6 content" data-aos="fade-right">
                   <h3>About Miracle Infosoft</h3>
-                  <h2>Innovative Solutions for a Digital World</h2>
-                  <p>We are a team of passionate developers and designers dedicated to creating high-quality, modern web applications. Our goal is to help businesses succeed by providing them with the best digital tools and services.</p>
-                  <a href="#!" className="read-more"><span>Learn More</span><i className="bi bi-arrow-right" /></a>
+                  <p>Miracle Infosoft, a dedicated software development cell under the umbrella of Miracle IT, is committed to delivering cutting-edge software solutions tailored to meet the dynamic needs of modern businesses. As a part of the Miracle IT Group, we bring with us a legacy of excellence in IT services, education, and workforce solutions.</p>
+                  <p>At Miracle Infosoft, our core focus lies in designing, developing, and deploying robust, scalable, and user-centric software applications. Backed by a team of skilled professionals and the strategic guidance of our parent group, we ensure every solution we build aligns with industry standards and emerging technologies.</p>
                 </div>
-                <div className="col-xl-7">
-                  <div className="row gy-4 icon-boxes">
-                    <div className="col-md-6" data-aos="fade-up" data-aos-delay={200}>
-                      <div className="icon-box">
-                        <i className="bi bi-gem" />
-                        <h3>Web Development</h3>
-                        <p>We build responsive and scalable web applications using the latest technologies.</p>
-                      </div>
-                    </div> {/* End Icon Box */}
-                    <div className="col-md-6" data-aos="fade-up" data-aos-delay={300}>
-                      <div className="icon-box">
-                        <i className="bi bi-phone" />
-                        <h3>Mobile First</h3>
-                        <p>Our designs are optimized for all devices, ensuring a seamless user experience.</p>
-                      </div>
-                    </div> {/* End Icon Box */}
-                    <div className="col-md-6" data-aos="fade-up" data-aos-delay={400}>
-                      <div className="icon-box">
-                        <i className="bi bi-cloud" />
-                        <h3>Cloud Solutions</h3>
-                        <p>We provide cloud integration and deployment for robust and reliable services.</p>
-                      </div>
-                    </div> {/* End Icon Box */}
-                    <div className="col-md-6" data-aos="fade-up" data-aos-delay={500}>
-                      <div className="icon-box">
-                        <i className="bi bi-headset" />
-                        <h3>Dedicated Support</h3>
-                        <p>Our team is always here to help you with any questions or issues you may have.</p>
-                      </div>
-                    </div> {/* End Icon Box */}
-                  </div>
+                <div className="col-lg-6" data-aos="fade-left">
+                  <img src="assets/img/about-1.jpg" className="img-fluid rounded" alt="About Miracle Infosoft" />
+                </div>
+              </div>
+
+              <div className="row gy-5 mt-5">
+                <div className="col-lg-6" data-aos="fade-right">
+                  <img src="assets/img/about-2.jpg" className="img-fluid rounded" alt="Our Mission" />
+                </div>
+                <div className="col-lg-6 content" data-aos="fade-left">
+                  <h3>Mission</h3>
+                  <p>To deliver innovative, scalable, and high-quality software solutions that drive digital transformation for our clients, while nurturing future-ready talent through practical, industry-aligned training. As a core unit of Miracle IT, we are committed to blending technology with impact, empowering businesses and individuals in the evolving digital world.</p>
+                </div>
+              </div>
+
+              <div className="row gy-5 mt-5">
+                <div className="col-lg-6 content" data-aos="fade-right">
+                  <h3>Vision</h3>
+                  <p>To be a leading software development cell recognized for excellence in technology, innovation, and talent development — fostering a future where our solutions and people drive progress across industries globally.</p>
+                </div>
+                <div className="col-lg-6" data-aos="fade-left">
+                  <img src="assets/img/about-3.jpg" className="img-fluid rounded" alt="Our Vision" />
+                </div>
+              </div>
+
+              <div className="row gy-5 mt-5">
+                <div className="col-lg-12 content" data-aos="fade-up">
+                  <h3>About Miracle Group</h3>
+                  <p>Miracle Information Services (aka Miracle Infoserv) Private Limited is a leading EduTech/IT services company registered under the Companies Act 1956 and is in the field of IT Training and Placements. In the last decade, our organization - Miracle Infotech has expanded and incorporated Miracle Information Services, Miracle IT Career Academy, Miracle Infosoft, Miracle IT Foundation and Miracle IT Skills.</p>
+                  <p><em>Miracle Group of Companies (From http://www.miracleitskills.com/)</em></p>
                 </div>
               </div>
             </div>
@@ -158,73 +163,73 @@ function App() {
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={100}>
                   <div className="features-item">
                     <i className="bi bi-eye" style={{color: '#ffbb2c'}} />
-                    <h3><a href="#!" className="stretched-link">Lorem Ipsum</a></h3>
+                    <h3><a href="#!" className="stretched-link">Web Development</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={200}>
                   <div className="features-item">
                     <i className="bi bi-infinity" style={{color: '#5578ff'}} />
-                    <h3><a href="#!" className="stretched-link">Dolor Sitema</a></h3>
+                    <h3><a href="#!" className="stretched-link">Mobile First</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={300}>
                   <div className="features-item">
                     <i className="bi bi-mortarboard" style={{color: '#e80368'}} />
-                    <h3><a href="#!" className="stretched-link">Sed perspiciatis</a></h3>
+                    <h3><a href="#!" className="stretched-link">Cloud Solutions</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={400}>
                   <div className="features-item">
                     <i className="bi bi-nut" style={{color: '#e361ff'}} />
-                    <h3><a href="#!" className="stretched-link">Magni Dolores</a></h3>
+                    <h3><a href="#!" className="stretched-link">Dedicated Support</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={500}>
                   <div className="features-item">
                     <i className="bi bi-shuffle" style={{color: '#47aeff'}} />
-                    <h3><a href="#!" className="stretched-link">Nemo Enim</a></h3>
+                    <h3><a href="#!" className="stretched-link">Custom Software</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={600}>
                   <div className="features-item">
                     <i className="bi bi-star" style={{color: '#ffa76e'}} />
-                    <h3><a href="#!" className="stretched-link">Eiusmod Tempor</a></h3>
+                    <h3><a href="#!" className="stretched-link">IT Training</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={700}>
                   <div className="features-item">
                     <i className="bi bi-x-diamond" style={{color: '#11dbcf'}} />
-                    <h3><a href="#!" className="stretched-link">Midela Teren</a></h3>
+                    <h3><a href="#!" className="stretched-link">Upskilling Programs</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={800}>
                   <div className="features-item">
                     <i className="bi bi-camera-video" style={{color: '#4233ff'}} />
-                    <h3><a href="#!" className="stretched-link">Pira Neve</a></h3>
+                    <h3><a href="#!" className="stretched-link">Global Clientele</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={900}>
                   <div className="features-item">
                     <i className="bi bi-command" style={{color: '#b2904f'}} />
-                    <h3><a href="#!" className="stretched-link">Dirada Pack</a></h3>
+                    <h3><a href="#!" className="stretched-link">Talent Development</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={1000}>
                   <div className="features-item">
                     <i className="bi bi-dribbble" style={{color: '#b20969'}} />
-                    <h3><a href="#!" className="stretched-link">Moton Ideal</a></h3>
+                    <h3><a href="#!" className="stretched-link">Digital Transformation</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={1100}>
                   <div className="features-item">
                     <i className="bi bi-activity" style={{color: '#ff5828'}} />
-                    <h3><a href="#!" className="stretched-link">Verdo Park</a></h3>
+                    <h3><a href="#!" className="stretched-link">Impactful Solutions</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={1200}>
                   <div className="features-item">
                     <i className="bi bi-brightness-high" style={{color: '#29cc61'}} />
-                    <h3><a href="#!" className="stretched-link">Flavor Nivelanda</a></h3>
+                    <h3><a href="#!" className="stretched-link">Future-Ready Talent</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
               </div>
@@ -275,62 +280,59 @@ function App() {
             <div className="container">
               <div className="row gy-4 align-items-center features-item">
                 <div className="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay={100}>
-                  <img src="https://via.placeholder.com/500x400" className="img-fluid" alt="Web Development" />
+                  <img src="assets/img/details-1.png" className="img-fluid" alt="Web Development" />
                 </div>
                 <div className="col-md-7" data-aos="fade-up" data-aos-delay={100}>
-                  <h3>Modern Web Solutions</h3>
+                  <h3>Custom Software Development</h3>
                   <p className="fst-italic">
-                    We specialize in creating beautiful, functional, and responsive websites that work on any device.
+                    We specialize in creating tailored software solutions that meet the unique needs of your business.
                   </p>
                   <ul>
-                    <li><i className="bi bi-check" /><span> Custom web design and development.</span></li>
-                    <li><i className="bi bi-check" /> <span>E-commerce and online store solutions.</span></li>
-                    <li><i className="bi bi-check" /> <span>Content management systems (CMS).</span></li>
+                    <li><i className="bi bi-check" /><span> Scalable and robust application architecture.</span></li>
+                    <li><i className="bi bi-check" /> <span>User-centric design and development.</span></li>
+                    <li><i className="bi bi-check" /> <span>Agile development methodologies.</span></li>
                   </ul>
                 </div>
               </div>{/* Features Item */}
               <div className="row gy-4 align-items-center features-item">
                 <div className="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay={200}>
-                  <img src="https://via.placeholder.com/500x400" className="img-fluid" alt="Mobile First Design" />
+                  <img src="assets/img/details-2.png" className="img-fluid" alt="Mobile First Design" />
                 </div>
                 <div className="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay={200}>
-                  <h3>Mobile-First Approach</h3>
+                  <h3>IT Training and Upskilling</h3>
                   <p className="fst-italic">
-                    In today's mobile world, we ensure your website looks and works perfectly on all screen sizes.
+                    We are committed to nurturing the next generation of tech leaders through practical, industry-aligned training.
                   </p>
                   <p>
-                    Our responsive designs adapt to any device, providing an optimal user experience for everyone.
+                    Our programs empower young minds with the skills and knowledge needed to succeed in the evolving digital world.
                   </p>
                 </div>
               </div>{/* Features Item */}
               <div className="row gy-4 align-items-center features-item">
                 <div className="col-md-5 d-flex align-items-center" data-aos="zoom-out">
-                  <img src="https://via.placeholder.com/500x400" className="img-fluid" alt="Cloud Integration" />
+                  <img src="assets/img/details-3.png" className="img-fluid" alt="Cloud Integration" />
                 </div>
                 <div className="col-md-7" data-aos="fade-up">
-                  <h3>Cloud Integration</h3>
-                  <p>We leverage the power of the cloud to deliver fast, scalable, and reliable web applications.</p>
+                  <h3>Digital Transformation</h3>
+                  <p>We help businesses transform their operations and services through innovative digital solutions.</p>
                   <ul>
-                    <li><i className="bi bi-check" /> <span>Cloud hosting and deployment.</span></li>
-                    <li><i className="bi bi-check" /><span> Database management and integration.</span></li>
-                    <li><i className="bi bi-check" /> <span>API development and integration.</span></li>
+                    <li><i className="bi bi-check" /> <span>Modernizing legacy systems.</span></li>
+                    <li><i className="bi bi-check" /><span> Implementing cutting-edge technologies.</span></li>
+                    <li><i className="bi bi-check" /> <span>Driving growth and efficiency.</span></li>
                   </ul>
                 </div>
               </div>{/* Features Item */}
               <div className="row gy-4 align-items-center features-item">
                 <div className="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
-                  <img src="https://via.placeholder.com/500x400" className="img-fluid" alt="Dedicated Support" />
+                  <img src="assets/img/details-4.png" className="img-fluid" alt="Dedicated Support" />
                 </div>
                 <div className="col-md-7 order-2 order-md-1" data-aos="fade-up">
-                  <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
+                  <h3>Global Reach and Impact</h3>
                   <p className="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
+                    As part of the Miracle IT Group, we serve a global clientele with a commitment to quality and excellence.
                   </p>
                   <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum
+                    Our solutions and people drive progress across industries, making a positive impact on businesses and individuals worldwide.
                   </p>
                 </div>
               </div>{/* Features Item */}
@@ -718,12 +720,13 @@ function App() {
             </div>
           </section>{/* /Contact Section */}
         </main>
+        <AboveFooter />
         <footer id="footer" className="footer dark-background">
           <div className="container footer-top">
             <div className="row gy-4">
               <div className="col-lg-4 col-md-6 footer-about">
                 <a href="index.html" className="logo d-flex align-items-center">
-                  <span className="sitename">Miracle Infotech</span>
+                  <span className="sitename">Miracle Infosoft</span>
                 </a>
                 <div className="footer-contact pt-3">
                   <p>A108 Adam Street</p>
@@ -771,14 +774,7 @@ function App() {
             </div>
           </div>
           <div className="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong className="px-1 sitename">Miracle Infotech</strong> <span>All Rights Reserved</span></p>
-            <div className="credits">
-              {/* All the links in the footer should remain intact. */}
-              {/* You can delete the links only if you've purchased the pro version. */}
-              {/* Licensing information: https://bootstrapmade.com/license/ */}
-              {/* Purchase the pro version with working PHP/AJAX contact form: [buy-url] */}
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
-            </div>
+            <p>© <span>Copyright</span> <strong className="px-1 sitename">Miracle Infosoft</strong> <span>All Rights Reserved</span></p>
           </div>
         </footer>
         {/* Scroll Top */}
