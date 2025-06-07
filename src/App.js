@@ -149,7 +149,10 @@ function App() {
                   <p>To be a leading software development cell recognized for excellence in technology, innovation, and talent development — fostering a future where our solutions and people drive progress across industries globally.</p>
                 </div>
                 <div className="col-lg-6" data-aos="fade-left">
-                  <img src="assets/img/about-3.jpg" className="img-fluid rounded" alt="Our Vision" style={{ width: '150px', height: '150px' }} />
+                  <div className="about-image-container">
+                    <video src="assets/img/vision1.mp4" className="img-fluid rounded vision-video" alt="Our vision" autoPlay loop muted />
+                    <img src="assets/img/vision2.png" className="img-fluid rounded about-image" alt="Our mission" />
+                  </div>
                 </div>
               </div>
 
@@ -157,7 +160,6 @@ function App() {
                 <div className="col-lg-12 content" data-aos="fade-up">
                   <h3>About Miracle Group</h3>
                   <p>Miracle Information Services (aka Miracle Infoserv) Private Limited is a leading EduTech/IT services company registered under the Companies Act 1956 and is in the field of IT Training and Placements. In the last decade, our organization - Miracle Infotech has expanded and incorporated Miracle Information Services, Miracle IT Career Academy, Miracle Infosoft, Miracle IT Foundation and Miracle IT Skills.</p>
-                  <p><em>Miracle Group of Companies (From http://www.miracleitskills.com/)</em></p>
                 </div>
               </div>
             </div>
