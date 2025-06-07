@@ -65,3 +65,23 @@
     transform: translateX(-50%);
   }
 }
+@media (max-width: 768px) {
+  .above-footer .section-title h2 {
+    font-size: 24px;
+    word-break: break-word;
+    white-space: normal;
+  }
+}
+.animated-word {
+  animation: fade 2s infinite;
+  display: inline-block;
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
