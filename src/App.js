@@ -57,7 +57,7 @@ function App() {
         <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
           <a href="index.html" className="logo d-flex align-items-center">
             {/* Uncomment the line below if you also wish to use an image logo */}
-            <img src="assets/img/logo.png.jpeg" alt="logo" />
+            <img src="assets/img/logotm.png" alt="logo" className="logo-large" />
             {/* <h1 className="sitename">Bootslander</h1> */}
           </a>
           <nav id="navmenu" className="navmenu">

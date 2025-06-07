@@ -99,3 +99,8 @@
   object-fit: cover;
   animation: fade 6s infinite;
 }
+
+.logo-large {
+  width: 220px; /* or 3x your original size */
+  height: auto;
+}
