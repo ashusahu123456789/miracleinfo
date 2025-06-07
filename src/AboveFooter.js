@@ -7,7 +7,6 @@ const AboveFooter = () => {
     'assets/img/abovefooter2.webp',
     'assets/img/abovefooter3.webp',
     'assets/img/abovefooter4.webp',
-    'assets/img/abovefooter5.webp',
   ];
 
   const allImages = [...images, ...images];

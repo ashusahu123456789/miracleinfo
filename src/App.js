@@ -67,7 +67,7 @@ function App() {
               <li><a href="#features">Company Profile</a></li>
               <li><a href="#gallery">Clients</a></li>
               <li><a href="#team">Career</a></li>
-              <li><a href="#pricing">Products</a></li>
+              <li><a href="#gallery">Learning Material</a></li>
               <li className="dropdown"><a href="#!"><span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" /></a>
                 <ul>
                   <li><a href="#!">Dropdown 1</a></li>
@@ -103,7 +103,7 @@ function App() {
                   <img src="assets/img/hero-bgni.png" className="img-fluid animated" alt="" />
                 </div>
                 <div className="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
-                  <h1>Innovative Software Solutions by <span>Miracle Infosoft</span></h1>
+                  <h1>Employee Satisfaction + Client Delight = <span>Success of Miracle Infosoft</span></h1>
                   <p>We are a team of talented developers creating cutting-edge software solutions.</p>
                   <div className="d-flex">
                     <a href="#about" className="btn-get-started">Get Started</a>
@@ -123,19 +123,25 @@ function App() {
                   <p>At Miracle Infosoft, our core focus lies in designing, developing, and deploying robust, scalable, and user-centric software applications. Backed by a team of skilled professionals and the strategic guidance of our parent group, we ensure every solution we build aligns with industry standards and emerging technologies.</p>
                 </div>
                 <div className="col-lg-6" data-aos="fade-left">
-                  <img src="assets/img/about-1.jpg" className="img-fluid rounded" alt="About Miracle Infosoft" />
+                  <div className="about-image-container">
+                    <img src="assets/img/aboutfirst1.avif" className="img-fluid rounded about-image" alt="About Miracle Infosoft" />
+                    <img src="assets/img/aboutfirst2.jpg" className="img-fluid rounded about-image" alt="About Miracle Infosoft" />
+                  </div>
                 </div>
               </div>
-
               <div className="row gy-5 mt-5">
-                <div className="col-lg-6" data-aos="fade-right">
-                  <img src="assets/img/about-2.jpg" className="img-fluid rounded" alt="Our Mission" />
-                </div>
-                <div className="col-lg-6 content" data-aos="fade-left">
-                  <h3>Mission</h3>
-                  <p>To deliver innovative, scalable, and high-quality software solutions that drive digital transformation for our clients, while nurturing future-ready talent through practical, industry-aligned training. As a core unit of Miracle IT, we are committed to blending technology with impact, empowering businesses and individuals in the evolving digital world.</p>
-                </div>
-              </div>
+          <div className="col-lg-6" data-aos="fade-right">
+            <div className="about-image-container">
+              <video src="assets/img/mission1.mp4" className="img-fluid rounded mission-video" alt="Our Mission" autoPlay loop muted />
+              <img src="assets/img/mission2.png" className="img-fluid rounded about-image" alt="Our Mission" />
+            </div>
+          </div>
+          <div className="col-lg-6 content" data-aos="fade-left">
+            <h3>Mission</h3>
+            <p>To deliver innovative, scalable, and high-quality software solutions that drive digital transformation for our clients, while nurturing future-ready talent through practical, industry-aligned training. As a core unit of Miracle IT, we are committed to blending technology with impact, empowering businesses and individuals in the evolving digital world.</p>
+          </div>
+        </div>
+
 
               <div className="row gy-5 mt-5">
                 <div className="col-lg-6 content" data-aos="fade-right">
@@ -143,7 +149,7 @@ function App() {
                   <p>To be a leading software development cell recognized for excellence in technology, innovation, and talent development — fostering a future where our solutions and people drive progress across industries globally.</p>
                 </div>
                 <div className="col-lg-6" data-aos="fade-left">
-                  <img src="assets/img/about-3.jpg" className="img-fluid rounded" alt="Our Vision" />
+                  <img src="assets/img/about-3.jpg" className="img-fluid rounded" alt="Our Vision" style={{ width: '150px', height: '150px' }} />
                 </div>
               </div>
 
@@ -549,73 +555,6 @@ function App() {
               </div>
             </div>
           </section>{/* /Team Section */}
-          {/* Pricing Section */}
-          <section id="pricing" className="pricing section">
-            {/* Section Title */}
-            <div className="container section-title" data-aos="fade-up">
-              <h2>Pricing</h2>
-              <div><span>Check Our</span> <span className="description-title">Pricing</span></div>
-            </div>{/* End Section Title */}
-            <div className="container">
-              <div className="row gy-4">
-                <div className="col-lg-4" data-aos="zoom-in" data-aos-delay={100}>
-                  <div className="pricing-item">
-                    <h3>Free Plan</h3>
-                    <p className="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                    <h4><sup>$</sup>0<span> / month</span></h4>
-                    <a href="#!" className="cta-btn">Start a free trial</a>
-                    <p className="text-center small">No credit card required</p>
-                    <ul>
-                      <li><i className="bi bi-check" /> <span>Quam adipiscing vitae proin</span></li>
-                      <li><i className="bi bi-check" /> <span>Nec feugiat nisl pretium</span></li>
-                      <li><i className="bi bi-check" /> <span>Nulla at volutpat diam uteera</span></li>
-                      <li className="na"><i className="bi bi-x" /> <span>Pharetra massa massa ultricies</span></li>
-                      <li className="na"><i className="bi bi-x" /> <span>Massa ultricies mi quis hendrerit</span></li>
-                      <li className="na"><i className="bi bi-x" /> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                      <li className="na"><i className="bi bi-x" /> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-                    </ul>
-                  </div>
-                </div>{/* End Pricing Item */}
-                <div className="col-lg-4" data-aos="zoom-in" data-aos-delay={200}>
-                  <div className="pricing-item featured">
-                    <p className="popular">Popular</p>
-                    <h3>Business Plan</h3>
-                    <p className="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                    <h4><sup>$</sup>29<span> / month</span></h4>
-                    <a href="#!" className="cta-btn">Start a free trial</a>
-                    <p className="text-center small">No credit card required</p>
-                    <ul>
-                      <li><i className="bi bi-check" /> <span>Quam adipiscing vitae proin</span></li>
-                      <li><i className="bi bi-check" /> <span>Nec feugiat nisl pretium</span></li>
-                      <li><i className="bi bi-check" /> <span>Nulla at volutpat diam uteera</span></li>
-                      <li><i className="bi bi-check" /> <span>Pharetra massa massa ultricies</span></li>
-                      <li><i className="bi bi-check" /> <span>Massa ultricies mi quis hendrerit</span></li>
-                      <li><i className="bi bi-check" /> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                      <li className="na"><i className="bi bi-x" /> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-                    </ul>
-                  </div>
-                </div>{/* End Pricing Item */}
-                <div className="col-lg-4" data-aos="zoom-in" data-aos-delay={300}>
-                  <div className="pricing-item">
-                    <h3>Developer Plan</h3>
-                    <p className="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                    <h4><sup>$</sup>49<span> / month</span></h4>
-                    <a href="#!" className="cta-btn">Start a free trial</a>
-                    <p className="text-center small">No credit card required</p>
-                    <ul>
-                      <li><i className="bi bi-check" /> <span>Quam adipiscing vitae proin</span></li>
-                      <li><i className="bi bi-check" /> <span>Nec feugiat nisl pretium</span></li>
-                      <li><i className="bi bi-check" /> <span>Nulla at volutpat diam uteera</span></li>
-                      <li><i className="bi bi-check" /> <span>Pharetra massa massa ultricies</span></li>
-                      <li><i className="bi bi-check" /> <span>Massa ultricies mi quis hendrerit</span></li>
-                      <li><i className="bi bi-check" /> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                      <li><i className="bi bi-check" /> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-                    </ul>
-                  </div>
-                </div>{/* End Pricing Item */}
-              </div>
-            </div>
-          </section>{/* /Pricing Section */}
           {/* Faq Section */}
           <section id="faq" className="faq section light-background">
             <div className="container-fluid">
@@ -674,21 +613,21 @@ function App() {
                     <i className="bi bi-geo-alt flex-shrink-0" />
                     <div>
                       <h3>Address</h3>
-                      <p>A108 Adam Street, New York, NY 535022</p>
+                      <p>Plot No.80, 3rd Floor, Aakriti Complex, Zone-II, M.P. Nagar, Bhopal - 462011</p>
                     </div>
                   </div>{/* End Info Item */}
                   <div className="info-item d-flex" data-aos="fade-up" data-aos-delay={300}>
                     <i className="bi bi-telephone flex-shrink-0" />
                     <div>
                       <h3>Call Us</h3>
-                      <p>+1 5589 55488 55</p>
+                      <p>+91 7566845855</p>
                     </div>
                   </div>{/* End Info Item */}
                   <div className="info-item d-flex" data-aos="fade-up" data-aos-delay={400}>
                     <i className="bi bi-envelope flex-shrink-0" />
                     <div>
                       <h3>Email Us</h3>
-                      <p>info@example.com</p>
+                      <p>info@miracleinfoserv.com</p>
                     </div>
                   </div>{/* End Info Item */}
                 </div>
@@ -729,10 +668,10 @@ function App() {
                   <span className="sitename">Miracle Infosoft</span>
                 </a>
                 <div className="footer-contact pt-3">
-                  <p>A108 Adam Street</p>
-                  <p>New York, NY 535022</p>
-                  <p className="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                  <p><strong>Email:</strong> <span>info@example.com</span></p>
+                  <p>Plot No.80, 3rd Floor, Aakriti Complex, Zone-II, M.P. Nagar</p>
+                  <p>Bhopal - 462011</p>
+                  <p className="mt-3"><strong>Phone:</strong> <span>+91-7880003161</span></p>
+                  <p><strong>Email:</strong> <span>info@miracleinfoserv.com</span></p>
                 </div>
                 <div className="social-links d-flex mt-4">
                   <a href="#!"><i className="bi bi-twitter-x" /></a>

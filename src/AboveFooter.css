@@ -71,6 +71,15 @@
     word-break: break-word;
     white-space: normal;
   }
+  .scrolling-images img {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrolling-images img {
+    width: 150px;
+  }
 }
 .animated-word {
   animation: fade 2s infinite;
