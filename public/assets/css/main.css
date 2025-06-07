@@ -805,7 +805,7 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 10%);
+  background: #08005e;
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -976,9 +976,6 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.about {
-  padding-top: 100px;
-}
 
 .about .content h3 {
   font-size: 16px;

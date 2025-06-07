@@ -33,35 +33,19 @@ function App() {
     }
   }, [isMobileNavOpen]);
 
+  useEffect(() => {
+    if (window.AOS) {
+      window.AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    }
+  }, []);
+
   return (
     <div className={`${isMobileNavOpen ? 'mobile-nav-active' : ''} ${isScrolled ? 'scrolled' : ''}`}>
-      <meta charSet="utf-8" />
-      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-      <title>Miracle InfoTech - Bootslander Bootstrap Template</title>
-      <meta name="description" content />
-      <meta name="keywords" content />
-      {/* Favicons */}
-      <link href="assets/img/favicon.png" rel="icon" />
-      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-      {/* Fonts */}
-      <link href="https://fonts.googleapis.com" rel="preconnect" />
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin />
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-      {/* Vendor CSS Files */}
-      <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-      <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-      <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-      <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-      <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-      {/* Main CSS File */}
-      <link href="assets/css/main.css" rel="stylesheet" />
-      {/* =======================================================
-  * Template Name: Bootslander
-  * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== */}
       <header id="header" className="header d-flex align-items-center fixed-top">
         <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
           <a href="index.html" className="logo d-flex align-items-center">
@@ -74,9 +58,9 @@ function App() {
               <li><a href="#hero" className="active">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#features">Company Profile</a></li>
-              <li><a href="#gallery">ClientsProducts</a></li>
-              <li><a href="#team">Products</a></li>
-              <li><a href="#pricing">Career</a></li>
+              <li><a href="#gallery">Clients</a></li>
+              <li><a href="#team"></a>Career</li>
+              <li><a href="#pricing">Products</a></li>
               <li className="dropdown"><a href="#!"><span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" /></a>
                 <ul>
                   <li><a href="#!">Dropdown 1</a></li>
@@ -106,10 +90,9 @@ function App() {
         <main className="main">
           {/* Hero Section */}
           <section id="hero" className="hero section dark-background">
-            <img src="assets/img/hero-bg-2.jpg" alt="" className="hero-bg" />
             <div className="container">
               <div className="row gy-4 justify-content-between">
-                <div className="col-lg-4 order-lg-last hero-img" data-aos="zoom-out" data-aos-delay={100}>
+                <div className="col-lg-4 order-lg-last hero-img">
                   <img src="assets/img/hero-img.png" className="img-fluid animated" alt="" />
                 </div>
                 <div className="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
@@ -122,59 +105,45 @@ function App() {
                 </div>
               </div>
             </div>
-            <svg className="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-              <defs>
-                <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-              </defs>
-              <g className="wave1">
-                <use xlinkHref="#wave-path" x={50} y={3} />
-              </g>
-              <g className="wave2">
-                <use xlinkHref="#wave-path" x={50} y={0} />
-              </g>
-              <g className="wave3">
-                <use xlinkHref="#wave-path" x={50} y={9} />
-              </g>
-            </svg>
           </section>{/* /Hero Section */}
           {/* About Section */}
-          <section id="about" className="about section">
+          <section id="about" className="about section light-background">
             <div className="container" data-aos="fade-up" data-aos-delay={100}>
               <div className="row align-items-xl-center gy-5">
                 <div className="col-xl-5 content">
-                  <h3>About Us</h3>
-                  <h2>Ducimus rerum libero reprehenderit cumque</h2>
-                  <p>Ipsa sint sit. Quis ducimus tempore dolores impedit et dolor cumque alias maxime. Enim reiciendis minus et rerum hic non. Dicta quas cum quia maiores iure. Quidem nulla qui assumenda incidunt voluptatem tempora deleniti soluta.</p>
-                  <a href="#!" className="read-more"><span>Read More</span><i className="bi bi-arrow-right" /></a>
+                  <h3>About Miracle Infosoft</h3>
+                  <h2>Innovative Solutions for a Digital World</h2>
+                  <p>We are a team of passionate developers and designers dedicated to creating high-quality, modern web applications. Our goal is to help businesses succeed by providing them with the best digital tools and services.</p>
+                  <a href="#!" className="read-more"><span>Learn More</span><i className="bi bi-arrow-right" /></a>
                 </div>
                 <div className="col-xl-7">
                   <div className="row gy-4 icon-boxes">
                     <div className="col-md-6" data-aos="fade-up" data-aos-delay={200}>
                       <div className="icon-box">
-                        <i className="bi bi-buildings" />
-                        <h3>Eius provident</h3>
-                        <p>Magni repellendus vel ullam hic officia accusantium ipsa dolor omnis dolor voluptatem</p>
+                        <i className="bi bi-gem" />
+                        <h3>Web Development</h3>
+                        <p>We build responsive and scalable web applications using the latest technologies.</p>
                       </div>
                     </div> {/* End Icon Box */}
                     <div className="col-md-6" data-aos="fade-up" data-aos-delay={300}>
                       <div className="icon-box">
-                        <i className="bi bi-clipboard-pulse" />
-                        <h3>Rerum aperiam</h3>
-                        <p>Autem saepe animi et aut aspernatur culpa facere. Rerum saepe rerum voluptates quia</p>
+                        <i className="bi bi-phone" />
+                        <h3>Mobile First</h3>
+                        <p>Our designs are optimized for all devices, ensuring a seamless user experience.</p>
                       </div>
                     </div> {/* End Icon Box */}
                     <div className="col-md-6" data-aos="fade-up" data-aos-delay={400}>
                       <div className="icon-box">
-                        <i className="bi bi-command" />
-                        <h3>Veniam omnis</h3>
-                        <p>Omnis perferendis molestias culpa sed. Recusandae quas possimus. Quod consequatur corrupti</p>
+                        <i className="bi bi-cloud" />
+                        <h3>Cloud Solutions</h3>
+                        <p>We provide cloud integration and deployment for robust and reliable services.</p>
                       </div>
                     </div> {/* End Icon Box */}
                     <div className="col-md-6" data-aos="fade-up" data-aos-delay={500}>
                       <div className="icon-box">
-                        <i className="bi bi-graph-up-arrow" />
-                        <h3>Delares sapiente</h3>
-                        <p>Sint et dolor voluptas minus possimus nostrum. Reiciendis commodi eligendi omnis quideme lorenda</p>
+                        <i className="bi bi-headset" />
+                        <h3>Dedicated Support</h3>
+                        <p>Our team is always here to help you with any questions or issues you may have.</p>
                       </div>
                     </div> {/* End Icon Box */}
                   </div>
@@ -306,55 +275,51 @@ function App() {
             <div className="container">
               <div className="row gy-4 align-items-center features-item">
                 <div className="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay={100}>
-                  <img src="assets/img/details-1.png" className="img-fluid" alt="" />
+                  <img src="https://via.placeholder.com/500x400" className="img-fluid" alt="Web Development" />
                 </div>
                 <div className="col-md-7" data-aos="fade-up" data-aos-delay={100}>
-                  <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                  <h3>Modern Web Solutions</h3>
                   <p className="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
+                    We specialize in creating beautiful, functional, and responsive websites that work on any device.
                   </p>
                   <ul>
-                    <li><i className="bi bi-check" /><span> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                    <li><i className="bi bi-check" /> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                    <li><i className="bi bi-check" /> <span>Ullam est qui quos consequatur eos accusamus.</span></li>
+                    <li><i className="bi bi-check" /><span> Custom web design and development.</span></li>
+                    <li><i className="bi bi-check" /> <span>E-commerce and online store solutions.</span></li>
+                    <li><i className="bi bi-check" /> <span>Content management systems (CMS).</span></li>
                   </ul>
                 </div>
               </div>{/* Features Item */}
               <div className="row gy-4 align-items-center features-item">
                 <div className="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay={200}>
-                  <img src="assets/img/details-2.png" className="img-fluid" alt="" />
+                  <img src="https://via.placeholder.com/500x400" className="img-fluid" alt="Mobile First Design" />
                 </div>
                 <div className="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay={200}>
-                  <h3>Corporis temporibus maiores provident</h3>
+                  <h3>Mobile-First Approach</h3>
                   <p className="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
+                    In today's mobile world, we ensure your website looks and works perfectly on all screen sizes.
                   </p>
                   <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum
+                    Our responsive designs adapt to any device, providing an optimal user experience for everyone.
                   </p>
                 </div>
               </div>{/* Features Item */}
               <div className="row gy-4 align-items-center features-item">
                 <div className="col-md-5 d-flex align-items-center" data-aos="zoom-out">
-                  <img src="assets/img/details-3.png" className="img-fluid" alt="" />
+                  <img src="https://via.placeholder.com/500x400" className="img-fluid" alt="Cloud Integration" />
                 </div>
                 <div className="col-md-7" data-aos="fade-up">
-                  <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3>
-                  <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+                  <h3>Cloud Integration</h3>
+                  <p>We leverage the power of the cloud to deliver fast, scalable, and reliable web applications.</p>
                   <ul>
-                    <li><i className="bi bi-check" /> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                    <li><i className="bi bi-check" /><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                    <li><i className="bi bi-check" /> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
+                    <li><i className="bi bi-check" /> <span>Cloud hosting and deployment.</span></li>
+                    <li><i className="bi bi-check" /><span> Database management and integration.</span></li>
+                    <li><i className="bi bi-check" /> <span>API development and integration.</span></li>
                   </ul>
                 </div>
               </div>{/* Features Item */}
               <div className="row gy-4 align-items-center features-item">
                 <div className="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
-                  <img src="assets/img/details-4.png" className="img-fluid" alt="" />
+                  <img src="https://via.placeholder.com/500x400" className="img-fluid" alt="Dedicated Support" />
                 </div>
                 <div className="col-md-7 order-2 order-md-1" data-aos="fade-up">
                   <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
@@ -758,7 +723,7 @@ function App() {
             <div className="row gy-4">
               <div className="col-lg-4 col-md-6 footer-about">
                 <a href="index.html" className="logo d-flex align-items-center">
-                  <span className="sitename">miracle infotech</span>
+                  <span className="sitename">Miracle Infotech</span>
                 </a>
                 <div className="footer-contact pt-3">
                   <p>A108 Adam Street</p>
@@ -806,7 +771,7 @@ function App() {
             </div>
           </div>
           <div className="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong className="px-1 sitename">miracle infotech</strong> <span>All Rights Reserved</span></p>
+            <p>© <span>Copyright</span> <strong className="px-1 sitename">Miracle Infotech</strong> <span>All Rights Reserved</span></p>
             <div className="credits">
               {/* All the links in the footer should remain intact. */}
               {/* You can delete the links only if you've purchased the pro version. */}
