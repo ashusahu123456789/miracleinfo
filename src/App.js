@@ -59,7 +59,7 @@ function App() {
               <li><a href="#about">About</a></li>
               <li><a href="#features">Company Profile</a></li>
               <li><a href="#gallery">Clients</a></li>
-              <li><a href="#team"></a>Career</li>
+              <li><a href="#team">Career</a></li>
               <li><a href="#pricing">Products</a></li>
               <li className="dropdown"><a href="#!"><span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" /></a>
                 <ul>
