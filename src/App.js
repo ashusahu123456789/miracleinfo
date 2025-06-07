@@ -77,21 +77,21 @@ function App() {
               <li><a href="#gallery">ClientsProducts</a></li>
               <li><a href="#team">Products</a></li>
               <li><a href="#pricing">Career</a></li>
-              <li className="dropdown"><a href="#"><span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" /></a>
+              <li className="dropdown"><a href="#!"><span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" /></a>
                 <ul>
-                  <li><a href="#">Dropdown 1</a></li>
-                  <li className="dropdown"><a href="#"><span>Deep Dropdown</span> <i className="bi bi-chevron-down toggle-dropdown" /></a>
+                  <li><a href="#!">Dropdown 1</a></li>
+                  <li className="dropdown"><a href="#!"><span>Deep Dropdown</span> <i className="bi bi-chevron-down toggle-dropdown" /></a>
                     <ul>
-                      <li><a href="#">Deep Dropdown 1</a></li>
-                      <li><a href="#">Deep Dropdown 2</a></li>
-                      <li><a href="#">Deep Dropdown 3</a></li>
-                      <li><a href="#">Deep Dropdown 4</a></li>
-                      <li><a href="#">Deep Dropdown 5</a></li>
+                      <li><a href="#!">Deep Dropdown 1</a></li>
+                      <li><a href="#!">Deep Dropdown 2</a></li>
+                      <li><a href="#!">Deep Dropdown 3</a></li>
+                      <li><a href="#!">Deep Dropdown 4</a></li>
+                      <li><a href="#!">Deep Dropdown 5</a></li>
                     </ul>
                   </li>
-                  <li><a href="#">Dropdown 2</a></li>
-                  <li><a href="#">Dropdown 3</a></li>
-                  <li><a href="#">Dropdown 4</a></li>
+                  <li><a href="#!">Dropdown 2</a></li>
+                  <li><a href="#!">Dropdown 3</a></li>
+                  <li><a href="#!">Dropdown 4</a></li>
                 </ul>
               </li>
              
@@ -145,7 +145,7 @@ function App() {
                   <h3>About Us</h3>
                   <h2>Ducimus rerum libero reprehenderit cumque</h2>
                   <p>Ipsa sint sit. Quis ducimus tempore dolores impedit et dolor cumque alias maxime. Enim reiciendis minus et rerum hic non. Dicta quas cum quia maiores iure. Quidem nulla qui assumenda incidunt voluptatem tempora deleniti soluta.</p>
-                  <a href="#" className="read-more"><span>Read More</span><i className="bi bi-arrow-right" /></a>
+                  <a href="#!" className="read-more"><span>Read More</span><i className="bi bi-arrow-right" /></a>
                 </div>
                 <div className="col-xl-7">
                   <div className="row gy-4 icon-boxes">
@@ -189,73 +189,73 @@ function App() {
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={100}>
                   <div className="features-item">
                     <i className="bi bi-eye" style={{color: '#ffbb2c'}} />
-                    <h3><a href className="stretched-link">Lorem Ipsum</a></h3>
+                    <h3><a href="#!" className="stretched-link">Lorem Ipsum</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={200}>
                   <div className="features-item">
                     <i className="bi bi-infinity" style={{color: '#5578ff'}} />
-                    <h3><a href className="stretched-link">Dolor Sitema</a></h3>
+                    <h3><a href="#!" className="stretched-link">Dolor Sitema</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={300}>
                   <div className="features-item">
                     <i className="bi bi-mortarboard" style={{color: '#e80368'}} />
-                    <h3><a href className="stretched-link">Sed perspiciatis</a></h3>
+                    <h3><a href="#!" className="stretched-link">Sed perspiciatis</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={400}>
                   <div className="features-item">
                     <i className="bi bi-nut" style={{color: '#e361ff'}} />
-                    <h3><a href className="stretched-link">Magni Dolores</a></h3>
+                    <h3><a href="#!" className="stretched-link">Magni Dolores</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={500}>
                   <div className="features-item">
                     <i className="bi bi-shuffle" style={{color: '#47aeff'}} />
-                    <h3><a href className="stretched-link">Nemo Enim</a></h3>
+                    <h3><a href="#!" className="stretched-link">Nemo Enim</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={600}>
                   <div className="features-item">
                     <i className="bi bi-star" style={{color: '#ffa76e'}} />
-                    <h3><a href className="stretched-link">Eiusmod Tempor</a></h3>
+                    <h3><a href="#!" className="stretched-link">Eiusmod Tempor</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={700}>
                   <div className="features-item">
                     <i className="bi bi-x-diamond" style={{color: '#11dbcf'}} />
-                    <h3><a href className="stretched-link">Midela Teren</a></h3>
+                    <h3><a href="#!" className="stretched-link">Midela Teren</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={800}>
                   <div className="features-item">
                     <i className="bi bi-camera-video" style={{color: '#4233ff'}} />
-                    <h3><a href className="stretched-link">Pira Neve</a></h3>
+                    <h3><a href="#!" className="stretched-link">Pira Neve</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={900}>
                   <div className="features-item">
                     <i className="bi bi-command" style={{color: '#b2904f'}} />
-                    <h3><a href className="stretched-link">Dirada Pack</a></h3>
+                    <h3><a href="#!" className="stretched-link">Dirada Pack</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={1000}>
                   <div className="features-item">
                     <i className="bi bi-dribbble" style={{color: '#b20969'}} />
-                    <h3><a href className="stretched-link">Moton Ideal</a></h3>
+                    <h3><a href="#!" className="stretched-link">Moton Ideal</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={1100}>
                   <div className="features-item">
                     <i className="bi bi-activity" style={{color: '#ff5828'}} />
-                    <h3><a href className="stretched-link">Verdo Park</a></h3>
+                    <h3><a href="#!" className="stretched-link">Verdo Park</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
                 <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={1200}>
                   <div className="features-item">
                     <i className="bi bi-brightness-high" style={{color: '#29cc61'}} />
-                    <h3><a href className="stretched-link">Flavor Nivelanda</a></h3>
+                    <h3><a href="#!" className="stretched-link">Flavor Nivelanda</a></h3>
                   </div>
                 </div>{/* End Feature Item */}
               </div>
@@ -541,10 +541,10 @@ function App() {
                       <h4>Walter White</h4>
                       <span>Chief Executive Officer</span>
                       <div className="social">
-                        <a href><i className="bi bi-twitter-x" /></a>
-                        <a href><i className="bi bi-facebook" /></a>
-                        <a href><i className="bi bi-instagram" /></a>
-                        <a href><i className="bi bi-linkedin" /></a>
+                        <a href="#!"><i className="bi bi-twitter-x" /></a>
+                        <a href="#!"><i className="bi bi-facebook" /></a>
+                        <a href="#!"><i className="bi bi-instagram" /></a>
+                        <a href="#!"><i className="bi bi-linkedin" /></a>
                       </div>
                     </div>
                   </div>
@@ -556,10 +556,10 @@ function App() {
                       <h4>Sarah Jhonson</h4>
                       <span>Product Manager</span>
                       <div className="social">
-                        <a href><i className="bi bi-twitter-x" /></a>
-                        <a href><i className="bi bi-facebook" /></a>
-                        <a href><i className="bi bi-instagram" /></a>
-                        <a href><i className="bi bi-linkedin" /></a>
+                        <a href="#!"><i className="bi bi-twitter-x" /></a>
+                        <a href="#!"><i className="bi bi-facebook" /></a>
+                        <a href="#!"><i className="bi bi-instagram" /></a>
+                        <a href="#!"><i className="bi bi-linkedin" /></a>
                       </div>
                     </div>
                   </div>
@@ -571,10 +571,10 @@ function App() {
                       <h4>William Anderson</h4>
                       <span>CTO</span>
                       <div className="social">
-                        <a href><i className="bi bi-twitter-x" /></a>
-                        <a href><i className="bi bi-facebook" /></a>
-                        <a href><i className="bi bi-instagram" /></a>
-                        <a href><i className="bi bi-linkedin" /></a>
+                        <a href="#!"><i className="bi bi-twitter-x" /></a>
+                        <a href="#!"><i className="bi bi-facebook" /></a>
+                        <a href="#!"><i className="bi bi-instagram" /></a>
+                        <a href="#!"><i className="bi bi-linkedin" /></a>
                       </div>
                     </div>
                   </div>
@@ -596,7 +596,7 @@ function App() {
                     <h3>Free Plan</h3>
                     <p className="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
                     <h4><sup>$</sup>0<span> / month</span></h4>
-                    <a href="#" className="cta-btn">Start a free trial</a>
+                    <a href="#!" className="cta-btn">Start a free trial</a>
                     <p className="text-center small">No credit card required</p>
                     <ul>
                       <li><i className="bi bi-check" /> <span>Quam adipiscing vitae proin</span></li>
@@ -615,7 +615,7 @@ function App() {
                     <h3>Business Plan</h3>
                     <p className="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
                     <h4><sup>$</sup>29<span> / month</span></h4>
-                    <a href="#" className="cta-btn">Start a free trial</a>
+                    <a href="#!" className="cta-btn">Start a free trial</a>
                     <p className="text-center small">No credit card required</p>
                     <ul>
                       <li><i className="bi bi-check" /> <span>Quam adipiscing vitae proin</span></li>
@@ -633,7 +633,7 @@ function App() {
                     <h3>Developer Plan</h3>
                     <p className="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
                     <h4><sup>$</sup>49<span> / month</span></h4>
-                    <a href="#" className="cta-btn">Start a free trial</a>
+                    <a href="#!" className="cta-btn">Start a free trial</a>
                     <p className="text-center small">No credit card required</p>
                     <ul>
                       <li><i className="bi bi-check" /> <span>Quam adipiscing vitae proin</span></li>
@@ -767,30 +767,30 @@ function App() {
                   <p><strong>Email:</strong> <span>info@example.com</span></p>
                 </div>
                 <div className="social-links d-flex mt-4">
-                  <a href><i className="bi bi-twitter-x" /></a>
-                  <a href><i className="bi bi-facebook" /></a>
-                  <a href><i className="bi bi-instagram" /></a>
-                  <a href><i className="bi bi-linkedin" /></a>
+                  <a href="#!"><i className="bi bi-twitter-x" /></a>
+                  <a href="#!"><i className="bi bi-facebook" /></a>
+                  <a href="#!"><i className="bi bi-instagram" /></a>
+                  <a href="#!"><i className="bi bi-linkedin" /></a>
                 </div>
               </div>
               <div className="col-lg-2 col-md-3 footer-links">
                 <h4>Useful Links</h4>
                 <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Terms of service</a></li>
-                  <li><a href="#">Privacy policy</a></li>
+                  <li><a href="#hero">Home</a></li>
+                  <li><a href="#about">About us</a></li>
+                  <li><a href="#features">Services</a></li>
+                  <li><a href="#!">Terms of service</a></li>
+                  <li><a href="#!">Privacy policy</a></li>
                 </ul>
               </div>
               <div className="col-lg-2 col-md-3 footer-links">
                 <h4>Our Services</h4>
                 <ul>
-                  <li><a href="#">Web Design</a></li>
-                  <li><a href="#">Web Development</a></li>
-                  <li><a href="#">Product Management</a></li>
-                  <li><a href="#">Marketing</a></li>
-                  <li><a href="#">Graphic Design</a></li>
+                  <li><a href="#!">Web Design</a></li>
+                  <li><a href="#!">Web Development</a></li>
+                  <li><a href="#!">Product Management</a></li>
+                  <li><a href="#!">Marketing</a></li>
+                  <li><a href="#!">Graphic Design</a></li>
                 </ul>
               </div>
               <div className="col-lg-4 col-md-12 footer-newsletter">
@@ -817,7 +817,7 @@ function App() {
           </div>
         </footer>
         {/* Scroll Top */}
-        <a href="#" id="scroll-top" className="scroll-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short" /></a>
+        <a href="#!" id="scroll-top" className="scroll-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short" /></a>
         {/* Preloader */}
        <div id="preloader" style={{ display: 'none' }} />
 
