@@ -977,6 +977,13 @@ section,
 # About Section
 --------------------------------------------------------------*/
 
+.about .content {
+  text-align: center;
+}
+
+.about .content p {
+  text-align: left;
+}
 .about .content h3 {
   font-size: 16px;
   font-weight: 500;
@@ -1614,11 +1621,29 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 95%);
   color: var(--accent-color);
   border-radius: 7px;
-  display: inline-block;
+  /* display: inline-block; */
+  text-align: left;
+  
 }
+
+
 
 .about .content p {
   margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  /* Make about section mission row columns stack vertically */
+  #about .row.gy-5.mt-5 > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+
+  /* Add margin below image container for spacing */
+  #about .row.gy-5.mt-5 > div:first-child {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .about .content .btn-read-more {

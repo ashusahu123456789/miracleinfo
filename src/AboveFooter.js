@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './AboveFooter.css';
 
 const AboveFooter = () => {
@@ -10,22 +10,12 @@ const AboveFooter = () => {
   ];
 
   const allImages = [...images, ...images];
-  const words = ['Miracle', 'Group', 'of', 'Companies'];
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 2000); // Change word every 2 seconds
-
-    return () => clearInterval(interval);
-  }, [words.length]);
 
   return (
     <section id="above-footer" className="above-footer section">
       <div className="container section-title" data-aos="fade-up">
-        <h2>
-          <span className="animated-word">{words[currentWordIndex]}</span>
+        <h2 className="static-text">
+          Miracle Group of Companies
         </h2>
       </div>
       <div className="scrolling-wrapper">
@@ -34,6 +24,11 @@ const AboveFooter = () => {
             <img key={index} src={src} alt={`above-footer-img-${index + 1}`} />
           ))}
         </div>
+      </div>
+      <div className="about-text">
+        <p>
+          Miracle Information Services (aka Miracle Infoserv) Private Limited is a leading EduTech/IT services company registered under the Companies Act 1956 and is in the field of IT Training and Placements. In the last decade, our organization - Miracle Infotech has expanded and incorporated Miracle Information Services, Miracle IT Career Academy, Miracle Infosoft, Miracle IT Foundation and Miracle IT Skills.
+        </p>
       </div>
     </section>
   );
