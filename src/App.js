@@ -386,7 +386,7 @@ function App() {
                   <div className="pic"><img src="assets/img/team/team1.jpg" className="img-fluid" alt="" /></div>
                   <div className="member-info">
                     <h4>Prince Jain</h4>
-                    <span>Technical</span>
+                    <span>CTO</span>
                     <div className="social">    
                       <a href="#!"><i className="bi bi-twitter-x" /></a>
                       <a href="#!"><i className="bi bi-facebook" /></a>
