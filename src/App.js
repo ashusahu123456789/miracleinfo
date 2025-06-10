@@ -8,6 +8,7 @@ function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLearningMaterialOpen, setIsLearningMaterialOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
 
   const openLearningMaterial = (e) => {
     e.preventDefault();
@@ -18,10 +19,13 @@ function App() {
     setIsLearningMaterialOpen(false);
   };
   
-  
-
   const handleMobileNavToggle = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+  const toggleServicesDropdown = (e) => {
+    e.preventDefault();
+    setIsServicesDropdownOpen(!isServicesDropdownOpen);
   };
 
   useEffect(() => {
@@ -83,8 +87,11 @@ function App() {
               <li><a href="#team">Career</a></li>
               <li><a href="#contact">Contact</a></li>
               <li><a href="#features" onClick={openLearningMaterial} style={{cursor: 'pointer'}}>Learning Material</a></li>
-              <li className="dropdown"><a href="#!"><span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" /></a>
-                <ul>
+              <li className={`dropdown ${isServicesDropdownOpen ? 'dropdown-active' : ''}`}>
+                <a href="#!" onClick={toggleServicesDropdown}>
+                  <span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" />
+                </a>
+                <ul className={`dropdown-menu ${isServicesDropdownOpen ? 'dropdown-menu-active' : ''}`}>
                   <li><a href="#!">Dropdown 1</a></li>
                   <li><a href="#!">Dropdown 2</a></li>
                   <li><a href="#!">Dropdown 3</a></li>
