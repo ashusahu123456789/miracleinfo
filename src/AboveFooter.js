@@ -1,6 +1,7 @@
 import React from 'react';
 import './AboveFooter.css';
 
+
 const AboveFooter = () => {
   const images = [
     'assets/img/abovefooter1.webp',

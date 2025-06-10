@@ -1617,11 +1617,12 @@ section,
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;
-  padding: 10px 20px;
+  padding: 10px 0;
   background: color-mix(in srgb, var(--accent-color), transparent 95%);
   color: var(--accent-color);
   border-radius: 7px;
-  /* display: inline-block; */
+  display: block;
+  width: 100%;
   text-align: left;
   
 }

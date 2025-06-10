@@ -422,7 +422,7 @@ function App() {
             <div className="row gy-5">
               <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={100}>
                 <div className="member">
-                  <div className="pic"><img src="assets/img/team/team1.png" className="img-fluid" alt="" /></div>
+                  <div className="pic"><img src="assets/img/team/team1.jpg" className="img-fluid" alt="" /></div>
                   <div className="member-info">
                     <h4>Prince Jain</h4>
                     <span>Chief Executive Officer</span>
@@ -437,7 +437,7 @@ function App() {
               </div>{/* End Team Member */}
               <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={200}>
                 <div className="member">
-                  <div className="pic"><img src="assets/img/team/team2.png" className="img-fluid" alt=""  style={{ height: '410px', width: '400px', objectFit: 'contain' }}/></div>
+                  <div className="pic"><img src="assets/img/team/team1.jpg" className="img-fluid" alt="" /></div>
                   <div className="member-info">
                     <h4>Taha Ali</h4>
                     <span>Front End developer</span>
@@ -452,7 +452,7 @@ function App() {
               </div>{/* End Team Member */}
               <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={300}>
                 <div className="member">
-                  <div className="pic"><img src="assets/img/team/team3.png" className="img-fluid" alt="" /></div>
+                  <div className="pic"><img src="assets/img/team/team3.jpg" className="img-fluid" alt="" /></div>
                   <div className="member-info">
                     <h4>Ashutosh Sahu</h4>
                     <span>Front End developer</span>
@@ -573,6 +573,7 @@ function App() {
         </section>{/* /Contact Section */}
       </main>
       <AboveFooter />
+      
       <footer id="footer" className="footer dark-background">
         <div className="container footer-top">
           <div className="row gy-4">
