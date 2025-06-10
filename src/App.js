@@ -5,6 +5,17 @@ import AboveFooter from './AboveFooter';
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLearningMaterialOpen, setIsLearningMaterialOpen] = useState(false);
+
+  const openLearningMaterial = (e) => {
+    e.preventDefault();
+    setIsLearningMaterialOpen(true);
+  };
+
+  const closeLearningMaterial = () => {
+    setIsLearningMaterialOpen(false);
+  };
+  
   
 
   const handleMobileNavToggle = () => {
@@ -69,7 +80,7 @@ function App() {
               <li><a href="#stats">Clients</a></li>
               <li><a href="#team">Career</a></li>
               <li><a href="#contact">Contact</a></li>
-              <li><a href="#features">Learning Material</a></li>
+              <li><a href="#features" onClick={openLearningMaterial} style={{cursor: 'pointer'}}>Learning Material</a></li>
               <li className="dropdown"><a href="#!"><span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" /></a>
                 <ul>
                   <li><a href="#!">Dropdown 1</a></li>
@@ -87,6 +98,89 @@ function App() {
           </nav>
         </div>
       </header>
+
+      {/* Popup Modal for Learning Material */}
+      {isLearningMaterialOpen && (
+        <div style={{
+          position: 'fixed',
+          top: 0, left: 0, right: 0, bottom: 0,
+          backgroundColor: 'rgba(0,0,0,0.6)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1000,
+        }}>
+          <div style={{
+            backgroundColor: '#fff',
+            borderRadius: '10px',
+            width: '90%',
+            maxWidth: '600px',
+            padding: '20px',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+            position: 'relative',
+            fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+            color: '#333',
+            textAlign: 'center',
+          }}>
+            <button
+              onClick={closeLearningMaterial}
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                background: 'transparent',
+                border: 'none',
+                fontSize: '24px',
+                cursor: 'pointer',
+                color: '#888',
+                transition: 'color 0.3s',
+              }}
+              onMouseOver={e => e.currentTarget.style.color = '#000'}
+              onMouseOut={e => e.currentTarget.style.color = '#888'}
+              aria-label="Close popup"
+            >
+              &times;
+            </button>
+            <h2 style={{ marginBottom: '15px', fontWeight: '700' }}>Learning Material</h2>
+            <form style={{ textAlign: 'left', marginTop: '10px' }}>
+              <label htmlFor="contactInfo" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>
+                Please enter your phone number or email address:
+              </label>
+              <input
+                type="text"
+                id="contactInfo"
+                name="contactInfo"
+                placeholder="Phone number or Email"
+                style={{
+                  width: '100%',
+                  padding: '8px',
+                  marginBottom: '15px',
+                  borderRadius: '5px',
+                  border: '1px solid #ccc',
+                  fontSize: '14px',
+                }}
+              />
+              <label htmlFor="materialSelect" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>
+                Please select the material required for learning:
+              </label>
+              <select
+                id="materialSelect"
+                name="materialSelect"
+                style={{
+                  width: '100%',
+                  padding: '8px',
+                  borderRadius: '5px',
+                  border: '1px solid #ccc',
+                  fontSize: '14px',
+                }}
+              >
+                <option value="javascript">JavaScript</option>
+                <option value="react">React</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      )}
       <main className="main">
         <section id="hero" className="hero section dark-background">
           <div className="container">
@@ -425,8 +519,8 @@ function App() {
                   <div className="pic"><img src="assets/img/team/team1.jpg" className="img-fluid" alt="" /></div>
                   <div className="member-info">
                     <h4>Prince Jain</h4>
-                    <span>Chief Executive Officer</span>
-                    <div className="social">
+                    <span>Technical</span>
+                    <div className="social">    
                       <a href="#!"><i className="bi bi-twitter-x" /></a>
                       <a href="#!"><i className="bi bi-facebook" /></a>
                       <a href="#!"><i className="bi bi-instagram" /></a>
