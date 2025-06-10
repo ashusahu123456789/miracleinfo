@@ -1,0 +1,53 @@
+.gallery-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.gallery-popup-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+}
+
+.gallery-popup-image {
+  width: 544px; /* 2x width of middle image (272px) */
+  height: 144.3px; /* 2x height of middle image (72.15px) */
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.gallery-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 30px;
+  text-align: center;
+  transition: background 0.3s ease;
+  z-index: 10000;
+}
+
+.gallery-popup-close:hover {
+  background: #333;
+  color: #fff;
+}

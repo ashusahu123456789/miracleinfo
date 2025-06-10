@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import AboveFooter from './AboveFooter';
+import GallerySlideshow from './GallerySlideshow';
+import LearningMaterialPopup from './LearningMaterialPopup';
 
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -70,7 +72,7 @@ function App() {
       <header id="header" className="header d-flex align-items-center fixed-top">
         <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
           <a href="index.html" className="logo d-flex align-items-center">
-            <img src="assets/img/logotm.png" alt="logo" className="logo-large" />
+            <img src="assets/img/perfectlogo.png" alt="logo" className="logo-large" />
           </a>
           <nav id="navmenu" className="navmenu">
             <ul>
@@ -101,85 +103,7 @@ function App() {
 
       {/* Popup Modal for Learning Material */}
       {isLearningMaterialOpen && (
-        <div style={{
-          position: 'fixed',
-          top: 0, left: 0, right: 0, bottom: 0,
-          backgroundColor: 'rgba(0,0,0,0.6)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          zIndex: 1000,
-        }}>
-          <div style={{
-            backgroundColor: '#fff',
-            borderRadius: '10px',
-            width: '90%',
-            maxWidth: '600px',
-            padding: '20px',
-            boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
-            position: 'relative',
-            fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-            color: '#333',
-            textAlign: 'center',
-          }}>
-            <button
-              onClick={closeLearningMaterial}
-              style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
-                background: 'transparent',
-                border: 'none',
-                fontSize: '24px',
-                cursor: 'pointer',
-                color: '#888',
-                transition: 'color 0.3s',
-              }}
-              onMouseOver={e => e.currentTarget.style.color = '#000'}
-              onMouseOut={e => e.currentTarget.style.color = '#888'}
-              aria-label="Close popup"
-            >
-              &times;
-            </button>
-            <h2 style={{ marginBottom: '15px', fontWeight: '700' }}>Learning Material</h2>
-            <form style={{ textAlign: 'left', marginTop: '10px' }}>
-              <label htmlFor="contactInfo" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>
-                Please enter your phone number or email address:
-              </label>
-              <input
-                type="text"
-                id="contactInfo"
-                name="contactInfo"
-                placeholder="Phone number or Email"
-                style={{
-                  width: '100%',
-                  padding: '8px',
-                  marginBottom: '15px',
-                  borderRadius: '5px',
-                  border: '1px solid #ccc',
-                  fontSize: '14px',
-                }}
-              />
-              <label htmlFor="materialSelect" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>
-                Please select the material required for learning:
-              </label>
-              <select
-                id="materialSelect"
-                name="materialSelect"
-                style={{
-                  width: '100%',
-                  padding: '8px',
-                  borderRadius: '5px',
-                  border: '1px solid #ccc',
-                  fontSize: '14px',
-                }}
-              >
-                <option value="javascript">JavaScript</option>
-                <option value="react">React</option>
-              </select>
-            </form>
-          </div>
-        </div>
+        <LearningMaterialPopup onClose={closeLearningMaterial} />
       )}
       <main className="main">
         <section id="hero" className="hero section dark-background">
@@ -444,64 +368,7 @@ function App() {
             <div><span>Check Our</span> <span className="description-title">Gallery</span></div>
           </div>{/* End Section Title */}
           <div className="container" data-aos="fade-up" data-aos-delay={100}>
-            <div className="row g-0">
-              <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={100}>
-                <div className="gallery-item">
-                  <a href="assets/img/gallery/gallery-1.jpg" className="glightbox" data-gallery="images-gallery">
-                    <img src="assets/img/gallery/gallery-1.jpg" alt="" className="img-fluid gallery-animated" />
-                  </a>
-                </div>
-              </div>{/* End Gallery Item */}
-              <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={200}>
-                <div className="gallery-item">
-                  <a href="assets/img/gallery/gallery-2.jpg" className="glightbox" data-gallery="images-gallery">
-                    <img src="assets/img/gallery/gallery-2.jpg" alt="" className="img-fluid gallery-animated" />
-                  </a>
-                </div>
-              </div>{/* End Gallery Item */}
-              <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={300}>
-                <div className="gallery-item">
-                  <a href="assets/img/gallery/gallery-3.jpg" className="glightbox" data-gallery="images-gallery">
-                    <img src="assets/img/gallery/gallery-3.jpg" alt="" className="img-fluid gallery-animated" />
-                  </a>
-                </div>
-              </div>{/* End Gallery Item */}
-              <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={400}>
-                <div className="gallery-item">
-                  <a href="assets/img/gallery/gallery-4.jpg" className="glightbox" data-gallery="images-gallery">
-                    <img src="assets/img/gallery/gallery-4.jpg" alt="" className="img-fluid gallery-animated" />
-                  </a>
-                </div>
-              </div>{/* End Gallery Item */}
-              <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={500}>
-                <div className="gallery-item">
-                  <a href="assets/img/gallery/gallery-5.jpg" className="glightbox" data-gallery="images-gallery">
-                    <img src="assets/img/gallery/gallery-5.jpg" alt="" className="img-fluid gallery-animated" />
-                  </a>
-                </div>
-              </div>{/* End Gallery Item */}
-              <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={600}>
-                <div className="gallery-item">
-                  <a href="assets/img/gallery/gallery-6.jpg" className="glightbox" data-gallery="images-gallery">
-                    <img src="assets/img/gallery/gallery-6.jpg" alt="" className="img-fluid gallery-animated" />
-                  </a>
-                </div>
-              </div>{/* End Gallery Item */}
-              <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={700}>
-                <div className="gallery-item">
-                  <a href="assets/img/gallery/gallery-7.jpg" className="glightbox" data-gallery="images-gallery">
-                    <img src="assets/img/gallery/gallery-7.jpg" alt="" className="img-fluid gallery-animated" />
-                  </a>
-                </div>
-              </div>{/* End Gallery Item */}
-              <div className="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay={800}>
-                <div className="gallery-item">
-                  <a href="assets/img/gallery/gallery-8.jpg" className="glightbox" data-gallery="images-gallery">
-                    <img src="assets/img/gallery/gallery-8.jpg" alt="" className="img-fluid gallery-animated" />
-                  </a>
-                </div>
-              </div>{/* End Gallery Item */}
-            </div>
+            <GallerySlideshow />
           </div>
         </section>{/* /Gallery Section */}
         
