@@ -3,6 +3,7 @@ import './App.css';
 import AboveFooter from './AboveFooter';
 import GallerySlideshow from './GallerySlideshow';
 import LearningMaterialPopup from './LearningMaterialPopup';
+import MOUCarousel from './MOUCarousel';
 
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -436,6 +437,7 @@ function App() {
             </div>
           </div>
         </section>{/* /Team Section */}
+        <MOUCarousel />
         {/* Faq Section */}
         <section id="faq" className="faq section light-background">
           <div className="container-fluid">
@@ -573,13 +575,12 @@ function App() {
               </ul>
             </div>
             <div className="col-lg-2 col-md-3 footer-links">
-              <h4>Our Services</h4>
+              <h4>Our Subsudries</h4>
               <ul>
-                <li><a href="#!">Web Design</a></li>
-                <li><a href="#!">Web Development</a></li>
-                <li><a href="#!">Product Management</a></li>
-                <li><a href="#!">Marketing</a></li>
-                <li><a href="#!">Graphic Design</a></li>
+                <li><a className="" href="https://miracleinfoserv.com " target='blank'>Miracle Infoserv</a></li>
+                <li><a aria-current="page" className="active" href="/" target='blank'>Miracle Infosoft</a></li>
+                <li><a className="" href="https://miracleitindia.com" target='blank'>Miracle IT Career</a></li>
+                <li><a aria-current="page" className="active" href="/" target='blank'>Miracle IT Foundation (CSR)</a></li>
               </ul>
             </div>
             <div className="col-lg-4 col-md-12 footer-newsletter">
