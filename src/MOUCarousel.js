@@ -10,107 +10,107 @@ const MOUCarousel = () => {
       <div className="carousel-container">
         <div className="carousel-track mt-4 mb-4">
           <div className="mou-card">
-            <img src="assets/img/mou/sirt.gif" alt="SIRT College" />
+            <img src="assets/img/mou/sagar-logo-new.jpg" alt="SIRT College" />
             <div className="college-name">SIRT College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/satyasaiclg.jpg" alt="Satyasai College" />
+            <img src="assets/img/mou/Satyasai-College-logo.gif" alt="Satyasai College" />
             <div className="college-name">Satyasai College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/sageuniversity.png" alt="Sage University" />
+            <img src="assets/img/mou/Sage-University-logo.webp" alt="Sage University" />
             <div className="college-name">Sage University</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/nri.jpg" alt="NRI College" />
+            <img src="assets/img/mou/NRI-College-logo.png" alt="NRI College" />
             <div className="college-name">NRI College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/mvm.jpeg" alt="MVM College" />
+            <img src="assets/img/mou/MVM-College-logo.jpg" alt="MVM College" />
             <div className="college-name">MVM College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/mittal.png" alt="Mittal Institute" />
+            <img src="assets/img/mou/Mittal-Institute-logo.png" alt="Mittal Institute" />
             <div className="college-name">Mittal Institute</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/madhyanchal.webp" alt="Madhyanchal Institute" />
+            <img src="assets/img/mou/Madhyanchal-Institute-logo.png" alt="Madhyanchal Institute" />
             <div className="college-name">Madhyanchal Institute</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/governmentart.png" alt="Government Art College" />
+            <img src="assets/img/mou/Government-Art-College-logo.png" alt="Government Art College" />
             <div className="college-name">Government Art College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/corporate.png" alt="Corporate Institute" />
+            <img src="assets/img/mou/Corporate-Institute-logo.png" alt="Corporate Institute" />
             <div className="college-name">Corporate Institute</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/babulalgour.jpg" alt="Babulal Gour College" />
+            <img src="assets/img/mou/Babulal-Gour-College-logo.jpg" alt="Babulal Gour College" />
             <div className="college-name">Babulal Gour College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/bhagatsinghjaora.jpeg" alt="Bhagat Singh Jaora College" />
+            <img src="assets/img/mou/Dr-Bhagat-College-logo.jpeg" alt="Bhagat Singh Jaora College" />
             <div className="college-name">Bhagat Singh Jaora College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/drbhagat.jpg" alt="Dr. Bhagat College" />
+            <img src="assets/img/mou/Dr-Bhagat-College-logo.jpeg" alt="Dr. Bhagat College" />
             <div className="college-name">Dr. Bhagat College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/drbrambedkar.jpeg" alt="Dr. BR Ambedkar College" />
+            <img src="assets/img/mou/Dr-BR-Ambedkar-College-logo.jpeg" alt="Dr. BR Ambedkar College" />
             <div className="college-name">Dr. BR Ambedkar College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/ips.jpg" alt="IPS College" />
+            <img src="assets/img/mou/IPS-COLLAGE-LOGO.jpg" alt="IPS College" />
             <div className="college-name">IPS College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/matagujrijabalpur.jpg" alt="Matagujri College" />
+            <img src="assets/img/mou/Matagujri-College-L0gO.jpeg" alt="Matagujri College" />
             <div className="college-name">Matagujri College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/polytechnic jaora.webp" alt="Polytechnic Jaora" />
+            <img src="assets/img/mou/Polytechnic-Jaora-log0.webp" alt="Polytechnic Jaora" />
             <div className="college-name">Polytechnic Jaora</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/saraswatijabalpur.jpg" alt="Saraswati College" />
+            <img src="assets/img/mou/Saraswati-College-logo.jpeg" alt="Saraswati College" />
             <div className="college-name">Saraswati College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/saskiyekanyaratlam.jpeg" alt="Saskiye College" />
+            <img src="assets/img/mou/Saskiye-College-logo.jpeg" alt="Saskiye College" />
             <div className="college-name">Saskiye College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/saskiyevanijyaratlam.jpg" alt="Saskiye College RATLAM" />
+            <img src="assets/img/mou/Saskiye-College-RATLAM-logo.jpg" alt="Saskiye College RATLAM" />
             <div className="college-name">Saskiye College RATLAM</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/saskiyevikramkhargon.jpg" alt="Saskiye Vikram Khargon" />
+            <img src="assets/img/mou/Saskiye-Vikram-Khargon.logo.jpg" alt="Saskiye Vikram Khargon" />
             <div className="college-name">Saskiye Vikram Khargon</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/satyasaiclg.jpg" alt="Satyasai College" />
+            <img src="assets/img/mou/Satyasai-College-logo.jpg" alt="Satyasai College" />
             <div className="college-name">Satyasai College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/shriram.jpg" alt="Shriram College" />
+            <img src="assets/img/mou/Shriram-College-logo.jpg" alt="Shriram College" />
             <div className="college-name">Shriram College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/shyamlalgwalior.jpg" alt="Shyamlal College Gwalior" />
+            <img src="assets/img/mou/Shyamlal-College-Gwalior-logo.jpeg" alt="Shyamlal College Gwalior" />
             <div className="college-name">Shyamlal College Gwalior</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/sitms.jpeg" alt="SITMS College" />
+            <img src="assets/img/mou/sitms-logo.jpeg" alt="SITMS College" />
             <div className="college-name">SITMS College</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/takshilajabalpur.jpg" alt="Takshila Jabalpur" />
+            <img src="assets/img/mou/Takshila-Jabalpur-logo.jpeg" alt="Takshila Jabalpur" />
             <div className="college-name">Takshila Jabalpur</div>
           </div>
           <div className="mou-card">
-            <img src="assets/img/mou/virangnagwalior.jpg" alt="Virangna College" />
+            <img src="assets/img/mou/Virangna-College-logo.jpg" alt="Virangna College" />
             <div className="college-name">Virangna College</div>
           </div>
         </div>

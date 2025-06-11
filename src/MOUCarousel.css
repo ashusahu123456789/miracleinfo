@@ -2,6 +2,7 @@
   padding: 2rem 0;
   background-color: #fff;
   text-align: center;
+  
 }
 
 .mou-title {
@@ -25,7 +26,7 @@
 .carousel-track {
   display: flex;
   gap: 1rem;
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 5000ms linear infinite;
   will-change: transform;
 }
 

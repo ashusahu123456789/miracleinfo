@@ -3,14 +3,14 @@ import './assets/css/gallery-popup.css';
 
 const GallerySlideshow = () => {
   const images = [
-    'assets/img/gallery/gallery-1.jpg',
-    'assets/img/gallery/gallery-2.jpg',
-    'assets/img/gallery/gallery-3.jpg',
-    'assets/img/gallery/gallery-4.jpg',
-    'assets/img/gallery/gallery-5.jpg',
-    'assets/img/gallery/gallery-6.jpg',
-    'assets/img/gallery/gallery-7.jpg',
-    'assets/img/gallery/gallery-8.jpg',
+    'assets/img/gallery/gallery1.jpg',
+    'assets/img/gallery/gallery2.jpg',
+    'assets/img/gallery/gallery3.jpg',
+    'assets/img/gallery/gallery4.jpg',
+    'assets/img/gallery/gallery5.jpg',
+    'assets/img/gallery/gallery6.jpg',
+    'assets/img/gallery/gallery7.jpg',
+    'assets/img/gallery/gallery8.jpg',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
