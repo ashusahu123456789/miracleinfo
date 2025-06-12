@@ -121,7 +121,7 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
   );
 };
 
-const LearningMaterialPopup = ({ onClose }) => {
+const LearningMaterialPopup = ({ onClose, onNext }) => {
   const materialOptions = [
     { text: 'JavaScript', value: 'javascript' },
     { text: 'React', value: 'react' },
@@ -229,7 +229,7 @@ const LearningMaterialPopup = ({ onClose }) => {
                 fontWeight: '600',
                 fontSize: '16px',
               }}
-              onClick={() => alert('Next button clicked')}
+              onClick={onNext}
             >
               Next
             </button>

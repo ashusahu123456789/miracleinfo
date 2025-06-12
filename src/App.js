@@ -3,13 +3,16 @@ import './App.css';
 import AboveFooter from './AboveFooter';
 import GallerySlideshow from './GallerySlideshow';
 import LearningMaterialPopup from './LearningMaterialPopup';
+import LearningSearchResults from './LearningSearchResults';
 import MOUCarousel from './MOUCarousel';
+
 
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLearningMaterialOpen, setIsLearningMaterialOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isLearningSearchResultsOpen, setIsLearningSearchResultsOpen] = useState(false);
 
   const openLearningMaterial = (e) => {
     e.preventDefault();
@@ -18,6 +21,14 @@ function App() {
 
   const closeLearningMaterial = () => {
     setIsLearningMaterialOpen(false);
+  };
+
+  const openLearningSearchResults = () => {
+    setIsLearningSearchResultsOpen(true);
+  };
+
+  const closeLearningSearchResults = () => {
+    setIsLearningSearchResultsOpen(false);
   };
   
   const handleMobileNavToggle = () => {
@@ -111,7 +122,13 @@ function App() {
 
       {/* Popup Modal for Learning Material */}
       {isLearningMaterialOpen && (
-        <LearningMaterialPopup onClose={closeLearningMaterial} />
+        <LearningMaterialPopup onClose={closeLearningMaterial} onNext={() => {
+          closeLearningMaterial();
+          openLearningSearchResults();
+        }} />
+      )}
+      {isLearningSearchResultsOpen && (
+        <LearningSearchResults onClose={closeLearningSearchResults} />
       )}
       <main className="main">
         <section id="hero" className="hero section dark-background">
