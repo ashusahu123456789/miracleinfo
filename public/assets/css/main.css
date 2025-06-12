@@ -177,7 +177,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #001F3F; /* Medium/Deep Blue */
+  --background-color: #dd5d20; /* Medium/Deep Blue */
   color: #FFFFFF; /* White text */
   background-color: var(--background-color);
 }
