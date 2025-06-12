@@ -22,7 +22,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #040677; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #1acc8d; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #8687e1; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -177,7 +177,67 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #10058c;
+  --background-color: #001F3F; /* Medium/Deep Blue */
+  color: #FFFFFF; /* White text */
+  background-color: var(--background-color);
+}
+
+/* Navmenu active link underline and hover color */
+.navmenu>ul>li>a:before {
+  background-color: #FFC107; /* Amber underline */
+}
+
+.navmenu a:hover,
+.navmenu li:hover>a {
+  color: #1acc8d; /* Bright green hover */
+}
+
+/* Hero Section */
+.hero {
+  background-color: #FF6F3C; /* Vibrant Orange background */
+  position: relative;
+}
+
+.hero:before {
+  background: none; /* Remove dark overlay */
+}
+
+.hero h1,
+.hero h2,
+.hero h3,
+.hero h4,
+.hero h5,
+.hero h6 {
+  color: #FFFFFF; /* White headings */
+}
+
+.hero p {
+  color: #FFF3E0; /* Soft Cream/Off-white subtext */
+}
+
+/* Hero Section buttons */
+.hero .btn-get-started {
+  background-color: #FFFFFF; /* White background */
+  color: #FF6F3C; /* Orange text */
+  box-shadow: none;
+}
+
+.hero .btn-get-started:hover {
+  background-color: #37474F; /* Dark background on hover */
+  color: #FF6F3C; /* Orange text */
+  box-shadow: none;
+}
+
+.hero .btn-watch-video {
+  background-color: #FFFFFF; /* White background */
+  color: #FF6F3C; /* Orange text */
+  border: none;
+}
+
+.hero .btn-watch-video:hover {
+  background-color: #37474F; /* Dark background on hover */
+  color: #FF6F3C; /* Orange text */
+  border: none;
 }
 
 /*--------------------------------------------------------------
@@ -806,7 +866,7 @@ section,
 
 .hero:before {
   content: "";
-  background: #08005e;
+  background: rgba(221,93,32,255);
   position: absolute;
   inset: 0;
   z-index: 2;

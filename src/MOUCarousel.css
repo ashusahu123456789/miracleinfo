@@ -26,8 +26,9 @@
 .carousel-track {
   display: flex;
   gap: 1rem;
-  animation: scroll-left 5000ms linear infinite;
+  animation: scroll-left 15000ms linear infinite;
   will-change: transform;
+  
 }
 
 .mou-card {
