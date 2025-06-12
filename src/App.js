@@ -578,7 +578,7 @@ function App() {
               <h4>Our Subsudries</h4>
               <ul>
                 <li><a className="" href="https://miracleinfoserv.com " target='blank'>Miracle Infoserv</a></li>
-                <li><a aria-current="page" className="active" href="https://miracleinfotech.com/" target='blank'>Miracle Infosoft</a></li>
+                <li><a aria-current="page" href="https://miracleinfotech.com/" target='blank'>Miracle Infosoft</a></li>
                 <li><a className="" href="https://miracleitindia.com" target='blank'>Miracle IT Career</a></li>
                 <li><a aria-current="page" className="active" href="https://miraclefoundationindia.in/" target='blank'>Miracle IT Foundation (CSR)</a></li>
               </ul>
