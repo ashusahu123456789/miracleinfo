@@ -4,16 +4,15 @@ import AboveFooter from './AboveFooter';
 import GallerySlideshow from './GallerySlideshow';
 import LearningMaterialPopup from './LearningMaterialPopup';
 import MOUCarousel from './MOUCarousel';
-import { Route, BrowserRouter as Router, useNavigate } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import LearningSearchResults from './LearningSearchResults';
+import { Routes } from 'react-router-dom';
 
 function AppContent() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLearningMaterialOpen, setIsLearningMaterialOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-
-  const navigate = useNavigate();
 
   const openLearningMaterial = (e) => {
     e.preventDefault();
@@ -620,7 +619,7 @@ function AppContent() {
   );
 }
 
-import { Routes } from 'react-router-dom';
+
 
 function App() {
   return (

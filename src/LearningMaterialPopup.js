@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import LearningSearchResults from './LearningSearchResults';
 
 const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptions }) => {
   const [isOpen, setIsOpen] = useState(false);
