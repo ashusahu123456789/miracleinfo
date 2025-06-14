@@ -3,8 +3,8 @@ import './assets/css/gallery-popup.css';
 
 const GallerySlideshow = () => {
   const images = [
+    'assets/img/gallery/gallery1cm4-Photoroom.png',
     'assets/img/gallery/gallery2.jpg',
-    'assets/img/gallery/gallery1.jpg',
     'assets/img/gallery/gallery3.jpg',
     'assets/img/gallery/gallery4.jpg',
     'assets/img/gallery/gallery5.jpg',
@@ -67,20 +67,38 @@ const GallerySlideshow = () => {
     setIsPopupOpen(true);
     // After a short delay, expand the popup to center and enlarge
     setTimeout(() => {
-      setPopupStyle({
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        width: '75vw',
-        maxWidth: '75vw',
-        maxHeight: '75vh',
-        height: 'auto',
-        transform: 'translate(-50%, -50%)',
-        transition: 'all 0.3s ease',
-        zIndex: 1100,
-        borderRadius: '14px',
-        cursor: 'zoom-out',
-      });
+      if (currentIndex === 0) {
+        // Smaller zoom for gallery1.jpg
+        setPopupStyle({
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          width: '50vw',
+          maxWidth: '50vw',
+          maxHeight: '50vh',
+          height: 'auto',
+          transform: 'translate(-50%, -50%)',
+          transition: 'all 0.3s ease',
+          zIndex: 1100,
+          borderRadius: '14px',
+          cursor: 'zoom-out',
+        });
+      } else {
+        setPopupStyle({
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          width: '75vw',
+          maxWidth: '75vw',
+          maxHeight: '75vh',
+          height: 'auto',
+          transform: 'translate(-50%, -50%)',
+          transition: 'all 0.3s ease',
+          zIndex: 1100,
+          borderRadius: '14px',
+          cursor: 'zoom-out',
+        });
+      }
     }, 10);
   };
 

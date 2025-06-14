@@ -19,33 +19,33 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --background-color: #fbd9c7; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #040677; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #1acc8d; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --heading-color: #dd5d20; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #5ab25e; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #fae5d8; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #ffffff;  /* The default color of the main navmenu links */
-  --nav-hover-color: #1acc8d; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-hover-color: #5ab25e; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #fae5d8; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #1acc8d; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #8f488d; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f4f5fe;
-  --surface-color: #ffffff;
+  --background-color: #fbd9c7;
+  --surface-color: #fbd9c7;
 }
 
 .dark-background {
-  --background-color: #08005e;
+  --background-color: #dd5d20;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --surface-color: #0c0091;
@@ -177,7 +177,67 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #10058c;
+  --background-color: #dd5d20; /* Medium/Deep Blue */
+  color: #FFFFFF; /* White text */
+  background-color: var(--background-color);
+}
+
+/* Navmenu active link underline and hover color */
+.navmenu>ul>li>a:before {
+  background-color: #FFC107; /* Amber underline */
+}
+
+.navmenu a:hover,
+.navmenu li:hover>a {
+  color: #1acc8d; /* Bright green hover */
+}
+
+/* Hero Section */
+.hero {
+  background-color: #FF6F3C; /* Vibrant Orange background */
+  position: relative;
+}
+
+.hero:before {
+  background: none; /* Remove dark overlay */
+}
+
+.hero h1,
+.hero h2,
+.hero h3,
+.hero h4,
+.hero h5,
+.hero h6 {
+  color: #FFFFFF; /* White headings */
+}
+
+.hero p {
+  color: #FFF3E0; /* Soft Cream/Off-white subtext */
+}
+
+/* Hero Section buttons */
+.hero .btn-get-started {
+  background-color: #FFFFFF; /* White background */
+  color: #FF6F3C; /* Orange text */
+  box-shadow: none;
+}
+
+.hero .btn-get-started:hover {
+  background-color: #37474F; /* Dark background on hover */
+  color: #FF6F3C; /* Orange text */
+  box-shadow: none;
+}
+
+.hero .btn-watch-video {
+  background-color: #FFFFFF; /* White background */
+  color: #FF6F3C; /* Orange text */
+  border: none;
+}
+
+.hero .btn-watch-video:hover {
+  background-color: #37474F; /* Dark background on hover */
+  color: #FF6F3C; /* Orange text */
+  border: none;
 }
 
 /*--------------------------------------------------------------
@@ -806,7 +866,7 @@ section,
 
 .hero:before {
   content: "";
-  background: #08005e;
+  background: rgba(221,93,32,255);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -1127,10 +1187,10 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Stats Section
+# Stats Section / Our Clients
 --------------------------------------------------------------*/
 .stats i {
-  background-color: var(--surface-color);
+  background-color: #fae5d8;
   color: var(--accent-color);
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
   width: 54px;
@@ -1146,7 +1206,7 @@ section,
 }
 
 .stats .stats-item {
-  background-color: var(--surface-color);
+  background-color: #fae5d8;
   margin-top: -27px;
   padding: 30px 30px 25px 30px;
   width: 100%;
@@ -1300,12 +1360,12 @@ section,
   width: 40px;
   height: 40px;
   margin-top: -20px;
-  color: #007bff;
+  color: #5ab25e;
   font-weight: bold;
   font-size: 30px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #007bff;
+  background: #fbd9c7;
+  border: 1px solid #5ab25e;
   user-select: none;
   transition: background 0.3s ease;
   display: flex;
@@ -1601,6 +1661,7 @@ section,
 
 .faq .faq-container .faq-item h3:hover {
   color: var(--accent-color);
+  
 }
 
 .faq .faq-container .faq-item .faq-content {

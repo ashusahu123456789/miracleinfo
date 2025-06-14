@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import LearningSearchResults from './LearningSearchResults';
 
 const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptions }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -135,6 +137,33 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
 
   const [selectedMaterials, setSelectedMaterials] = useState([]);
   const [selectedPreferences, setSelectedPreferences] = useState([]);
+  const [contactInfo, setContactInfo] = useState('');
+  const [error, setError] = useState('');
+
+  const validateContactInfo = (info) => {
+    const emailRegex = /^[\w-.]+@[\w-]+\.[a-z]{2,}$/i;
+    const phoneRegex = /^\+?\d{7,15}$/;
+    return emailRegex.test(info) || phoneRegex.test(info);
+  };
+
+  const handleNextClick = () => {
+    if (!contactInfo.trim()) {
+      setError('Contact info is required.');
+      return;
+    }
+    if (!validateContactInfo(contactInfo.trim())) {
+      setError('Please enter a valid phone number or email address.');
+      return;
+    }
+    setError('');
+    if (onNext) {
+      onNext({
+        contactInfo: contactInfo.trim(),
+        selectedMaterials,
+        selectedPreferences,
+      });
+    }
+  };
 
   return (
     <div
@@ -186,7 +215,7 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
           &times;
         </button>
         <h2 style={{ marginBottom: '15px', fontWeight: '700' }}>Learning Material</h2>
-        <form style={{ textAlign: 'left', marginTop: '10px' }}>
+        <form style={{ textAlign: 'left', marginTop: '10px' }} onSubmit={(e) => e.preventDefault()}>
           <label htmlFor="contactInfo" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>
             Please enter your phone number or email address:
           </label>
@@ -195,15 +224,22 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
             id="contactInfo"
             name="contactInfo"
             placeholder="Phone number or Email"
+            value={contactInfo}
+            onChange={(e) => setContactInfo(e.target.value)}
             style={{
               width: '100%',
               padding: '8px',
-              marginBottom: '15px',
+              marginBottom: '5px',
               borderRadius: '5px',
-              border: '1px solid #ccc',
+              border: error ? '1px solid red' : '1px solid #ccc',
               fontSize: '14px',
             }}
           />
+          {error && (
+            <div style={{ color: 'red', marginBottom: '10px', fontSize: '13px' }}>
+              {error}
+            </div>
+          )}
           <MultiSelectDropdown
             label="Please select the material required for learning:"
             options={materialOptions}
@@ -229,7 +265,7 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
                 fontWeight: '600',
                 fontSize: '16px',
               }}
-              onClick={onNext}
+              onClick={handleNextClick}
             >
               Next
             </button>

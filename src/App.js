@@ -3,16 +3,17 @@ import './App.css';
 import AboveFooter from './AboveFooter';
 import GallerySlideshow from './GallerySlideshow';
 import LearningMaterialPopup from './LearningMaterialPopup';
-import LearningSearchResults from './LearningSearchResults';
 import MOUCarousel from './MOUCarousel';
+import { Route, BrowserRouter as Router, useNavigate } from 'react-router-dom';
+import LearningSearchResults from './LearningSearchResults';
 
-
-function App() {
+function AppContent() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLearningMaterialOpen, setIsLearningMaterialOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-  const [isLearningSearchResultsOpen, setIsLearningSearchResultsOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const openLearningMaterial = (e) => {
     e.preventDefault();
@@ -23,14 +24,6 @@ function App() {
     setIsLearningMaterialOpen(false);
   };
 
-  const openLearningSearchResults = () => {
-    setIsLearningSearchResultsOpen(true);
-  };
-
-  const closeLearningSearchResults = () => {
-    setIsLearningSearchResultsOpen(false);
-  };
-  
   const handleMobileNavToggle = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
@@ -122,14 +115,14 @@ function App() {
 
       {/* Popup Modal for Learning Material */}
       {isLearningMaterialOpen && (
-        <LearningMaterialPopup onClose={closeLearningMaterial} onNext={() => {
+        <LearningMaterialPopup onClose={closeLearningMaterial} onNext={(formData) => {
+          console.log('Form data received from LearningMaterialPopup:', formData);
           closeLearningMaterial();
-          openLearningSearchResults();
+          // For now, just close the popup on Next as per instructions.
+          // Navigation or other actions can be added here later.
         }} />
       )}
-      {isLearningSearchResultsOpen && (
-        <LearningSearchResults onClose={closeLearningSearchResults} />
-      )}
+      
       <main className="main">
         <section id="hero" className="hero section dark-background">
           <div className="container">
@@ -327,7 +320,7 @@ function App() {
           <div className="container">
             <div className="row gy-4 align-items-center features-item">
               <div className="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay={100}>
-                <img src="assets/img/details-1.png" className="img-fluid" alt="Web Development" />
+                <img src="assets/img/details-1-Photoroom.png" className="img-fluid" alt="Web Development" />
               </div>
               <div className="col-md-7" data-aos="fade-up" data-aos-delay={100}>
                 <h3>Custom Software Development</h3>
@@ -343,7 +336,7 @@ function App() {
             </div>{/* Features Item */}
             <div className="row gy-4 align-items-center features-item">
               <div className="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay={200}>
-                <img src="assets/img/details-2.png" className="img-fluid" alt="Mobile First Design" />
+                <img src="assets/img/details-2-Photoroom.png" className="img-fluid" alt="Mobile First Design" />
               </div>
               <div className="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay={200}>
                 <h3>IT Training and Upskilling</h3>
@@ -357,7 +350,7 @@ function App() {
             </div>{/* Features Item */}
             <div className="row gy-4 align-items-center features-item">
               <div className="col-md-5 d-flex align-items-center" data-aos="zoom-out">
-                <img src="assets/img/details-3.png" className="img-fluid" alt="Cloud Integration" />
+                <img src="assets/img/details-3-Photoroom.png" className="img-fluid" alt="Cloud Integration" />
               </div>
               <div className="col-md-7" data-aos="fade-up">
                 <h3>Digital Transformation</h3>
@@ -371,7 +364,7 @@ function App() {
             </div>{/* Features Item */}
             <div className="row gy-4 align-items-center features-item">
               <div className="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
-                <img src="assets/img/details-4.png" className="img-fluid" alt="Dedicated Support" />
+                <img src="assets/img/details-4-Photoroom.png" className="img-fluid" alt="Dedicated Support" />
               </div>
               <div className="col-md-7 order-2 order-md-1" data-aos="fade-up">
                 <h3>Global Reach and Impact</h3>
@@ -595,7 +588,7 @@ function App() {
               <h4>Our Subsudries</h4>
               <ul>
                 <li><a className="" href="https://miracleinfoserv.com " target='blank'>Miracle Infoserv</a></li>
-                <li><a aria-current="page" href="https://miracleinfotech.com/" target='blank'>Miracle Infosoft</a></li>
+                <li><a aria-current="page" href="https://www.miracleinfosoft.com/" target='blank'>Miracle Infosoft</a></li>
                 <li><a className="" href="https://miracleitindia.com" target='blank'>Miracle IT Career</a></li>
                 <li><a aria-current="page" className="active" href="https://miraclefoundationindia.in/" target='blank'>Miracle IT Foundation (CSR)</a></li>
               </ul>
@@ -624,6 +617,19 @@ function App() {
       {/* Vendor JS Files */}
       {/* Main JS File */}
     </div>
+  );
+}
+
+import { Routes } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+      <Routes>
+        <Route path='/LearningSearchResults' element={<LearningSearchResults/>}/>
+      </Routes>
+    </Router>
   );
 }
 

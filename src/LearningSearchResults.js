@@ -55,7 +55,7 @@ function StarRating({ rating }) {
   return <div className="star-rating">{stars}</div>;
 }
 
-function LearningSearchResults({ onClose }) {
+function LearningSearchResults() {
   const [filters, setFilters] = useState({
     category: '',
     priceRange: '',
@@ -64,8 +64,12 @@ function LearningSearchResults({ onClose }) {
     availability: '',
   });
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 2;
+
   const handleFilterChange = (filterName, value) => {
     setFilters((prev) => ({ ...prev, [filterName]: value }));
+    setCurrentPage(1); // Reset to first page on filter change
   };
 
   const filteredCourses = sampleCourses.filter((course) => {
@@ -78,21 +82,24 @@ function LearningSearchResults({ onClose }) {
     );
   });
 
+  const totalPages = Math.ceil(filteredCourses.length / pageSize);
+
+  const paginatedCourses = filteredCourses.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
+
+  const goToNextPage = () => {
+    setCurrentPage((page) => Math.min(page + 1, totalPages));
+  };
+
+  const goToPreviousPage = () => {
+    setCurrentPage((page) => Math.max(page - 1, 1));
+  };
+
   return (
     <div className="learning-search-results">
-      {/* Close button */}
-      <button className="close-button" onClick={onClose} aria-label="Close Learning Search Results" style={{
-        position: 'fixed',
-        top: '10px',
-        right: '10px',
-        backgroundColor: 'transparent',
-        border: 'none',
-        fontSize: '24px',
-        cursor: 'pointer',
-        zIndex: 1100,
-      }}>
-        &times;
-      </button>
+      {/* Close button removed for dedicated page */}
 
       {/* Fixed top search bar */}
       <header className="search-header">
@@ -195,11 +202,11 @@ function LearningSearchResults({ onClose }) {
 
         {/* Main content area */}
         <main className="courses-main">
-          {filteredCourses.length === 0 ? (
+          {paginatedCourses.length === 0 ? (
             <p className="no-results">No courses found matching your criteria.</p>
           ) : (
             <div className="courses-grid">
-              {filteredCourses.map((course) => (
+              {paginatedCourses.map((course) => (
                 <div key={course.id} className="course-card">
                   {course.recommended && <div className="badge recommended">Recommended</div>}
                   {course.topRated && <div className="badge top-rated">Top Rated</div>}
@@ -211,17 +218,26 @@ function LearningSearchResults({ onClose }) {
                   <h4 className="course-title">{course.title}</h4>
                   <p className="course-description">{course.description}</p>
                   <StarRating rating={course.rating} />
-            <div className="course-actions">
-              <button className="btn enroll-btn">Enroll</button>
-              <button className="btn details-btn">View Details</button>
+                  <div className="course-actions">
+                    <button className="btn enroll-btn">Enroll</button>
+                    <button className="btn details-btn">View Details</button>
+                  </div>
+                </div>
+              ))}
             </div>
+          )}
+          <div className="pagination-controls">
+            <button className="btn" onClick={goToPreviousPage} disabled={currentPage === 1}>
+              Previous
+            </button>
+            <span> Page {currentPage} of {totalPages} </span>
+            <button className="btn" onClick={goToNextPage} disabled={currentPage === totalPages}>
+              Next
+            </button>
           </div>
-          ))}
-        </div>
-      )}
-    </main>
-  </div>
-</div>
+        </main>
+      </div>
+    </div>
   );
 }
 

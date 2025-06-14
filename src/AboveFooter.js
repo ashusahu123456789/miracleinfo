@@ -4,10 +4,14 @@ import './AboveFooter.css';
 
 const AboveFooter = () => {
   const images = [
-    'assets/img/abovefooter1.webp',
-    'assets/img/abovefooter2.webp',
-    'assets/img/abovefooter3.webp',
-    'assets/img/abovefooter4.webp',
+    'assets/img/abovefooter5-Photoroom.png',
+    'assets/img/abovefooter4-Photoroom.png',
+    'assets/img/abovefooter3-Photoroom.png',
+    'assets/img/abovefooter2-Photoroom.png',
+    'assets/img/abovefooter1-Photoroom.png',
+
+
+    
   ];
 
   const allImages = [...images, ...images];

@@ -1,6 +1,6 @@
 .mou-container {
   padding: 2rem 0;
-  background-color: #fff;
+  background-color: #fbd9c7;
   text-align: center;
   
 }
@@ -34,7 +34,7 @@
 .mou-card {
   flex: 0 0 auto;
   width: 160px;
-  background: #f8f9fa;
+  background: #fae5d8;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
   padding: 1rem;
