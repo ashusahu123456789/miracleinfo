@@ -3,7 +3,7 @@ import './assets/css/gallery-popup.css';
 
 const GallerySlideshow = () => {
   const images = [
-    'assets/img/gallery/gallery1cm4-Photoroom.png',
+    'assets/img/gallery/gallery1cm4e2.png',
     'assets/img/gallery/gallery2.jpg',
     'assets/img/gallery/gallery3.jpg',
     'assets/img/gallery/gallery4.jpg',
