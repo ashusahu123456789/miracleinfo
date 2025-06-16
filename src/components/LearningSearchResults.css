@@ -5,6 +5,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 /* Fixed top search bar */
@@ -240,6 +242,8 @@
   .content-container {
     flex-direction: column;
     margin: 100px 20px 20px;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
   }
 
   .filters-sidebar {
