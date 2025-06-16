@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Header from './Header';
 import './LearningSearchResults.css';
 
 const categories = ['Programming', 'Design', 'Marketing', 'Business', 'Photography'];
@@ -68,12 +69,45 @@ function LearningSearchResults() {
     availability: '',
   });
 
+  const [sortOption, setSortOption] = useState('featured');
+
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 2;
+
+  // New state variables for Header component props
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+
+  const onMobileNavToggle = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+  const onServicesDropdownToggle = () => {
+    setIsServicesDropdownOpen(!isServicesDropdownOpen);
+  };
+
+  const onOpenLearningMaterial = () => {
+    // Placeholder for opening learning material
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleFilterChange = (filterName, value) => {
     setFilters((prev) => ({ ...prev, [filterName]: value }));
     setCurrentPage(1); // Reset to first page on filter change
+  };
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
   };
 
   const filteredCourses = sampleCourses.filter((course) => {
@@ -86,9 +120,28 @@ function LearningSearchResults() {
     );
   });
 
-  const totalPages = Math.ceil(filteredCourses.length / pageSize);
+  const sortedCourses = filteredCourses.slice().sort((a, b) => {
+    switch (sortOption) {
+      case 'priceLowHigh':
+        return parsePrice(a.price) - parsePrice(b.price);
+      case 'priceHighLow':
+        return parsePrice(b.price) - parsePrice(a.price);
+      case 'ratingHighLow':
+        return b.rating - a.rating;
+      default:
+        return 0; // featured or default sorting
+    }
+  });
 
-  const paginatedCourses = filteredCourses.slice(
+  const parsePrice = (priceStr) => {
+    if (priceStr === 'Free') return 0;
+    const match = priceStr.match(/\$?(\d+)/);
+    return match ? parseInt(match[1], 10) : 0;
+  };
+
+  const totalPages = Math.ceil(sortedCourses.length / pageSize);
+
+  const paginatedCourses = sortedCourses.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
@@ -101,8 +154,18 @@ function LearningSearchResults() {
     setCurrentPage((page) => Math.max(page - 1, 1));
   };
 
+
   return (
     <div className="learning-search-results">
+      <Header
+        className="custom-header-color"
+        isMobileNavOpen={isMobileNavOpen}
+        isScrolled={isScrolled}
+        isServicesDropdownOpen={isServicesDropdownOpen}
+        onMobileNavToggle={onMobileNavToggle}
+        onServicesDropdownToggle={onServicesDropdownToggle}
+        onOpenLearningMaterial={onOpenLearningMaterial}
+      />
       {/* Close button removed for dedicated page */}
 
       {/* Fixed top search bar */}
@@ -207,6 +270,21 @@ function LearningSearchResults() {
 
         {/* Main content area */}
         <main className="courses-main">
+          {/* New header bar for filters and sort */}
+          <div className="filters-sort-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+            <div className="filters-header" style={{ fontWeight: '700', fontSize: '18px', color: '#d2691e' /* chocolate color for emphasis */ }}>
+              Filters
+            </div>
+            <div className="sort-container" style={{ display: 'flex', alignItems: 'center' }}>
+              <label htmlFor="sort-select" style={{ marginRight: '8px', fontWeight: '600' }}>Sort by:</label>
+              <select id="sort-select" value={sortOption} onChange={handleSortChange} style={{ padding: '6px 8px', borderRadius: '4px', border: '1px solid #ccc' }}>
+                <option value="featured">Featured</option>
+                <option value="priceLowHigh">Price: Low to High</option>
+                <option value="priceHighLow">Price: High to Low</option>
+                <option value="ratingHighLow">Rating: High to Low</option>
+              </select>
+            </div>
+          </div>
           {paginatedCourses.length === 0 ? (
             <p className="no-results">No courses found matching your criteria.</p>
           ) : (

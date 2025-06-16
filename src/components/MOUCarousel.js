@@ -4,7 +4,7 @@ import './MOUCarousel.css';
 const MOUCarousel = () => {
   return (
     <div className="mou-container">
-      <h2 className="mou-title" style={{ color: '#000000' }}>Memorandum of Understanding</h2>
+      <h2 className="mou-title" style={{ color: '#dd5d20' }}>Memorandum of Understanding</h2>
       <p className="mou-subtitle text-black-50">Partnering with top institutions for excellence</p>
 
       <div className="carousel-container">

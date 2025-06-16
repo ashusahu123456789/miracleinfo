@@ -10,25 +10,36 @@
 }
 
 .above-footer .section-title h2 {
-  font-size: 32px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: none;
+  margin: 0 auto 15px auto;
+  padding: 0;
+  position: static;
   border: none;
-  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: normal;
+  word-break: break-word;
+  flex-wrap: wrap;
+  color: #dd5d20;
+  font-family: var(--heading-font);
+  text-align: center;
+  max-width: 100%;
+  line-height: 1.2;
 }
 
+/* Removed the small green line below the heading */
 .above-footer .section-title h2::after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: #007bff;
-  bottom: -5px;
-  left: calc(50% - 25px);
+  content: none;
+  position: static;
+  display: none;
+  width: 0;
+  height: 0;
+  background: none;
+  bottom: auto;
+  left: auto;
 }
 
 .above-footer .section-title p {
@@ -47,14 +58,33 @@
   animation: scroll 25s linear infinite;
 }
 
-.scrolling-images:hover {
-  animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+  .scrolling-images:hover {
+    animation-play-state: paused;
+  }
 }
 
 .scrolling-images img {
   width: 272px;
-  height: 72.15px;
+  height: 72.65px;
   margin: 0 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.scrolling-images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* For touch devices, apply hover styles on tap/focus */
+@media (hover: none) and (pointer: coarse) {
+  .scrolling-images img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  }
 }
 
 @keyframes scroll {
@@ -67,9 +97,13 @@
 }
 @media (max-width: 768px) {
   .above-footer .section-title h2 {
-    font-size: 24px;
+    font-size: 20px;
     word-break: break-word;
     white-space: normal;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   .scrolling-images img {
     width: 200px;
@@ -79,6 +113,12 @@
 @media (max-width: 480px) {
   .scrolling-images img {
     width: 150px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .scrolling-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
   }
   .about-text {
     max-width: 100%;
@@ -143,7 +183,6 @@
   font-family: var(--heading-font);
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 3px solid #007bff;
+  /* border-bottom: 3px solid #007bff; */
   display: inline-block;
 }
-  

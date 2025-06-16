@@ -9,24 +9,26 @@ const AboveFooter = () => {
     'assets/img/abovefooter3-Photoroom.png',
     'assets/img/abovefooter2-Photoroom.png',
     'assets/img/abovefooter1-Photoroom.png',
-
-
-    
   ];
 
   const allImages = [...images, ...images];
 
+  // Removed active state and click handler to prevent stopping animation on mobile
   return (
     <section id="above-footer" className="above-footer section">
       <div className="container section-title" data-aos="fade-up">
-        <h2 className="static-text">
+        <h2>
           Miracle Group of Companies
         </h2>
       </div>
       <div className="scrolling-wrapper">
         <div className="scrolling-images">
           {allImages.map((src, index) => (
-            <img key={index} src={src} alt={`above-footer-img-${index + 1}`} />
+            <img
+              key={index}
+              src={src}
+              alt={`above-footer-img-${index + 1}`}
+            />
           ))}
         </div>
       </div>

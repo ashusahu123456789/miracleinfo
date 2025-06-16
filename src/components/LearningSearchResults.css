@@ -7,12 +7,13 @@
   flex-direction: column;
   height: 100vh;
   overflow-y: auto;
+  padding-top: 95px; /* Added padding to offset fixed header height */
 }
 
 /* Fixed top search bar */
 .search-header {
   position: fixed;
-  top: 0;
+  top: 95px; /* Adjusted to be below the main header */
   width: 100%;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
@@ -62,13 +63,10 @@
 .content-container {
   display: flex;
   max-width: 1200px;
-  margin: 80px auto 40px; /* margin top to offset fixed header */
-  padding: 0 0 0 0; /* Removed left padding to allow filters to move left */
+  margin: 40px auto 40px; /* Adjusted margin top to account for headers */
+  padding: 0 0 0 0;
   gap: 20px;
-}
-
-.filters-sidebar {
-  margin-left: 20px; /* Add left margin to filters */
+  justify-content: flex-start; /* Align items to start */
 }
 
 /* Sidebar filters */
@@ -81,7 +79,8 @@
   height: fit-content;
   position: sticky;
   top: 80px;
-  
+  top: 140px; /* Adjusted to be below both headers */
+  margin-right: auto; /* Push sidebar to the left */
 }
 
 .filters-sidebar h3 {
@@ -111,12 +110,17 @@
 /* Main content area */
 .courses-main {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.no-results {
-  font-size: 18px;
-  color: #555;
-  padding: 20px;
+/* Sort container */
+.sort-container {
+  display: flex;
+  justify-content: flex-end; /* Align sort dropdown to the right */
+  margin-bottom: 15px;
+  width: 100%;
+  padding-right: 20px; /* Add padding to align with sidebar */
 }
 
 /* Courses grid */
@@ -251,6 +255,7 @@
     position: relative;
     top: auto;
     margin-bottom: 20px;
+    margin-right: 0;
   }
 
   .courses-grid {
@@ -276,4 +281,8 @@
   .header-icons {
     justify-content: flex-start;
   }
+}
+
+.custom-header-color {
+  color: #dd5d20 !important;
 }
