@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Header({ isMobileNavOpen, isScrolled, isServicesDropdownOpen, onMobileNavToggle, onServicesDropdownToggle, onOpenLearningMaterial }) {
+  useEffect(() => {
+    if (isMobileNavOpen) {
+      document.body.classList.add('mobile-nav-active');
+    } else {
+      document.body.classList.remove('mobile-nav-active');
+    }
+  }, [isMobileNavOpen]);
+
   return (
     <header id="header" className={"header d-flex align-items-center fixed-top" + (isScrolled ? " scrolled" : "")}>
       <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">

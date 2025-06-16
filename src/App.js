@@ -30,6 +30,7 @@ import { useNavigate } from 'react-router-dom';
 function HomePage() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isLearningMaterialOpen, setIsLearningMaterialOpen] = React.useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false);
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -71,9 +72,18 @@ function HomePage() {
     navigate('/LearningSearchResults', { state: { searchData: data } });
   };
 
+  const onMobileNavToggle = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
   return (
     <>
-      <Header isScrolled={isScrolled} onOpenLearningMaterial={openLearningMaterial} />
+      <Header
+        isScrolled={isScrolled}
+        onOpenLearningMaterial={openLearningMaterial}
+        isMobileNavOpen={isMobileNavOpen}
+        onMobileNavToggle={onMobileNavToggle}
+      />
       <HeroSection />
       <AboutSection />
       <FeaturesSection />
