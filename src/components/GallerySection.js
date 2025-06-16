@@ -1,5 +1,5 @@
 import React from 'react';
-import GallerySlideshow from '../GallerySlideshow';
+import GallerySlideshow from './GallerySlideshow';
 
 function GallerySection() {
   return (

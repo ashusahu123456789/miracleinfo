@@ -170,13 +170,13 @@ h6 {
   color: var(--heading-color);
 }
 
-.scrolled .header {
+.header.scrolled {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
 /* Global Header on Scroll
 ------------------------------*/
-.scrolled .header {
+.header.scrolled {
   --background-color: #dd5d20; /* Medium/Deep Blue */
   color: #FFFFFF; /* White text */
   background-color: var(--background-color);

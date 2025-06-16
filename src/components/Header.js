@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header({ isMobileNavOpen, isScrolled, isServicesDropdownOpen, onMobileNavToggle, onServicesDropdownToggle, onOpenLearningMaterial }) {
   return (
-    <header id="header" className="header d-flex align-items-center fixed-top">
+    <header id="header" className={"header d-flex align-items-center fixed-top" + (isScrolled ? " scrolled" : "")}>
       <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" className="logo d-flex align-items-center">
           <img src="assets/img/perfectlogo.png" alt="logo" className="logo-large" />
@@ -15,7 +15,7 @@ function Header({ isMobileNavOpen, isScrolled, isServicesDropdownOpen, onMobileN
             <li><a href="#stats">Clients</a></li>
             <li><a href="#team">Career</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#features" onClick={onOpenLearningMaterial} style={{cursor: 'pointer'}}>Learning Material</a></li>
+<li><a href="#features" onClick={(e) => { e.preventDefault(); onOpenLearningMaterial(); }} style={{cursor: 'pointer'}}>Learning Material</a></li>
             <li className={'dropdown ' + (isServicesDropdownOpen ? 'dropdown-active' : '')}>
               <a href="#!" onClick={onServicesDropdownToggle}>
                 <span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" />

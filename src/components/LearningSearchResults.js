@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './LearningSearchResults.css';
 
 const categories = ['Programming', 'Design', 'Marketing', 'Business', 'Photography'];
@@ -56,8 +57,11 @@ function StarRating({ rating }) {
 }
 
 function LearningSearchResults() {
+  const location = useLocation();
+  const searchData = location.state?.searchData;
+
   const [filters, setFilters] = useState({
-    category: '',
+    category: searchData?.selectedMaterials.length ? searchData.selectedMaterials[0] : '',
     priceRange: '',
     rating: 0,
     deliveryTime: '',
@@ -109,6 +113,7 @@ function LearningSearchResults() {
             placeholder="Search courses, materials..."
             className="search-input"
             onChange={(e) => handleFilterChange('category', e.target.value)}
+            defaultValue={filters.category}
           />
           <div className="header-icons">
             <button className="cart-icon" aria-label="Cart">
@@ -124,9 +129,9 @@ function LearningSearchResults() {
         </div>
       </header>
 
-      <div className="content-container">
+      <div className="content-container" style={{ display: 'flex', gap: '20px' }}>
         {/* Left sidebar filters */}
-        <aside className="filters-sidebar">
+        <aside className="filters-sidebar" style={{ flex: '0 0 250px' }}>
           <h3>Filters</h3>
           <div className="filter-group">
             <label>Category</label>

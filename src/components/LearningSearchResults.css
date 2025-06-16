@@ -61,8 +61,12 @@
   display: flex;
   max-width: 1200px;
   margin: 80px auto 40px; /* margin top to offset fixed header */
-  padding: 0 20px;
+  padding: 0 0 0 0; /* Removed left padding to allow filters to move left */
   gap: 20px;
+}
+
+.filters-sidebar {
+  margin-left: 20px; /* Add left margin to filters */
 }
 
 /* Sidebar filters */
@@ -75,6 +79,7 @@
   height: fit-content;
   position: sticky;
   top: 80px;
+  
 }
 
 .filters-sidebar h3 {
