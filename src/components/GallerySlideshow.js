@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './assets/css/gallery-popup.css';
+import './gallery-popup.css';
 
 const GallerySlideshow = () => {
   const images = [
