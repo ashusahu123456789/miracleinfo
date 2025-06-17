@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-function Header({ isMobileNavOpen, isScrolled, isServicesDropdownOpen, onMobileNavToggle, onServicesDropdownToggle, onOpenLearningMaterial }) {
+function Header({ className = '', isMobileNavOpen, isScrolled, isServicesDropdownOpen, onMobileNavToggle, onServicesDropdownToggle, onOpenLearningMaterial }) {
   useEffect(() => {
     if (isMobileNavOpen) {
       document.body.classList.add('mobile-nav-active');
@@ -10,7 +10,7 @@ function Header({ isMobileNavOpen, isScrolled, isServicesDropdownOpen, onMobileN
   }, [isMobileNavOpen]);
 
   return (
-    <header id="header" className={"header d-flex align-items-center fixed-top" + (isScrolled ? " scrolled" : "")}>
+    <header id="header" className={"header d-flex align-items-center fixed-top " + className + (isScrolled ? " scrolled" : "")}>
       <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" className="logo d-flex align-items-center">
           <img src="assets/img/perfectlogo.png" alt="logo" className="logo-large" />

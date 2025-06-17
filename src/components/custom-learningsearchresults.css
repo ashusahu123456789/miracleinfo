@@ -1,0 +1,11 @@
+/* Custom Header color for LearningSearchResults page */
+.custom-header-color {
+  color: #dd5d20 !important;
+}
+
+/* Target common header elements for color override */
+.custom-header-color .header-title,
+.custom-header-color nav,
+.custom-header-color a {
+  color: #dd5d20 !important;
+}

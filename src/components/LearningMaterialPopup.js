@@ -1,21 +1,44 @@
+/**
+ * This file contains two React components:
+ * 
+ * 1. MultiSelectDropdown: A reusable multi-select dropdown component that allows users to select multiple options from a list.
+ * 2. LearningMaterialPopup: A popup modal component that collects user contact info, learning material selections, and preferences.
+ */
+
 import React, { useState } from 'react';
 
+/**
+ * MultiSelectDropdown component
+ * Props:
+ * - label: The label text displayed above the dropdown.
+ * - options: Array of option objects with 'text' and 'value' properties.
+ * - selectedOptions: Array of currently selected option values.
+ * - setSelectedOptions: Function to update the selected options.
+ */
 const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptions }) => {
+  // State to track whether the dropdown list is open or closed
   const [isOpen, setIsOpen] = useState(false);
 
+  // Toggle the dropdown open/close state
   const toggleDropdown = () => setIsOpen(!isOpen);
 
+  // Handle clicking an option: add or remove it from selectedOptions
   const handleOptionClick = (value) => {
     if (selectedOptions.includes(value)) {
+      // Remove option if already selected
       setSelectedOptions(selectedOptions.filter((v) => v !== value));
     } else {
+      // Add option if not selected
       setSelectedOptions([...selectedOptions, value]);
     }
   };
 
   return (
-    <div className="multi-select-dropdown" style={{ marginBottom: '20px', position: 'relative' }}>
+    <div className="multi-select-dropdown" style={{ marginBottom: '20px', position: 'relative'  }}>
+      {/* Label for the dropdown */}
       <label style={{ fontWeight: '600', display: 'block', marginBottom: '8px' }}>{label}</label>
+
+      {/* Dropdown header showing selected options or placeholder */}
       <div
         className="dropdown-header"
         onClick={toggleDropdown}
@@ -34,9 +57,11 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
           backgroundColor: '#fff',
         }}
       >
+        {/* Show placeholder text if no options selected */}
         {selectedOptions.length === 0 ? (
           <span style={{ color: '#999' }}>{options[0].text}</span>
         ) : (
+          // Show selected options as badges with remove buttons
           selectedOptions.map((value) => {
             const option = options.find((opt) => opt.value === value);
             return (
@@ -54,9 +79,10 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
                 }}
               >
                 {option ? option.text : value}
+                {/* Button to remove selected option */}
                 <button
                   onClick={(e) => {
-                    e.stopPropagation();
+                    e.stopPropagation(); // Prevent dropdown toggle on button click
                     handleOptionClick(value);
                   }}
                   style={{
@@ -76,10 +102,13 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
             );
           })
         )}
+        {/* Dropdown arrow indicator */}
         <span style={{ marginLeft: 'auto', fontSize: '16px', userSelect: 'none' }}>
           {isOpen ? '▲' : '▼'}
         </span>
       </div>
+
+      {/* Dropdown list of options, shown when open */}
       {isOpen && (
         <div
           className="dropdown-list"
@@ -95,6 +124,7 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
             width: '100%',
           }}
         >
+          {/* Render each option with a checkbox */}
           {options.map((option) => (
             <label
               key={option.value}
@@ -121,29 +151,47 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
   );
 };
 
+/**
+ * LearningMaterialPopup component
+ * Props:
+ * - onClose: Function to call when the popup should be closed.
+ * - onNext: Function to call with collected data when user clicks Next.
+ */
 const LearningMaterialPopup = ({ onClose, onNext }) => {
+  // Options for learning materials
   const materialOptions = [
     { text: 'JavaScript', value: 'javascript' },
     { text: 'React', value: 'react' },
   ];
 
+  // Options for learning preferences
   const preferenceOptions = [
     { text: 'Online', value: 'online' },
     { text: 'In-person', value: 'inperson' },
     { text: 'Self-paced', value: 'selfpaced' },
   ];
 
+  // State for selected learning materials
   const [selectedMaterials, setSelectedMaterials] = useState([]);
+  // State for selected learning preferences
   const [selectedPreferences, setSelectedPreferences] = useState([]);
+  // State for user contact info input
   const [contactInfo, setContactInfo] = useState('');
+  // State for validation error messages
   const [error, setError] = useState('');
 
+  /**
+   * Validate contact info input as email or phone number.
+   * @param {string} info - The contact info string to validate.
+   * @returns {boolean} True if valid email or phone number, else false.
+   */
   const validateContactInfo = (info) => {
     const emailRegex = /^[\w-.]+@[\w-]+\.[a-z]{2,}$/i;
     const phoneRegex = /^\+?\d{7,15}$/;
     return emailRegex.test(info) || phoneRegex.test(info);
   };
 
+  // Handle Next button click: validate input and call onNext with data
   const handleNextClick = () => {
     if (!contactInfo.trim()) {
       setError('Contact info is required.');
@@ -164,6 +212,7 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
   };
 
   return (
+    // Overlay background that closes popup on click
     <div
       className="learning-material-popup-overlay"
       style={{
@@ -177,6 +226,7 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
       }}
       onClick={onClose}
     >
+      {/* Popup content container */}
       <div
         className="learning-material-popup-content"
         style={{
@@ -191,8 +241,9 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
           color: '#333',
           textAlign: 'center',
         }}
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()} // Prevent closing popup when clicking inside content
       >
+        {/* Close button */}
         <button
           onClick={onClose}
           style={{
@@ -212,11 +263,18 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
         >
           &times;
         </button>
+
+        {/* Popup title */}
         <h2 style={{ marginBottom: '15px', fontWeight: '700' }}>Learning Material</h2>
+
+        {/* Form for contact info and selections */}
         <form style={{ textAlign: 'left', marginTop: '10px' }} onSubmit={(e) => e.preventDefault()}>
+          {/* Contact info input label */}
           <label htmlFor="contactInfo" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>
             Please enter your phone number or email address:
           </label>
+
+          {/* Contact info input field */}
           <input
             type="text"
             id="contactInfo"
@@ -233,23 +291,31 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
               fontSize: '14px',
             }}
           />
+
+          {/* Error message display */}
           {error && (
             <div style={{ color: 'red', marginBottom: '10px', fontSize: '13px' }}>
               {error}
             </div>
           )}
+
+          {/* Multi-select dropdown for learning materials */}
           <MultiSelectDropdown
             label="Please select the material required for learning:"
             options={materialOptions}
             selectedOptions={selectedMaterials}
             setSelectedOptions={setSelectedMaterials}
           />
+
+          {/* Multi-select dropdown for learning preferences */}
           <MultiSelectDropdown
             label="Please select your preferences:"
             options={preferenceOptions}
             selectedOptions={selectedPreferences}
             setSelectedOptions={setSelectedPreferences}
           />
+
+          {/* Next button */}
           <div style={{ textAlign: 'center', marginTop: '20px' }}>
             <button
               type="button"

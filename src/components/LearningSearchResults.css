@@ -7,7 +7,27 @@
   flex-direction: column;
   height: 100vh;
   overflow-y: auto;
-  padding-top: 95px; /* Added padding to offset fixed header height */
+  padding-top: 160px; /* Increased padding to offset fixed header and search bar height */
+}
+/* filters css */
+.content-container {
+  display: flex;
+  max-width: 1200px;
+  position: sticky; 
+  /* top: 20px;  */
+  left: 20px; 
+  /* below the fixed search bar at 95px + some margin */
+  margin: 0;
+  padding: 0 150px 0 0; 
+   /* gap: 0px; */
+  justify-content: flex-start;
+   background-color: #fff; 
+   /* Align items to start
+ */
+    
+  position: relative;
+  z-index: 1;
+  padding-right: 150px;
 }
 
 /* Fixed top search bar */
@@ -17,9 +37,10 @@
   width: 100%;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
-  z-index: 1000;
-  padding: 10px 20px;
+  z-index: 1100;
+  padding: 10px 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  /* margin-bottom: 10px; */
 }
 
 .search-bar-container {
@@ -63,10 +84,15 @@
 .content-container {
   display: flex;
   max-width: 1200px;
-  margin: 40px auto 40px; /* Adjusted margin top to account for headers */
-  padding: 0 0 0 0;
+  /* position: sticky; */
+  top: 0px; /* Increased to avoid overlap with search bar */
+  left: 20px;
+  margin: 0;
+  padding: 0;
   gap: 20px;
   justify-content: flex-start; /* Align items to start */
+  background-color: #fff; /* Optional: to cover content behind */
+  z-index: 1000;
 }
 
 /* Sidebar filters */
@@ -77,10 +103,24 @@
   background-color: #fafafa;
   border-radius: 4px;
   height: fit-content;
-  position: sticky;
-  top: 80px;
-  top: 140px; /* Adjusted to be below both headers */
-  margin-right: auto; /* Push sidebar to the left */
+  position: static;
+  margin-right: 0px;
+}
+
+.filters-sort-header {
+  position: static;
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 15px;
+  border-bottom: none;
+}
+
+.filters-sort-header {
+  position: static;
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 15px;
+  border-bottom: none;
 }
 
 .filters-sidebar h3 {
@@ -112,6 +152,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  
 }
 
 /* Sort container */
@@ -126,8 +167,16 @@
 /* Courses grid */
 .courses-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  grid-auto-flow: dense;
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-height: none;
+  }
 }
 
 /* Course card */
@@ -281,8 +330,25 @@
   .header-icons {
     justify-content: flex-start;
   }
+
+  /* New styles for filter and sort headings on mobile */
+  .filters-sort-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .filters-sidebar h3 {
+    margin-bottom: 0;
+  }
 }
 
-.custom-header-color {
-  color: #dd5d20 !important;
+.custom-header-bg {
+  background-color: #dd5d20 !important;
+  color: #ffffff !important;
+}
+
+.header.fixed-top {
+  z-index: 1200;
 }

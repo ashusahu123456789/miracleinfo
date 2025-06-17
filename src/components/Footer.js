@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="container copyright text-center mt-4">
-        <p>© <span>Copyright</span> <strong className="px-1 sitename">Miracle Infosoft</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong className="px-1 sitename">Miracle Infoserv</strong> <span>All Rights Reserved</span></p>
       </div>
     </footer>
   );
