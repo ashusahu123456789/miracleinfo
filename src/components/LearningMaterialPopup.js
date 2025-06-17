@@ -112,17 +112,17 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
       {isOpen && (
         <div
           className="dropdown-list"
-          style={{
-            border: '1px solid #ccc',
-            borderRadius: '5px',
-            marginTop: '4px',
-            maxHeight: '150px',
-            overflowY: 'auto',
-            backgroundColor: '#fff',
-            position: 'absolute',
-            zIndex: 1001,
-            width: '100%',
-          }}
+      style={{
+        border: '1px solid #ccc',
+        borderRadius: '5px',
+        marginTop: '4px',
+        maxHeight: '150px',
+        overflowY: 'auto',
+        backgroundColor: '#fff',
+        position: 'absolute',
+        zIndex: 1301,
+        width: '100%',
+      }}
         >
           {/* Render each option with a checkbox */}
           {options.map((option) => (
@@ -222,7 +222,7 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        zIndex: 1000,
+        zIndex: 1300,
       }}
       onClick={onClose}
     >
