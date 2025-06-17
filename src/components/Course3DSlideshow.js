@@ -20,7 +20,10 @@ function Course3DSlideshow() {
         <div className="content-carrousel">
           {sampleImages.map((src, index) => (
             <figure key={index} className="shadow" style={{ transform: `rotateY(${index * 40}deg) translateZ(300px)` }}>
-              <img src={src} alt={`Course ${index + 1}`} />
+              <img
+                src={src}
+                alt={`Course ${index + 1}`}
+              />
             </figure>
           ))}
         </div>

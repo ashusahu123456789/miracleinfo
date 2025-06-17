@@ -24,7 +24,7 @@ function Header({ className = '', isMobileNavOpen, isScrolled, isServicesDropdow
             <li><a href="#team">Career</a></li>
             <li><a href="#contact">Contact</a></li>
 <li><a href="#features" onClick={(e) => { e.preventDefault(); onOpenLearningMaterial(); }} style={{cursor: 'pointer'}}>Learning Material</a></li>
-            <li className={'dropdown ' + (isServicesDropdownOpen ? 'dropdown-active' : '')}>
+            {/* <li className={'dropdown ' + (isServicesDropdownOpen ? 'dropdown-active' : '')}>
               <a href="#!" onClick={onServicesDropdownToggle}>
                 <span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" />
               </a>
@@ -34,7 +34,8 @@ function Header({ className = '', isMobileNavOpen, isScrolled, isServicesDropdow
                 <li><a href="#!">Dropdown 3</a></li>
                 <li><a href="#!">Dropdown 4</a></li>
               </ul>
-            </li>
+            </li> */}
+            <li><a href="#features">Services</a></li>
           </ul>
           <i
             className={'mobile-nav-toggle d-xl-none bi ' + (isMobileNavOpen ? 'bi-x' : 'bi-list')}

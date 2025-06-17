@@ -427,6 +427,10 @@ function LearningSearchResults() {
   const location = useLocation();
   const searchData = location.state?.searchData;
 
+  // State for flapping animation on Course3DSlideshow images
+  // Removed as animation is reverted
+  // const [isFlapping, setIsFlapping] = useState(true);
+
   // State for filters with initial category from searchData if available
   const [filters, setFilters] = useState({
     category: searchData?.selectedMaterials.length ? searchData.selectedMaterials[0] : '',
@@ -451,6 +455,15 @@ function LearningSearchResults() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Effect to stop flapping animation after 5 seconds
+  // Removed as animation is reverted
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsFlapping(false);
+  //   }, 5000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   // State variables for Header component props
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -676,7 +689,7 @@ function LearningSearchResults() {
           </div>
         </aside>
 
-        {/* Course Section: Main content area displaying courses with sorting and pagination */}
+        {/* Course Section: Main content area displaying courses with sorting and pagination */} 
         <main className="course-section">
           {/* Header bar for filters and sorting */}
           {/* Removed the Filters label above courses as it is redundant */}

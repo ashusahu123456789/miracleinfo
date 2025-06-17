@@ -72,3 +72,23 @@
     transform: rotateY(360deg);
   }
 }
+
+/* Bird flapping animation */
+@keyframes flap {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(10deg) scale(1.1);
+  }
+}
+
+.flapping {
+  animation: flap 0.5s ease-in-out infinite;
+}
