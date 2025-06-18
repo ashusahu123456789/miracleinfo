@@ -9,11 +9,13 @@ const sampleImages = [
   'assets/img/details-2.png',
   'assets/img/details-3.png',
   'assets/img/details-1.png',
-  'assets/img/details-2.png',
-  'assets/img/details-3.png',
 ];
 
 function Course3DSlideshow() {
+  const totalImages = sampleImages.length;
+  const angleStep = 360 / totalImages;
+  const zDistance = window.innerWidth < 768 ? 200 : 310;
+
   return (
     <>
       <section className="container section-title" id='Products'>
@@ -24,7 +26,7 @@ function Course3DSlideshow() {
         <div className="entire-content">
           <div className="content-carrousel">
             {sampleImages.map((src, index) => (
-              <figure key={index} className="shadow" style={{ transform: `rotateY(${index * 40}deg) translateZ(300px)` }}>
+              <figure key={index} className="shadow" style={{ transform: `rotateY(${index * angleStep}deg) translateZ(${zDistance}px)` }}>
                 <img
                   src={src}
                   alt={`Course ${index + 1}`}
@@ -32,9 +34,6 @@ function Course3DSlideshow() {
               </figure>
             ))}
           </div>
-          {/* <div className="title-container" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}>
-            <h2 className="description-title">Django</h2>
-          </div> */}
         </div>
       </section>
     </>

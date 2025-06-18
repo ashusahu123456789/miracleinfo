@@ -374,7 +374,7 @@ const sampleCourses = [
   },
   {
     id: 36,
-    title: 'Big Data Technologies',
+    title: 'Javascript for Beginners',
     description: 'Learn about big data tools and platforms.',
     thumbnail: 'assets/img/details-3.png',
     rating: 4,
@@ -382,6 +382,36 @@ const sampleCourses = [
     deliveryTime: '3 Weeks',
     availability: 'Available Now',
   },
+  {
+    id: 3,
+    title: 'Core JavaScript',
+    description: 'Build dynamic websites using JavaScript.',
+    thumbnail: 'assets/img/details-3.png',
+    rating: 5,
+    price: 'Free',
+    deliveryTime: '1 Week',
+    availability: 'Available Now',
+  },
+  {
+    id: 38,
+    title: 'Advanced JavaScript',
+    description: 'Build dynamic websites using JavaScript.',
+    thumbnail: 'assets/img/details-3.png',
+    rating: 5,
+    price: 'Free',
+    deliveryTime: '1 Week',
+    availability: 'Available Now',
+  },
+  {
+    id: 39,
+    title: 'JavaScript Professinal Course',
+    description: 'Build dynamic websites using JavaScript.',
+    thumbnail: 'assets/img/details-3.png',
+    rating: 5,
+    price: 'Free',
+    deliveryTime: '1 Week',
+    availability: 'Available Now',
+  },  
 ];
 
 /**
