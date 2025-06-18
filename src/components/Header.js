@@ -19,7 +19,7 @@ function Header({ className = '', isMobileNavOpen, isScrolled, isServicesDropdow
           <ul>
             <li><a href="#hero" className="active">Home</a></li>
             <li><a href="#about">Company Profile</a></li>
-            <li><a href="#features">Products</a></li>
+            <li><a href="#Products">Products</a></li>
             <li><a href="#stats">Clients</a></li>
             <li><a href="#team">Career</a></li>
             <li><a href="#contact">Contact</a></li>

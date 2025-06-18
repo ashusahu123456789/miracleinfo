@@ -20,6 +20,7 @@ import ContactSection from './components/ContactSection';
 import AboveFooter from './components/AboveFooter';
 import Footer from './components/Footer';
 // Removed ScrollTop and Preloader imports
+import Course3DSlideshow from './components/Course3DSlideshow';
 
 
 // Route Components (Pages)
@@ -87,6 +88,7 @@ function HomePage() {
       <HeroSection />
       <AboutSection />
       <FeaturesSection />
+      <Course3DSlideshow />
       <StatsSection />
       <DetailsSection />
       <GallerySection />

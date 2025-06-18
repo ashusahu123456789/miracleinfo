@@ -9,7 +9,6 @@ import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import './LearningSearchResults.css';
 import './custom-learningsearchresults.css';
-import Course3DSlideshow from './Course3DSlideshow';
 
 // Constants for filter options
 const categories = ['Programming', 'Design', 'Marketing', 'Business', 'Photography'];
@@ -427,10 +426,6 @@ function LearningSearchResults() {
   const location = useLocation();
   const searchData = location.state?.searchData;
 
-  // State for flapping animation on Course3DSlideshow images
-  // Removed as animation is reverted
-  // const [isFlapping, setIsFlapping] = useState(true);
-
   // State for filters with initial category from searchData if available
   const [filters, setFilters] = useState({
     category: searchData?.selectedMaterials.length ? searchData.selectedMaterials[0] : '',
@@ -455,15 +450,6 @@ function LearningSearchResults() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  // Effect to stop flapping animation after 5 seconds
-  // Removed as animation is reverted
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setIsFlapping(false);
-  //   }, 5000);
-  //   return () => clearTimeout(timer);
-  // }, []);
 
   // State variables for Header component props
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -606,7 +592,6 @@ function LearningSearchResults() {
           </div>
         </div>
       </header>
-      <Course3DSlideshow />
 
       <div className="content-container" style={{ display: 'flex', gap: '20px' }}>
         {/* Left sidebar filters */}
@@ -672,7 +657,7 @@ function LearningSearchResults() {
               ))}
             </select>
           </div>
-          {/* Availability filter */}
+          {/* Availability filter */} 
           <div className="filter-group">
             <label>Availability</label>
             <select
@@ -691,17 +676,17 @@ function LearningSearchResults() {
 
         {/* Course Section: Main content area displaying courses with sorting and pagination */} 
         <main className="course-section">
-          {/* Header bar for filters and sorting */}
-          {/* Removed the Filters label above courses as it is redundant */}
-          {/* Display message if no courses match filters */}
+          {/* Header bar for filters and sorting */} 
+          {/* Removed the Filters label above courses as it is redundant */} 
+          {/* Display message if no courses match filters */} 
           {paginatedCourses.length === 0 ? (
             <p className="no-results">No courses found matching your criteria.</p>
           ) : (
             <div className="courses-grid">
-              {/* Render each course card */}
+              {/* Render each course card */} 
               {paginatedCourses.map((course) => (
                 <div key={course.id} className="course-card">
-                  {/* Badges for recommended or top rated courses */}
+                  {/* Badges for recommended or top rated courses */} 
                   {course.recommended && <div className="badge recommended">Recommended</div>}
                   {course.topRated && <div className="badge top-rated">Top Rated</div>}
                   <img
@@ -711,17 +696,17 @@ function LearningSearchResults() {
                   />
                   <h4 className="course-title">{course.title}</h4>
                   <p className="course-description">{course.description}</p>
-                  {/* Star rating display */}
+                  {/* Star rating display */} 
                   <StarRating rating={course.rating} />
                   <div className="course-actions">
                     <button className="btn enroll-btn">Enroll</button>
                     <button className="btn details-btn">View Details</button>
                   </div>
                 </div>
-              ))}
+              ))} 
             </div>
-          )}
-          {/* Pagination controls */}
+          )} 
+          {/* Pagination controls */} 
           <div className="pagination-controls">
             <button className="btn" onClick={goToPreviousPage} disabled={currentPage === 1}>
               Previous
