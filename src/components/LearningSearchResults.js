@@ -609,8 +609,8 @@ function LearningSearchResults() {
                 👤
               </button>
               {/* Dropdown content can be added here */} 
-              <div className="sort-container" style={{ position: 'absolute', top: 'calc(100% + 10px)', right: 0, backgroundColor: '#fff', padding: '8px 12px', borderRadius: '4px', boxShadow: '0 2px 6px rgba(0,0,0,0.15)', zIndex: 1300, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                <label htmlFor="sort-select" style={{ marginBottom: '6px', fontWeight: '600', whiteSpace: 'nowrap' }}>Sort by:</label>
+              <div className="sort-container" style={{ position: 'absolute', top: 'calc(100% + 10px)', right: 0, backgroundColor: '#fff', padding: '8px 12px', zIndex: 1300, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginTop: '10px'}}>
+                <label htmlFor="sort-select" style={{ marginBottom: '5px', fontWeight: '600', whiteSpace: 'nowrap' }}>Sort by:</label>
                 <select id="sort-select" value={sortOption} onChange={handleSortChange} style={{ padding: '6px 8px', borderRadius: '4px', border: '1px solid #ccc' }}>
                   <option value="featured">Featured</option>
                   <option value="priceLowHigh">Price: Low to High</option>

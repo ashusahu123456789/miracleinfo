@@ -1,0 +1,87 @@
+/* Hero Section */
+.hero {
+  background-color: #dd5d20; /* Vibrant Orange background */
+  position: relative;
+}
+
+.hero:before {
+  background: none; /* Remove dark overlay */
+}
+
+.hero h1,
+.hero h2,
+.hero h3,
+.hero h4,
+.hero h5,
+.hero h6 {
+  color: #FFFFFF; /* White headings */
+}
+
+.hero p {
+  color: #FFF3E0; /* Soft Cream/Off-white subtext */
+}
+
+/* Typing effect styles */
+.typing-effect {
+  border-right: 2px solid #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Hero Section buttons */
+.hero .btn-get-started {
+  background-color: #5ab25e; /* White background */
+  color: #ffffff; /* Orange text */
+  box-shadow: none;
+}
+
+.hero .btn-get-started:hover {
+  background-color: #37474F; /* Dark background on hover */
+  color: #FF6F3C; /* Orange text */
+  box-shadow: none;
+}
+
+.hero .btn-watch-video {
+  background-color: #FFFFFF; /* White background */
+  color: #FF6F3C; /* Orange text */
+  border: none;
+}
+
+.hero .btn-watch-video:hover {
+  background-color: #37474F; /* Dark background on hover */
+  color: #FF6F3C; /* Orange text */
+  border: none;
+}
+
+.hero .animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  .hero .btn-get-started,
+  .hero .btn-watch-video {
+    font-size: 13px;
+  }
+}
