@@ -9,10 +9,31 @@
   overflow-y: auto;
   padding-top: 160px; /* Increased padding to offset fixed header and search bar height */
 }
+
+.course-card {
+  position: relative;
+}
+
+.course-popup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 15px;
+  z-index: 1000;
+}
+
+.course-card:hover .course-popup {
+  display: block;
+}
 /* filters css */
 .content-container {
   display: flex;
-  max-width: 1200px;
+  max-width: 1400px;
   position: sticky; 
   /* top: 20px;  */
   left: 20px; 
@@ -83,9 +104,9 @@
 /* Content container with sidebar and main */
 .content-container {
   display: flex;
-  max-width: 1200px;
+  max-width: 1500px;
   /* position: sticky; */
-  top: 0px; /* Increased to avoid overlap with search bar */
+  top: 15px; /* Increased to avoid overlap with search bar */
   left: 20px;
   margin: 0;
   padding: 0;
@@ -168,7 +189,7 @@
 /* Courses grid */
 .courses-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 50px;
   grid-auto-flow: dense;
 }

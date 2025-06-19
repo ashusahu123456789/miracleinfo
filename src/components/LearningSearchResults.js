@@ -609,25 +609,30 @@ function LearningSearchResults() {
                 👤
               </button>
               {/* Dropdown content can be added here */} 
-              <div className="sort-container" style={{ position: 'absolute', top: 'calc(100% + 10px)', right: 0, backgroundColor: '#fff', padding: '8px 12px', zIndex: 1300, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginTop: '10px'}}>
-                <label htmlFor="sort-select" style={{ marginBottom: '5px', fontWeight: '600', whiteSpace: 'nowrap' }}>Sort by:</label>
-                <select id="sort-select" value={sortOption} onChange={handleSortChange} style={{ padding: '6px 8px', borderRadius: '4px', border: '1px solid #ccc' }}>
-                  <option value="featured">Featured</option>
-                  <option value="priceLowHigh">Price: Low to High</option>
-                  <option value="priceHighLow">Price: High to Low</option>
-                  <option value="ratingHighLow">Rating: High to Low</option> 
-                </select>
-              </div>
             </div>
           </div>
         </div>
       </header>
 
       <div className="content-container" style={{ display: 'flex', gap: '20px' }}>
-        {/* Left sidebar filters */}
+        {/* Left sidebar filters */} 
         <aside className="filters-sidebar" style={{ flex: '0 0 250px' }}>
+          {/* Moved Sort by dropdown below Filters heading */}
           <h3>Filters</h3>
-          {/* Category filter */}
+          <div className="filter-group" style={{ marginBottom: '20px' }}>
+            <label htmlFor="sort-select">Sort by</label>
+            <select
+              id="sort-select"
+              value={sortOption}
+              onChange={handleSortChange}
+            >
+              <option value="featured">Featured</option>
+              <option value="priceLowHigh">Price: Low to High</option>
+              <option value="priceHighLow">Price: High to Low</option>
+              <option value="ratingHighLow">Rating: High to Low</option>
+            </select>
+          </div>
+          {/* Category filter */} 
           <div className="filter-group"> 
             <label>Category</label>
             <select
@@ -639,10 +644,10 @@ function LearningSearchResults() {
                 <option key={cat} value={cat}>
                   {cat}
                 </option>
-              ))}
+              ))} 
             </select>
           </div>
-          {/* Price range filter */}
+          {/* Price range filter */} 
           <div className="filter-group">
             <label>Price Range</label>
             <select
@@ -654,7 +659,7 @@ function LearningSearchResults() {
                 <option key={price} value={price}>
                   {price}
                 </option>
-              ))}
+              ))} 
             </select>
           </div>
           {/* Rating filter */}
@@ -715,7 +720,7 @@ function LearningSearchResults() {
             <div className="courses-grid">
               {/* Render each course card */} 
               {paginatedCourses.map((course) => (
-                <div key={course.id} className="course-card">
+                <div key={course.id} className="course-card" style={{ position: 'relative' }}>
                   {/* Badges for recommended or top rated courses */} 
                   {course.recommended && <div className="badge recommended">Recommended</div>}
                   {course.topRated && <div className="badge top-rated">Top Rated</div>}
@@ -728,9 +733,41 @@ function LearningSearchResults() {
                   <p className="course-description">{course.description}</p>
                   {/* Star rating display */} 
                   <StarRating rating={course.rating} />
-                  <div className="course-actions">
-                    <button className="btn enroll-btn">Enroll</button>
-                    <button className="btn details-btn">View Details</button>
+                  {/* Removed Enroll and View Details buttons as requested */}
+                  {/* Hover popup */}
+                  <div className="course-popup" style={{
+                    position: 'fixed',
+                    top: '66%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '400px',
+                    backgroundColor: '#fff',
+                    border: '1px solid #ccc',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                    padding: '15px',
+                    zIndex: 120000,
+                    
+                  }}>
+                    <h3>The Complete AI-Powered Copywriting Course & ChatGPT Course</h3>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                      <span style={{ backgroundColor: '#6f42c1', color: '#fff', padding: '2px 6px', borderRadius: '4px', fontSize: '12px' }}>Premium</span>
+                      <span style={{ color: 'green', fontWeight: '600' }}>Updated May 2025</span>
+                    </div>
+                    <div style={{ marginBottom: '8px' }}>
+                      <strong>Course summary</strong>
+                      <p style={{ fontSize: '14px', marginTop: '4px' }}>
+                        This course is perfect for aspiring copywriters and content creators, whether you're a complete beginner or have some experience. You will transform your writing abilities by mastering persuasive techniques and leveraging AI tools like ChatGPT to create impactful content. Get ready to captivate your audience and elevate your career with powerful copywriting skills that drive results.
+                      </p>
+                    </div>
+                    <div style={{ marginBottom: '12px' }}>
+                      <strong>Skills you will learn</strong>
+                      <ul style={{ fontSize: '14px', marginTop: '4px', paddingLeft: '20px' }}>
+                        <li>Persuasive copywriting techniques</li>
+                        <li>AI-driven content creation</li>
+                        <li>SEO optimization strategies</li>
+                        <li>High-converting marketing templates</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               ))} 
