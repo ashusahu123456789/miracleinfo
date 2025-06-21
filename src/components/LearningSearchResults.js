@@ -4,415 +4,16 @@
  * subcomponent to visually represent course ratings.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Header from './Header';
+import LearningSearchResultsHeader from './LearningSearchResultsHeader';
+import LearningSearchFilters from './LearningSearchFilters';
 import './LearningSearchResults.css';
 import './custom-learningsearchresults.css';
+import './ContentContainer.css';
 
-// Constants for filter options
-const categories = ['Programming', 'Design', 'Marketing', 'Business', 'Photography'];
-const priceRanges = ['Free', 'Under $50', '$50 to $100', 'Above $100'];
-const ratings = [5, 4, 3, 2, 1];
-const deliveryTimes = ['Any', '1 Day', '3 Days', '1 Week'];
-const availabilityOptions = ['Available Now', 'Coming Soon'];
-
-// Sample course data for demonstration purposes
-const sampleCourses = [
-  {
-    id: 1,
-    title: 'React for Beginners',
-    description: 'Learn the basics of React and build dynamic web apps.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '1 Day',
-    availability: 'Available Now',
-    recommended: true,
-  },
-  {
-    id: 2,
-    title: 'Advanced CSS Techniques',
-    description: 'Master CSS for modern responsive design.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '3 Days',
-    availability: 'Available Now',
-    topRated: true,
-  },
-  {
-    id: 3,
-    title: 'Digital Marketing 101',
-    description: 'Introduction to digital marketing strategies.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 3,
-    price: 'Under $50',
-    deliveryTime: '1 Week',
-    availability: 'Coming Soon',
-  },
-  // Additional 24 CS related courses
-  {
-    id: 4,
-    title: 'Introduction to Computer Science',
-    description: 'Fundamentals of computer science and programming.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 5,
-    title: 'Data Structures and Algorithms',
-    description: 'Learn essential data structures and algorithms.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 6,
-    title: 'Operating Systems Basics',
-    description: 'Understand the basics of operating systems.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 4,
-    price: 'Under $50',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 7,
-    title: 'Database Management Systems',
-    description: 'Introduction to databases and SQL.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 5,
-    price: '$50 to $100',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 8,
-    title: 'Computer Networks',
-    description: 'Learn about network protocols and architecture.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 4,
-    price: 'Free',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 9,
-    title: 'Software Engineering Principles',
-    description: 'Best practices in software development.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 5,
-    price: '$50 to $100',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 10,
-    title: 'Artificial Intelligence Basics',
-    description: 'Introduction to AI concepts and techniques.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 11,
-    title: 'Machine Learning Fundamentals',
-    description: 'Learn the basics of machine learning algorithms.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 12,
-    title: 'Web Development with JavaScript',
-    description: 'Build dynamic websites using JavaScript.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 13,
-    title: 'Mobile App Development',
-    description: 'Create mobile apps for Android and iOS.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '4 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 14,
-    title: 'Cybersecurity Essentials',
-    description: 'Learn the fundamentals of cybersecurity.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 15,
-    title: 'Cloud Computing Basics',
-    description: 'Introduction to cloud services and architecture.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 16,
-    title: 'Big Data Analytics',
-    description: 'Learn to analyze large datasets effectively.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 4,
-    price: 'Under $50',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 17,
-    title: 'Programming in Python',
-    description: 'Learn Python programming from scratch.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 18,
-    title: 'Data Science Introduction',
-    description: 'Basics of data science and analysis.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 19,
-    title: 'Computer Graphics',
-    description: 'Learn the fundamentals of computer graphics.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 3,
-    price: 'Under $50',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 20,
-    title: 'Parallel Computing',
-    description: 'Introduction to parallel and distributed computing.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 4,
-    price: '$50 to $100',              
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 21,
-    title: 'Software Testing',
-    description: 'Learn software testing methodologies.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 22,
-    title: 'Human-Computer Interaction',
-    description: 'Study the design of user interfaces.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 23,
-    title: 'Compiler Design',
-    description: 'Learn the principles of compiler construction.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 3,
-    price: 'Under $50',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 24,
-    title: 'Theory of Computation',
-    description: 'Explore automata theory and formal languages.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 25,
-    title: 'Computer Architecture',
-    description: 'Understand the design of computer hardware.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 26,
-    title: 'Network Security',
-    description: 'Learn about securing computer networks.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 27,
-    title: 'Distributed Systems',
-    description: 'Study distributed computing systems and protocols.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 4,
-    price: 'Under $50',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 28,
-    title: 'Mobile Computing',
-    description: 'Learn about mobile computing technologies.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 3,
-    price: 'Free',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 29,
-    title: 'Cloud Security',
-    description: 'Understand security in cloud environments.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 5,
-    price: '$50 to $100',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 30,
-    title: 'Natural Language Processing',
-    description: 'Introduction to NLP techniques and applications.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 4,
-    price: 'Under $50',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 31,
-    title: 'Computer Vision',
-    description: 'Learn about image processing and computer vision.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 32,
-    title: 'Robotics Fundamentals',
-    description: 'Basics of robotics and automation.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 33,
-    title: 'Embedded Systems',
-    description: 'Introduction to embedded system design.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 4,
-    price: 'Under $50',
-    deliveryTime: '2 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 34,
-    title: 'Blockchain Basics',
-    description: 'Learn the fundamentals of blockchain technology.',
-    thumbnail: 'assets/img/details-1.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 35,
-    title: 'Quantum Computing',
-    description: 'Introduction to quantum computing concepts.',
-    thumbnail: 'assets/img/details-2.png',
-    rating: 4,
-    price: '$50 to $100',
-    deliveryTime: '4 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 36,
-    title: 'Javascript for Beginners',
-    description: 'Learn about big data tools and platforms.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 4,
-    price: 'Under $50',
-    deliveryTime: '3 Weeks',
-    availability: 'Available Now',
-  },
-  {
-    id: 3,
-    title: 'Core JavaScript',
-    description: 'Build dynamic websites using JavaScript.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 38,
-    title: 'Advanced JavaScript',
-    description: 'Build dynamic websites using JavaScript.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },
-  {
-    id: 39,
-    title: 'JavaScript Professinal Course',
-    description: 'Build dynamic websites using JavaScript.',
-    thumbnail: 'assets/img/details-3.png',
-    rating: 5,
-    price: 'Free',
-    deliveryTime: '1 Week',
-    availability: 'Available Now',
-  },  
-];
+import sampleCourses from './sampleCourses';
+import CourseHoverPopup from './CourseHoverPopup';
 
 /**
  * StarRating component
@@ -466,7 +67,7 @@ function LearningSearchResults() {
   });
 
   // State for selected sorting option
-  const [sortOption, setSortOption] = useState('featured');
+  const [sortOption] = useState('featured');
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -481,36 +82,8 @@ function LearningSearchResults() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // State variables for Header component props
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-
-  // Toggle mobile navigation menu
-  const onMobileNavToggle = () => {
-    setIsMobileNavOpen(!isMobileNavOpen);
-  };
-
-  // Toggle services dropdown menu
-  const onServicesDropdownToggle = () => {
-    setIsServicesDropdownOpen(!isServicesDropdownOpen);
-  };
-
-  // Placeholder function for opening learning material
-  const onOpenLearningMaterial = () => {
-    // Placeholder for opening learning material
-  };
-
-  // Effect to track scroll position for header styling
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  // Sidebar visibility state lifted here
+  const [sidebarVisible, setSidebarVisible] = useState(false);
 
   // Handle changes to filter values and reset to first page
   const handleFilterChange = (filterName, value) => {
@@ -518,9 +91,9 @@ function LearningSearchResults() {
     setCurrentPage(1); // Reset to first page on filter change
   };
 
-  // Handle changes to sorting option
-  const handleSortChange = (e) => {
-    setSortOption(e.target.value);
+  // Toggle sidebar visibility
+  const toggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
   };
 
   // Filter courses based on selected filters
@@ -577,140 +150,61 @@ function LearningSearchResults() {
 
   return (
     <div className="learning-search-results">
-      {/* Header component with navigation and dropdown state */}
-      <Header
-        className="custom-header-bg"
-        isMobileNavOpen={isMobileNavOpen}
-        isScrolled={isScrolled}
-        isServicesDropdownOpen={isServicesDropdownOpen}
-        onMobileNavToggle={onMobileNavToggle}
-        onServicesDropdownToggle={onServicesDropdownToggle}
-        onOpenLearningMaterial={onOpenLearningMaterial}
+      {/* Hamburger menu button for mobile to toggle sidebar */}
+      <button
+        className="mobile-sidebar-toggle"
+        onClick={toggleSidebar}
+        aria-label="Toggle filters sidebar"
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '10px',
+          transform: 'translateY(-50%)',
+          zIndex: 130000,
+          backgroundColor: '#6f42c1',
+          border: 'none',
+          borderRadius: '4px',
+          width: '40px',
+          height: '40px',
+          display: 'none',
+          justifyContent: 'center',
+          alignItems: 'center',
+          cursor: 'pointer',
+          color: 'white',
+          fontSize: '24px',
+        }}
+      >
+        &#9776;
+      </button>
+
+      {/* Custom header for LearningSearchResults page */} 
+      <LearningSearchResultsHeader
+        searchValue={filters.category}
+        onSearchChange={(value) => handleFilterChange('category', value)}
       />
-      {/* Close button removed for dedicated page */}
+      {/* Search bar for mobile above filters */}
+      <div className="mobile-search-bar">
+        <input
+          type="text"
+          className="lsr-search-input"
+          placeholder="Search courses, materials..."
+          aria-label="Search"
+          value={filters.category}
+          onChange={(e) => handleFilterChange('category', e.target.value)}
+        />
+      </div>
+      <LearningSearchFilters
+        sidebarVisible={sidebarVisible}
+        toggleSidebar={toggleSidebar}
+      />
+      {/* Close button removed for dedicated page */} 
 
-      {/* Fixed top search bar */}
-      <header className="search-header">
-        <div className="search-bar-container">
-          {/* Search input to filter courses by category */} 
-          <input
-            type="text"
-            placeholder="Search courses, materials..."
-            className="search-input"
-            onChange={(e) => handleFilterChange('category', e.target.value)}
-            defaultValue={filters.category}
-          />
-      <div className="header-icons">
-            <button className="cart-icon" aria-label="Cart">
-              🛒
-            </button>
-            <div className="user-profile-dropdown" style={{ position: 'relative' }}>
-              <button className="profile-button" aria-label="User Profile">
-                👤
-              </button>
-              {/* Dropdown content can be added here */} 
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div className="content-container" style={{ display: 'flex', gap: '20px' }}>
+      <div className="content-container" >
         {/* Left sidebar filters */} 
-        <aside className="filters-sidebar" style={{ flex: '0 0 250px' }}>
-          {/* Moved Sort by dropdown below Filters heading */}
-          <h3>Filters</h3>
-          <div className="filter-group" style={{ marginBottom: '20px' }}>
-            <label htmlFor="sort-select">Sort by</label>
-            <select
-              id="sort-select"
-              value={sortOption}
-              onChange={handleSortChange}
-            >
-              <option value="featured">Featured</option>
-              <option value="priceLowHigh">Price: Low to High</option>
-              <option value="priceHighLow">Price: High to Low</option>
-              <option value="ratingHighLow">Rating: High to Low</option>
-            </select>
-          </div>
-          {/* Category filter */} 
-          <div className="filter-group"> 
-            <label>Category</label>
-            <select
-              value={filters.category}
-              onChange={(e) => handleFilterChange('category', e.target.value)}
-            >
-              <option value="">All</option>
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>
-              ))} 
-            </select>
-          </div>
-          {/* Price range filter */} 
-          <div className="filter-group">
-            <label>Price Range</label>
-            <select
-              value={filters.priceRange}
-              onChange={(e) => handleFilterChange('priceRange', e.target.value)}
-            >
-              <option value="">All</option>
-              {priceRanges.map((price) => (
-                <option key={price} value={price}>
-                  {price}
-                </option>
-              ))} 
-            </select>
-          </div>
-          {/* Rating filter */}
-          <div className="filter-group">
-            <label>Rating</label>
-            <select
-              value={filters.rating}
-              onChange={(e) => handleFilterChange('rating', Number(e.target.value))}
-            >
-              <option value={0}>All</option>
-              {ratings.map((rate) => (
-                <option key={rate} value={rate}>
-                  {rate} & Up
-                </option>
-              ))}
-            </select>
-          </div>
-          {/* Delivery time filter */}
-          <div className="filter-group">
-            <label>Delivery Time</label>
-            <select
-              value={filters.deliveryTime}
-              onChange={(e) => handleFilterChange('deliveryTime', e.target.value)}
-            >
-              <option value="">Any</option>
-              {deliveryTimes.map((time) => (
-                <option key={time} value={time}>
-                  {time}
-                </option>
-              ))}
-            </select>
-          </div>
-          {/* Availability filter */} 
-          <div className="filter-group">
-            <label>Availability</label>
-            <select
-              value={filters.availability}
-              onChange={(e) => handleFilterChange('availability', e.target.value)}
-            >
-              <option value="">All</option>
-              {availabilityOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </div>
-        </aside>
+        
 
         {/* Course Section: Main content area displaying courses with sorting and pagination */} 
-        <main className="course-section">
+        <main className="course-section" style={sidebarVisible ? {opacity: 0.3, pointerEvents: 'none'} : {}}>
           {/* Header bar for filters and sorting */} 
           {/* Removed the Filters label above courses as it is redundant */} 
           {/* Display message if no courses match filters */} 
@@ -720,7 +214,19 @@ function LearningSearchResults() {
             <div className="courses-grid">
               {/* Render each course card */} 
               {paginatedCourses.map((course) => (
-                <div key={course.id} className="course-card" style={{ position: 'relative' }}>
+                <div
+                  key={course.id}
+                  className="course-card"
+                  style={{ position: 'relative', cursor: 'pointer' }}
+                  onClick={() => {
+                    if (course.id === 39) {
+                      window.location.href = '/course/39';
+                    } else {
+                      // For other courses, you can define navigation or behavior here
+                      alert('No dedicated page for this course yet.');
+                    }
+                  }}
+                >
                   {/* Badges for recommended or top rated courses */} 
                   {course.recommended && <div className="badge recommended">Recommended</div>}
                   {course.topRated && <div className="badge top-rated">Top Rated</div>}
@@ -733,42 +239,28 @@ function LearningSearchResults() {
                   <p className="course-description">{course.description}</p>
                   {/* Star rating display */} 
                   <StarRating rating={course.rating} />
-                  {/* Removed Enroll and View Details buttons as requested */}
-                  {/* Hover popup */}
-                  <div className="course-popup" style={{
-                    position: 'fixed',
-                    top: '66%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    width: '400px',
-                    backgroundColor: '#fff',
-                    border: '1px solid #ccc',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                    padding: '15px',
-                    zIndex: 120000,
-                    
-                  }}>
-                    <h3>The Complete AI-Powered Copywriting Course & ChatGPT Course</h3>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                      <span style={{ backgroundColor: '#6f42c1', color: '#fff', padding: '2px 6px', borderRadius: '4px', fontSize: '12px' }}>Premium</span>
-                      <span style={{ color: 'green', fontWeight: '600' }}>Updated May 2025</span>
-                    </div>
-                    <div style={{ marginBottom: '8px' }}>
-                      <strong>Course summary</strong>
-                      <p style={{ fontSize: '14px', marginTop: '4px' }}>
-                        This course is perfect for aspiring copywriters and content creators, whether you're a complete beginner or have some experience. You will transform your writing abilities by mastering persuasive techniques and leveraging AI tools like ChatGPT to create impactful content. Get ready to captivate your audience and elevate your career with powerful copywriting skills that drive results.
-                      </p>
-                    </div>
-                    <div style={{ marginBottom: '12px' }}>
-                      <strong>Skills you will learn</strong>
-                      <ul style={{ fontSize: '14px', marginTop: '4px', paddingLeft: '20px' }}>
-                        <li>Persuasive copywriting techniques</li>
-                        <li>AI-driven content creation</li>
-                        <li>SEO optimization strategies</li>
-                        <li>High-converting marketing templates</li>
-                      </ul>
-                    </div>
-                  </div>
+                  {/* Removed Enroll and View Details buttons as requested */} 
+                  {course.id === 39 && (
+                    <button
+                      className="view-details-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.location.href = '/course/39';
+                      }}
+                      style={{
+                        marginTop: '8px',
+                        padding: '6px 12px',
+                        backgroundColor: '#6f42c1',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      View Details
+                    </button>
+                  )}
+                  <CourseHoverPopup course={course} />
                 </div>
               ))} 
             </div>
@@ -788,5 +280,4 @@ function LearningSearchResults() {
     </div>
   );
 }
-
 export default LearningSearchResults;

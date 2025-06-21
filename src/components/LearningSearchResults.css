@@ -7,7 +7,7 @@
   flex-direction: column;
   height: 100vh;
   overflow-y: auto;
-  padding-top: 160px; /* Increased padding to offset fixed header and search bar height */
+  padding-top: 0px; /* Increased padding to offset fixed header and search bar height */
 }
 
 .course-card {
@@ -33,7 +33,7 @@
 /* filters css */
 .content-container {
   display: flex;
-  max-width: 1400px;
+  max-width: 1200px;
   position: sticky; 
   /* top: 20px;  */
   left: 20px; 
@@ -104,15 +104,17 @@
 /* Content container with sidebar and main */
 .content-container {
   display: flex;
+  
   max-width: 1500px;
   /* position: sticky; */
   top: 15px; /* Increased to avoid overlap with search bar */
-  left: 20px;
+  /* left: 20px; */
+  position: static;
   margin: 0;
-  padding: 0;
-  gap: 20px;
+  padding: 0 50px 0;
+  gap: 0px;
   justify-content: flex-start; /* Align items to start */
-  background-color: #fff; /* Optional: to cover content behind */
+  background-color: #ffffff; /* Optional: to cover content behind */
   z-index: 1000;
 }
 

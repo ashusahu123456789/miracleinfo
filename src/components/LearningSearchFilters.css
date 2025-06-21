@@ -1,0 +1,21 @@
+.mobile-search-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-search-bar {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    justify-content: space-around;
+  }
+
+  .mobile-search-bar .lsr-search-input {
+    width: 100%;
+    max-width: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+}

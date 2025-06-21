@@ -1,0 +1,20 @@
+.content-container {
+  display: flex;
+  max-width: auto;
+  position: static;
+  margin: 0;
+  padding: 0 0px 0;
+  gap: 0px;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    margin: 0px 20px 20px;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+}

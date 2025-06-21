@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
+import CoursePage39 from './pages/CoursePage39';
 import 'aos/dist/aos.css';
 
 // Page Components
@@ -123,6 +124,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/LearningSearchResults" element={<LearningSearchResults />} />
         {/* Add more routes here if needed */}
+        <Route path="/course/39" element={<CoursePage39 />} />
       </Routes>
     </Router>
   );
