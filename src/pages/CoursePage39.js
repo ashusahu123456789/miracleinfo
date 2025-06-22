@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import sampleCourses from '../components/sampleCourses';
-import './CoursePage39.css';
+import './CoursePage.css';
 
 const sampleReviews = [
   {

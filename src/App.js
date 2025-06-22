@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import CoursePage39 from './pages/CoursePage39';
+import CoursePage from './pages/CoursePage';
 import 'aos/dist/aos.css';
+import PureCounter from '@srexi/purecounterjs';
 
 // Page Components
 
@@ -23,6 +25,7 @@ import Footer from './components/Footer';
 // Removed ScrollTop and Preloader imports
 import Course3DSlideshow from './components/Course3DSlideshow';
 
+import Career from './components/Career';
 
 // Route Components (Pages)
 import LearningSearchResults from './components/LearningSearchResults';
@@ -116,6 +119,8 @@ function App() {
       once: true,
       mirror: false,
     });
+
+    new PureCounter();
   }, []);
 
   return (
@@ -125,6 +130,8 @@ function App() {
         <Route path="/LearningSearchResults" element={<LearningSearchResults />} />
         {/* Add more routes here if needed */}
         <Route path="/course/39" element={<CoursePage39 />} />
+        <Route path="/course/:id" element={<CoursePage />} />
+        <Route path="/career" element={<Career />} />
       </Routes>
     </Router>
   );

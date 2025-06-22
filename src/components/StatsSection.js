@@ -12,29 +12,29 @@ function StatsSection() {
           <div className="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i className="bi bi-emoji-smile" />
             <div className="stats-item">
-              <span data-purecounter-start={0} data-purecounter-end={232} data-purecounter-duration={1} className="purecounter" />
+              <span data-purecounter-start={0} data-purecounter-end={10} data-purecounter-duration={1} className="purecounter" />
               <p>Happy Clients</p>
             </div>
           </div>{/* End Stats Item */}
           <div className="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i className="bi bi-journal-richtext" />
             <div className="stats-item">
-              <span data-purecounter-start={0} data-purecounter-end={521} data-purecounter-duration={1} className="purecounter" />
+              <span data-purecounter-start={0} data-purecounter-end={5} data-purecounter-duration={1} className="purecounter" />
               <p>Projects</p>
             </div>
           </div>{/* End Stats Item */}
           <div className="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i className="bi bi-headset" />
             <div className="stats-item">
-              <span data-purecounter-start={0} data-purecounter-end={1463} data-purecounter-duration={1} className="purecounter" />
+              <span data-purecounter-start={0} data-purecounter-end={24} data-purecounter-duration={1} className="purecounter" />
               <p>Hours Of Support</p>
             </div>
           </div>{/* End Stats Item */}
           <div className="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i className="bi bi-people" />
             <div className="stats-item">
-              <span data-purecounter-start={0} data-purecounter-end={15} data-purecounter-duration={1} className="purecounter" />
-              <p>Hard Workers</p>
+              <span data-purecounter-start={0} data-purecounter-end={10} data-purecounter-duration={1} className="purecounter" />
+              <p>Team Members</p>
             </div>
           </div>{/* End Stats Item */}
         </div>

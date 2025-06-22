@@ -7,7 +7,7 @@
   /* height: auto; */
   margin-bottom: 20px;
   padding: 10px 0;
-  background-color: #007bff !important; /* Changed to blue with higher priority */
+  background-color: #ffffff !important; /* Changed to blue with higher priority */
   padding-top: 20px;
   white-space: nowrap; /* Changed from wrap to nowrap to prevent wrapping */
   /* -webkit-overflow-scrolling: touch; */

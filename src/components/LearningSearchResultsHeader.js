@@ -38,7 +38,6 @@ function LearningSearchResultsHeader({ onSearchChange, searchValue }) {
         <a href="/plans-pricing" className="lsr-header-link">Plans & Pricing</a>
         <a href="/udemy-business" className="lsr-header-link">services</a>
         <a href="/teach" className="lsr-header-link">Teach on Miracle</a>
-        <button className="lsr-icon-button" aria-label="Cart">🛒</button>
         <button className="lsr-login-button">Log in</button>
         <button className="lsr-signup-button">Sign up</button>
         <button className="lsr-icon-button" aria-label="Cart">🛒</button>

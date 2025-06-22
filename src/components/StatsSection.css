@@ -28,9 +28,13 @@
 
 .stats .stats-item span {
   font-size: 36px;
-  display: block;
+  display: inline-block;
   font-weight: 700;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.purecounter::after {
+  content: "";
 }
 
 .stats .stats-item p {

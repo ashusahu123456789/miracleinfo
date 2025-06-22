@@ -14,8 +14,8 @@ function CourseHoverPopup({ course }) {
         <span className="badge availability">{course.availability}</span>
       </div>
       <div className="course-summary">
-        <strong>Course summary</strong>
-        <p>{course.description}</p>
+        <strong>About this course</strong>
+        <p>{course.about}</p>
       </div>
       <div className="course-details">
         <strong>Details</strong>
