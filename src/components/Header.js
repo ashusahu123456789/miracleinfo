@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 function Header({ className = '', isMobileNavOpen, isScrolled, isServicesDropdownOpen, onMobileNavToggle, onServicesDropdownToggle, onOpenLearningMaterial }) {
+  const navmenuRef = useRef(null);
+
   useEffect(() => {
     if (isMobileNavOpen) {
       document.body.classList.add('mobile-nav-active');
@@ -9,13 +11,29 @@ function Header({ className = '', isMobileNavOpen, isScrolled, isServicesDropdow
     }
   }, [isMobileNavOpen]);
 
+  useEffect(() => {
+    if (!isMobileNavOpen) return;
+
+    const handleClickOutside = (event) => {
+      if (navmenuRef.current && !navmenuRef.current.contains(event.target)) {
+        onMobileNavToggle();
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMobileNavOpen, onMobileNavToggle]);
+
   return (
     <header id="header" className={"header d-flex align-items-center fixed-top " + className + (isScrolled ? " scrolled" : "")}>
       <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" className="logo d-flex align-items-center">
           <img src="assets/img/perfectlogo.png" alt="logo" className="logo-large" />
         </a>
-        <nav id="navmenu" className="navmenu">
+        <nav id="navmenu" className="navmenu" ref={navmenuRef}>
           <ul>
             <li><a href="#hero" className="active">Home</a></li>
             <li><a href="#about">Company Profile</a></li>
@@ -23,7 +41,7 @@ function Header({ className = '', isMobileNavOpen, isScrolled, isServicesDropdow
             <li><a href="#stats">Clients</a></li>
             <li><a href="/career">Career</a></li>
             <li><a href="#contact">Contact</a></li>
-<li><a href="#features" onClick={(e) => { e.preventDefault(); onOpenLearningMaterial(); }} style={{cursor: 'pointer'}}>Learning Material</a></li>
+            <li><a href="#features" onClick={(e) => { e.preventDefault(); onOpenLearningMaterial(); }} style={{cursor: 'pointer'}}>Learning Material</a></li>
             {/* <li className={'dropdown ' + (isServicesDropdownOpen ? 'dropdown-active' : '')}>
               <a href="#!" onClick={onServicesDropdownToggle}>
                 <span>Services</span> <i className="bi bi-chevron-down toggle-dropdown" />

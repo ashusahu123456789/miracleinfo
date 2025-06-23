@@ -53,6 +53,24 @@ function HomePage() {
     };
   }, []);
 
+  // New useEffect to handle click outside mobile nav to close it
+  React.useEffect(() => {
+    if (!isMobileNavOpen) return;
+
+    const handleClickOutside = (event) => {
+      const navmenu = document.getElementById('navmenu');
+      if (navmenu && !navmenu.contains(event.target)) {
+        setIsMobileNavOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMobileNavOpen]);
+
   const openLearningMaterial = () => {
     setIsLearningMaterialOpen(true);
   };
