@@ -55,7 +55,7 @@
   margin-right: 0.5rem;
 }
 
-input[type="text"] {
+.job-filters input[type="text"] {
   width: 100%;
   padding: 0.4rem;
   border-radius: 4px;

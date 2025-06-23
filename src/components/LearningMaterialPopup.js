@@ -270,7 +270,7 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
         {/* Form for contact info and selections */}
         <form style={{ textAlign: 'left', marginTop: '10px' }} onSubmit={(e) => e.preventDefault()}>
           {/* Contact info input label */}
-          <label htmlFor="contactInfo" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>
+          <label htmlFor="contactInfo" style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#fff' }}>
             Please enter your phone number or email address:
           </label>
 

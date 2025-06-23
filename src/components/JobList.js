@@ -36,16 +36,21 @@ const jobs = [
 
 const JOBS_PER_PAGE = 10;
 
-const JobList = () => {
+const JobList = ({ searchQuery }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(jobs.length / JOBS_PER_PAGE);
+  // Filter jobs based on search query (case-insensitive)
+  const filteredJobs = jobs.filter((job) =>
+    job.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const totalPages = Math.ceil(filteredJobs.length / JOBS_PER_PAGE);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  const currentJobs = jobs.slice(
+  const currentJobs = filteredJobs.slice(
     (currentPage - 1) * JOBS_PER_PAGE,
     currentPage * JOBS_PER_PAGE
   );
