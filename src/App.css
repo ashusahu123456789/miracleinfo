@@ -22,3 +22,20 @@
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
   }
 }
+
+/* Footer slow left-right animation */
+@keyframes slow-move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.footer-animation {
+  animation: slow-move 10s ease-in-out infinite;
+}

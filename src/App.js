@@ -26,6 +26,7 @@ import Footer from './components/Footer';
 import Course3DSlideshow from './components/Course3DSlideshow';
 
 import Career from './components/Career';
+import JobSearch from './pages/JobSearch';  // Added import for JobSearch
 
 // Route Components (Pages)
 import LearningSearchResults from './components/LearningSearchResults';
@@ -132,6 +133,7 @@ function App() {
         <Route path="/course/39" element={<CoursePage39 />} />
         <Route path="/course/:id" element={<CoursePage />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/jobsearch" element={<JobSearch />} />
       </Routes>
     </Router>
   );
