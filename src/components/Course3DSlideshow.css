@@ -124,4 +124,8 @@
     width: 180px;
     height: 200px;
   }
+
+  .hover-text {
+    text-shadow: 0 0 5px #90ee90, 0 0 10px #90ee90 !important; /* always show green glow on mobile */
+  }
 }

@@ -34,7 +34,7 @@ const AboveFooter = () => {
       </div>
       <div className="about-text">
         <p>
-          Miracle Information Services (aka Miracle Infoserv) Private Limited is a leading EduTech/IT services company registered under the Companies Act 1956 and is in the field of IT Training and Placements. In the last decade, our organization - Miracle Infotech has expanded and incorporated Miracle Information Services, Miracle IT Career Academy, Miracle Infosoft, Miracle IT Foundation and Miracle IT Skills.
+          Miracle Information Services (Miracle Infoserv) Private Limited is a leading EduTech/IT services company registered under the Companies Act 1956 and is in the field of IT Training and Placements. In the last decade, our organization - Miracle Infotech has expanded and incorporated Miracle Information Services, Miracle IT Career Academy, Miracle Infosoft, Miracle IT Foundation and Miracle IT Skills.
         </p>
       </div>
     </section>
