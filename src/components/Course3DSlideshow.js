@@ -1,5 +1,6 @@
 import React from 'react';
 import './Course3DSlideshow.css';
+import './ProductsHeading.css';
 
 const sampleImages = [
   'assets/img/details-1.png',
@@ -11,16 +12,35 @@ const sampleImages = [
   'assets/img/details-1.png',
 ];
 
+const imageTexts = [
+  'School Erp',
+  'Push Notification Api',
+  'Ecommerce',
+  'Inventory Management',
+  'Billing',
+  'Web Design',
+  'Backend',
+];
+
 function Course3DSlideshow() {
   const totalImages = sampleImages.length;
   const angleStep = 360 / totalImages;
-  const zDistance = window.innerWidth < 768 ? 200 : 310;
+  let zDistance;
+  if (window.innerWidth < 360) {
+    zDistance = 200;
+  } else if (window.innerWidth < 768) {
+    zDistance = 236;
+  } else {
+    zDistance = 336;
+  }
 
   return (
     <>
-      <section className="container section-title" id='Products'>
-        <h2>Products</h2>
-        <div><span>Our</span> <span className="description-title">Products</span></div>
+      <section id='Products' className="section">
+        <div className="container section-title">
+          <h2>Products</h2>
+          <div><span>Our</span> <span className="description-title">Products</span></div>
+        </div>
       </section>
       <section id="slideshow">
         <div className="entire-content">
@@ -31,6 +51,7 @@ function Course3DSlideshow() {
                   src={src}
                   alt={`Course ${index + 1}`}
                 />
+                <div className="hover-text">{imageTexts[index]}</div>
               </figure>
             ))}
           </div>

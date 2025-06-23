@@ -15,15 +15,17 @@ function Header({ className = '', isMobileNavOpen, isScrolled, isServicesDropdow
     if (!isMobileNavOpen) return;
 
     const handleClickOutside = (event) => {
+      console.log('Click detected:', event.target);
       if (navmenuRef.current && !navmenuRef.current.contains(event.target)) {
+        console.log('Click outside navmenu detected, closing menu');
         onMobileNavToggle();
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('click', handleClickOutside, true);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('click', handleClickOutside, true);
     };
   }, [isMobileNavOpen, onMobileNavToggle]);
 

@@ -1,6 +1,6 @@
 #slideshow {
   margin: 0 auto;
-  padding-bottom: 300px;
+  padding-bottom: 0px;
   width: 100%;
   max-width: 100vw;
   background-color: #fbd9c7;
@@ -8,13 +8,38 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-bottom: 450px;
 }
 
 .entire-content {
   width: 100%;
   max-width: 350px;
   perspective: 1200px;
-  padding-top: 90px;
+  padding: 50px;
+}
+.content-carrousel figure {
+  width: 320px;
+  height: 240px;
+  margin: auto;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+.content-carrousel figure {
+  width: 208px;
+  height: 156px;
+  margin: auto;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background: #fff;
+  transition: transform 0.3s ease-in-out;
 }
 
 .content-carrousel {
@@ -30,8 +55,8 @@
 }
 
 .content-carrousel figure {
-  width: 160px;
-  height: 120px;
+  width: 220px;
+  height: 269px;
   margin: auto;
   border: 1px solid #ccc;
   overflow: hidden;
@@ -39,9 +64,36 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   background: #fff;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
 }
 
+.content-carrousel figure:hover {
+  box-shadow: 0 0 15px 5px #90ee90; /* light green glow */
+}
+
+.hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(12, 45, 1); /* default blue color */
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 1; /* always visible */
+  pointer-events: auto;
+  text-shadow: none;
+  transition: text-shadow 0.3s ease-in-out;
+  white-space: normal; /* allow wrapping */
+  max-width: 90%; /* constrain width to fit inside figure */
+  text-align: center; /* center wrapped text */
+}
+
+.content-carrousel figure:hover .hover-text {
+  text-shadow: 0 0 5px #90ee90, 0 0 10px #90ee90; /* green glow on hover */
+  text-transform: uppercase;
+  
+}
 .content-carrousel img {
   width: 100%;
   height: 100%;
@@ -60,16 +112,16 @@
 /* Responsive tweaks for small devices */
 @media (max-width: 768px) {
   #slideshow {
-    padding-bottom: 150px;
+    padding-bottom: 300px;
     overflow-x: hidden;
   }
 
   .entire-content {
-    max-width: 220px;
+    max-width: 540px;
   }
 
   .content-carrousel figure {
-    width: 140px;
-    height: 100px;
+    width: 180px;
+    height: 200px;
   }
 }
