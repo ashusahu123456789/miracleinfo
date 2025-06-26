@@ -21,6 +21,13 @@ const ProductLayout = ({
     return () => clearInterval(interval);
   }, [gallery.length]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleThumbnailClick = (index) => {
     setMainImageIndex(index);
   };

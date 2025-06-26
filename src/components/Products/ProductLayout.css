@@ -231,3 +231,48 @@
   top: 0px;
     margin-bottom: 5px;
 }
+
+@media (max-width: 600px) {
+  .product-page-container {
+    padding: 10px;
+    flex-direction: column !important;
+    width: 100vh;
+  }
+
+  .twothreegal-onethreefeature {
+    flex-direction: column !important;
+  }
+
+  .gallery-section,
+  .features-section {
+    flex: none;
+    width: 100%;
+    height: auto;
+    order: initial !important;
+  }
+
+  .product-layout__header h1 {
+    font-size: 1.8rem;
+  }
+
+  .purchase-buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .purchase-buttons button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .thumbnails img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .thumbnails img:last-child {
+    margin-right: 0;
+  }
+}
