@@ -6,8 +6,8 @@ const Footer = () => {
       <div className="container footer-top">
         <div className="row gy-4">
           <div className="col-lg-4 col-md-6 footer-about">
-            <a href="index.html" className="logo d-flex align-items-center">
-              <span className="sitename">Miracle Infosoft</span>
+            <a href="index.html" className="logo d-flex align-items-center" style={{ justifyContent: 'center', textAlign: 'center' }}>
+              <span className="sitename" style={{ display: 'block', width: '100%' }}>Miracle Infosoft</span>
             </a>
             <div className="footer-contact pt-3">
               <p>Plot No.80, 3rd Floor, Aakriti Complex, Zone-II, M.P. Nagar</p>

@@ -187,8 +187,9 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
    */
   const validateContactInfo = (info) => {
     const emailRegex = /^[\w-.]+@[\w-]+\.[a-z]{2,}$/i;
-    const phoneRegex = /^\+?\d{7,15}$/;
-    return emailRegex.test(info) || phoneRegex.test(info);
+    // Updated phone regex to allow spaces, dashes, parentheses, dots
+    const phoneRegex = /^\+?[\d\s\-().]{7,20}$/;
+    return emailRegex.test(info.trim()) || phoneRegex.test(info.trim());
   };
 
   // Handle Next button click: validate input and call onNext with data
@@ -201,6 +202,7 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
       setError('Please enter a valid phone number or email address.');
       return;
     }
+    // Removed validation for selectedMaterials and selectedPreferences to avoid popup
     setError('');
     if (onNext) {
       onNext({

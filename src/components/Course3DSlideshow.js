@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Course3DSlideshow.css';
 import './ProductsHeading.css';
+import Course3DSlideshowpopup from './Products/Course3DSlideshowpopup';
 
 const sampleImages = [
   'assets/img/details-1.png',
@@ -22,7 +24,18 @@ const imageTexts = [
   'Backend',
 ];
 
+const productIds = [
+  'school-erp',
+  'push-notification-api',
+  'ecommerce',
+  'inventory-management',
+  'billing',
+  'web-design',
+  'backend',
+];
+
 function Course3DSlideshow() {
+  const navigate = useNavigate();
   const totalImages = sampleImages.length;
   const angleStep = 360 / totalImages;
   let zDistance;
@@ -34,6 +47,13 @@ function Course3DSlideshow() {
     zDistance = 336;
   }
 
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const handleClick = (index) => {
+    const productId = productIds[index];
+    navigate(`/products/${productId}`);
+  };
+
   return (
     <>
       <section id='Products' className="section">
@@ -42,11 +62,21 @@ function Course3DSlideshow() {
           <div><span>Our</span> <span className="description-title">Products</span></div>
         </div>
       </section>
-      <section id="slideshow">
+      <section id="slideshow" style={{ position: 'relative' }}>
         <div className="entire-content">
           <div className="content-carrousel">
             {sampleImages.map((src, index) => (
-              <figure key={index} className="shadow" style={{ transform: `rotateY(${index * angleStep}deg) translateZ(${zDistance}px)` }}>
+              <figure
+                key={index}
+                className="shadow"
+                style={{ transform: `rotateY(${index * angleStep}deg) translateZ(${zDistance}px)` }}
+                onClick={() => handleClick(index)}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                tabIndex={0}
+                role="button"
+                aria-label={`View details for ${imageTexts[index]}`}
+              >
                 <img
                   src={src}
                   alt={`Course ${index + 1}`}
@@ -55,6 +85,13 @@ function Course3DSlideshow() {
               </figure>
             ))}
           </div>
+          {hoveredIndex !== null && (
+            <Course3DSlideshowpopup
+              productId={productIds[hoveredIndex]}
+              visible={true}
+              style={{ position: 'absolute', top: 0, left: '100%' }}
+            />
+          )}
         </div>
       </section>
     </>

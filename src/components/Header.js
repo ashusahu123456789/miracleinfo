@@ -33,7 +33,7 @@ function Header({ className = '', isMobileNavOpen, isScrolled, isServicesDropdow
     <header id="header" className={"header d-flex align-items-center fixed-top " + className + (isScrolled ? " scrolled" : "")}>
       <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" className="logo d-flex align-items-center">
-          <img src="assets/img/perfectlogo.png" alt="logo" className="logo-large" />
+          <img src="/assets/img/perfectlogo.png" alt="logo" className="logo-large" />
         </a>
         <nav id="navmenu" className="navmenu" ref={navmenuRef}>
           <ul>

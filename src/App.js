@@ -31,6 +31,7 @@ import JobSearch from './pages/JobSearch';  // Added import for JobSearch
 // Route Components (Pages)
 import LearningSearchResults from './components/LearningSearchResults';
 import LearningMaterialPopup from './components/LearningMaterialPopup';
+import Products from './components/Products/Products';
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
@@ -80,17 +81,20 @@ function HomePage() {
   };
 
   const handleLearningMaterialNext = (data) => {
-    // Validate email format
+    // Validate email or phone format
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    if (!emailRegex.test(data.contactInfo)) {
-      alert('Please enter a valid email address.');
+    const phoneRegex = /^\+?[\d\s\-().]{7,20}$/;
+    if (!emailRegex.test(data.contactInfo) && !phoneRegex.test(data.contactInfo)) {
+      alert('Please enter a valid phone number or email address.');
       return;
     }
-    // Validate at least one item selected from each question
+    // Removed validation for empty selections to remove popup alert
+    /*
     if (!data.selectedMaterials.length || !data.selectedPreferences.length) {
       alert('Please select at least one item from each question.');
       return;
     }
+    */
     // Close popup and navigate to LearningSearchResults page with data
     setIsLearningMaterialOpen(false);
     navigate('/LearningSearchResults', { state: { searchData: data } });
@@ -152,6 +156,7 @@ function App() {
         <Route path="/course/:id" element={<CoursePage />} />
         <Route path="/career" element={<Career />} />
         <Route path="/jobsearch" element={<JobSearch />} />
+        <Route path="/products/:id" element={<Products />} />
       </Routes>
     </Router>
   );

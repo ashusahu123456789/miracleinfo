@@ -1,0 +1,167 @@
+<<<<<<< import SchoolErp from './SchoolErp';
+import PushNotificationApi from './PushNotificationApi';
+import Ecommerce from './Ecommerce';
+import InventoryManagement from './InventoryManagement';
+import Billing from './Billing';
+import WebDesign from './WebDesign';
+import Backend from './Backend';
+======= 
+import SchoolErp from './SchoolErp';
+import PushNotificationApi from './PushNotificationApi';
+import Ecommerce from './Ecommerce';
+import InventoryManagement from './InventoryManagement';
+import Billing from './Billing';
+import WebDesign from './WebDesign';
+import Backend from './Backend';
+
+import Header from '../Header';
+import Footer from '../Footer';
+import FeaturesSection from '../FeaturesSection';
+>>>>>>> REPLACE
+
+<<<<<<< const products = [
+  {
+    id: 'school-erp',
+    name: 'School ERP',
+    description: 'Comprehensive school management system for attendance, grades, and communication.',
+    image: '/assets/img/products/school-erp.jpg',
+  },
+  {
+    id: 'push-notification-api',
+    name: 'Push Notification API',
+    description: 'Robust API for sending real-time push notifications to mobile and web apps.',
+    image: '/assets/img/products/push-notification-api.jpg',
+  },
+  {
+    id: 'ecommerce',
+    name: 'Ecommerce',
+    description: 'Feature-rich ecommerce platform with payment integration and inventory management.',
+    image: '/assets/img/products/ecommerce.jpg',
+  },
+  {
+    id: 'inventory-management',
+    name: 'Inventory Management',
+    description: 'Track and manage stock levels, orders, and suppliers efficiently.',
+    image: '/assets/img/products/inventory-management.jpg',
+  },
+  {
+    id: 'billing',
+    name: 'Billing',
+    description: 'Automated billing and invoicing system with tax and discount support.',
+    image: '/assets/img/products/billing.jpg',
+  },
+  {
+    id: 'web-design',
+    name: 'Web Design',
+    description: 'Creative and responsive web design services tailored to your brand.',
+    image: '/assets/img/products/web-design.jpg',
+  },
+  {
+    id: 'backend',
+    name: 'Backend',
+    description: 'Scalable backend solutions with RESTful APIs and database management.',
+    image: '/assets/img/products/backend.jpg',
+  },
+];
+======= 
+const products = [
+  {
+    id: 'school-erp',
+    name: 'School ERP',
+    description: 'Comprehensive school management system for attendance, grades, and communication.',
+    image: '/assets/img/products/school-erp.jpg',
+  },
+  {
+    id: 'push-notification-api',
+    name: 'Push Notification API',
+    description: 'Robust API for sending real-time push notifications to mobile and web apps.',
+    image: '/assets/img/products/push-notification-api.jpg',
+  },
+  {
+    id: 'ecommerce',
+    name: 'Ecommerce',
+    description: 'Feature-rich ecommerce platform with payment integration and inventory management.',
+    image: '/assets/img/products/ecommerce.jpg',
+  },
+  {
+    id: 'inventory-management',
+    name: 'Inventory Management',
+    description: 'Track and manage stock levels, orders, and suppliers efficiently.',
+    image: '/assets/img/products/inventory-management.jpg',
+  },
+  {
+    id: 'billing',
+    name: 'Billing',
+    description: 'Automated billing and invoicing system with tax and discount support.',
+    image: '/assets/img/products/billing.jpg',
+  },
+  {
+    id: 'web-design',
+    name: 'Web Design',
+    description: 'Creative and responsive web design services tailored to your brand.',
+    image: '/assets/img/products/web-design.jpg',
+  },
+  {
+    id: 'backend',
+    name: 'Backend',
+    description: 'Scalable backend solutions with RESTful APIs and database management.',
+    image: '/assets/img/products/backend.jpg',
+  },
+];
+
+const ThreeImagesSection = () => {
+  return (
+    <div className="three-images-section">
+      <img src="/assets/img/details-1.png" alt="Image 1" className="three-image" />
+      <img src="/assets/img/details-2.png" alt="Image 2" className="three-image" />
+      <img src="/assets/img/details-3.png" alt="Image 3" className="three-image" />
+    </div>
+  );
+};
+
+const DetailsSection = () => {
+  return (
+    <div className="details-section">
+      <div className="some-details">
+        <h2>Some Details</h2>
+        <p>
+          We provide comprehensive solutions in backend development, billing systems, ecommerce platforms,
+          inventory management, web design, push notification APIs, and school ERP systems. Our expertise
+          ensures scalable, secure, and efficient software tailored to your business needs.
+        </p>
+      </div>
+      <div className="more-details">
+        <h2>More Details</h2>
+        <p>
+          Our backend solutions include RESTful APIs, database management, and cloud integration. Billing
+          systems support automated invoicing, tax calculations, and discounts. Ecommerce platforms are
+          feature-rich with payment gateways and inventory tracking. Our web design services focus on
+          responsive and user-friendly interfaces. Push notification APIs enable real-time communication,
+          and our school ERP systems streamline administration and communication.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const TestimonialsSection = () => {
+  return (
+    <section className="testimonials-section">
+      <h2>Testimonials</h2>
+      <div className="testimonial-cards">
+        <div className="testimonial-card">
+          <p>"Miracle Infosoft transformed our ecommerce platform with their expert backend solutions."</p>
+          <h4>- Client A</h4>
+        </div>
+        <div className="testimonial-card">
+          <p>"The school ERP system improved our administrative efficiency significantly."</p>
+          <h4>- Client B</h4>
+        </div>
+        <div className="testimonial-card">
+          <p>"Their push notification API helped us engage users in real-time effectively."</p>
+          <h4>- Client C</h4>
+        </div>
+      </div>
+    </section>
+  );
+};

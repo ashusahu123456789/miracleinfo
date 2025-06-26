@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './FaqSection.css';
+
+const faqData = [
+  {
+    question: "What types of software solutions do you provide?",
+    answer: "We develop ERP systems, web and mobile applications, and custom software tailored for industries like education, retail, healthcare, and logistics."
+  },
+  {
+    question: "Can your ERP solutions be customized for our specific business needs?",
+    answer: "Yes, our ERP platforms are fully modular and can be customized to match your exact workflows, roles, and reporting requirements."
+  },
+  {
+    question: "Do you offer support and updates after the project is delivered?",
+    answer: "Absolutely. We provide ongoing maintenance, feature updates, and dedicated support to ensure your system runs smoothly."
+  }
+];
 
 function FaqSection() {
+  const [activeIndex, setActiveIndex] = useState(-1);
+
+  const toggleFaq = (index) => {
+    setActiveIndex(index === activeIndex ? -1 : index);
+  };
+
   return (
     <section id="faq" className="faq section light-background">
       <div className="container-fluid">
@@ -8,35 +30,23 @@ function FaqSection() {
           <div className="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
             <div className="content px-xl-5" data-aos="fade-up" data-aos-delay={100}>
               <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-              </p>
+              <p>Have questions about our tech services? Here are quick answers to help you understand how we work.</p>
             </div>
             <div className="faq-container px-xl-5" data-aos="fade-up" data-aos-delay={200}>
-              <div className="faq-item faq-active">
-                <i className="faq-icon bi bi-question-circle" />
-                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
-                <div className="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+              {faqData.map((item, index) => (
+                <div
+                  key={index}
+                  className={`faq-item ${index === activeIndex ? 'faq-active' : ''}`}
+                  onClick={() => toggleFaq(index)}
+                >
+                  <i className="faq-icon bi bi-question-circle" />
+                  <h3>{item.question}</h3>
+                  <div className="faq-content">
+                    <p>{item.answer}</p>
+                  </div>
+                  <i className="faq-toggle bi bi-chevron-right" />
                 </div>
-                <i className="faq-toggle bi bi-chevron-right" />
-              </div>{/* End Faq item*/}
-              <div className="faq-item">
-                <i className="faq-icon bi bi-question-circle" />
-                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
-                <div className="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i className="faq-toggle bi bi-chevron-right" />
-              </div>{/* End Faq item*/}
-              <div className="faq-item">
-                <i className="faq-icon bi bi-question-circle" />
-                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                <div className="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-                </div>
-                <i className="faq-toggle bi bi-chevron-right" />
-              </div>{/* End Faq item*/}
+              ))}
             </div>
           </div>
           <div className="col-lg-5 order-1 order-lg-2">

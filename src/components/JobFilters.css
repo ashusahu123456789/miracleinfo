@@ -4,7 +4,7 @@
   background-color: #1a1a1a;
   color: white;
   overflow-y: auto;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 100px);
   box-sizing: border-box;
 }
 

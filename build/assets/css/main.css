@@ -511,6 +511,39 @@ h6 {
   position: relative;
 }
 
+@media (max-width: 768px) {
+  /* Center sitename in logo on mobile */
+  .footer .footer-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer .footer-about .logo {
+    justify-content: center !important;
+  }
+  .footer .footer-about .logo .sitename {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+ 
+  /* Center footer links on mobile */
+  .footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer .footer-links ul {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  /* Center social links on mobile */
+  .footer .social-links {
+    justify-content: center !important;
+  }
+}
+
 .footer .footer-top {
   padding-top: 50px;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -553,6 +586,14 @@ h6 {
   transition: 0.3s;
 }
 
+.footer .footer-about .social-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
 .footer .social-links a:hover {
   color: var(--accent-color);
   border-color: var(--accent-color);
@@ -563,6 +604,22 @@ h6 {
   font-weight: bold;
   position: relative;
   padding-bottom: 12px;
+  margin-left: 0; /* Ensure no left margin */
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding-left: 0; /* Remove default ul padding */
+  margin-left: 0; /* Remove default ul margin */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center links horizontally */
+}
+
+.footer .footer-links ul li {
+  padding: 10px 0;
+  display: block;
+  margin-left: 0; /* Remove any left margin */
 }
 
 .footer .footer-links {
@@ -600,10 +657,15 @@ h6 {
 .footer .footer-links ul a:hover {
   color: var(--accent-color);
 }
-
+.footer .footer-contact{
+  margin-right: 20px;
+}
 .footer .footer-contact p {
   margin-bottom: 5px;
+  /* margin-right: 30px;
+  padding-right: 50px; */
 }
+
 
 .footer .footer-newsletter .newsletter-form {
   margin-top: 30px;
@@ -661,7 +723,13 @@ h6 {
   margin-top: 6px;
   font-size: 13px;
 }
-
+.footer {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 14px;
+  position: relative;
+  border: 1px solid #fbd9c7;
+}
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -1219,7 +1287,7 @@ section,
 
 .stats .stats-item span {
   font-size: 36px;
-  display: block;
+  display: inline-block;
   font-weight: 700;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
 }

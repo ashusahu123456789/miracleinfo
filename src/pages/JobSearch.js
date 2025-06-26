@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './JobSearch.css';
 import JobFilters from '../components/JobFilters';
 import JobList from '../components/JobList';
@@ -6,6 +6,8 @@ import JobList from '../components/JobList';
 const JobSearch = () => {
   const [showCompactHeader, setShowCompactHeader] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [filterOpen, setFilterOpen] = useState(false);
+  const filterRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +25,25 @@ const JobSearch = () => {
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
+
+  // Close filter if click outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        setFilterOpen(false);
+      }
+    };
+    if (filterOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [filterOpen]);
+
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <>
@@ -74,10 +95,26 @@ const JobSearch = () => {
         </button>
       </div>
 
+      {/* Hamburger button for mobile */}
+      {isMobile && (
+        <div className="job-filter-hamburger" onClick={() => setFilterOpen(true)} aria-label="Open job filter" role="button" tabIndex={0}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )}
+
       {/* Main content with filters and job list */}
-      <div className="jobsearch-container">
-        <JobFilters />
-        <JobList searchQuery={searchQuery} />
+      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '20px' }}>
+        <div className={`job-filter-container ${filterOpen ? 'active' : ''}`} ref={filterRef} style={{ display: isMobile ? 'block' : 'flex', flex: isMobile ? 'none' : '1 1 300px' }}>
+          {isMobile && filterOpen && (
+            <button className="job-filter-close" onClick={() => setFilterOpen(false)} aria-label="Close job filter">×</button>
+          )}
+          <JobFilters />
+        </div>
+        <div className="jobsearch-container" style={{ flex: '1 1 auto' }}>
+          <JobList searchQuery={searchQuery} />
+        </div>
       </div>
     </>
   );

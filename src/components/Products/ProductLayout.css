@@ -1,0 +1,233 @@
+.product-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background-color: #fff8f0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.product-layout__header {
+  width: 100%;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #f05a28;
+  padding-bottom: 10px;
+  animation: slideDown 0.8s ease forwards;
+  text-align: center;
+}
+
+.product-layout__header h1 {
+  font-size: 2.5rem;
+  color: #f05a28;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.gallery-section {
+  flex: 2 1 66.66%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: fadeInUp 1s ease forwards;
+  height: 450px; /* keep current height */
+}
+
+.main-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(240, 90, 40, 0.3);
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: zoomIn 1.2s ease forwards;
+  transition: transform 0.5s ease;
+}
+
+.main-image img:hover {
+  transform: scale(1.05);
+}
+
+.thumbnails {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.thumbnails img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  cursor: pointer;
+  object-fit: cover;
+  border: 3px solid transparent;
+  box-shadow: 0 4px 10px rgba(240, 90, 40, 0.2);
+  transition: border-color 0.4s ease, transform 0.3s ease;
+}
+
+.thumbnails img.active,
+.thumbnails img:hover {
+  border-color: #f05a28;
+  transform: scale(1.1);
+}
+
+.about-section,
+.details-section,
+.reviews-section,
+.testimonials-section {
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px 20px;
+  background: #fff3e0;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(240, 90, 40, 0.1);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.about-section h2,
+.details-section h2,
+.reviews-section h2,
+.testimonials-section h2,
+.features-section h2 {
+  margin-bottom: 15px;
+  color: #f05a28;
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #f05a28;
+  padding-bottom: 5px;
+}
+
+.review {
+  margin-bottom: 12px;
+  font-style: italic;
+  color: #555;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.testimonials-list {
+  display: flex;
+  gap: 25px;
+  justify-content: space-around;
+}
+
+.testimonial {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 2px 6px 18px rgba(255, 64, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-8px);
+}
+
+.testimonial p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.testimonial strong {
+  color: #f05a28;
+  font-weight: 700;
+}
+
+.features-section {
+  flex: 1 1 33.33%;
+  background-color: #fff3e0;
+  padding: 25px 20px;
+  border-radius: 12px;
+  
+  height: 450px; /* match gallery height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 18px rgba(101, 25, 0, 0.15);
+  animation: fadeInRight 1s ease forwards;
+}
+
+.twothreegal-onethreefeature {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.purchase-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.purchase-buttons button {
+  flex: 1;
+  padding: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, box-shadow 0.3s ease;
+  font-size: 1.1rem;
+  color: white;
+  box-shadow: 0 4px 12px rgba(240, 90, 40, 0.4);
+}
+
+.purchase-buttons .add-to-cart {
+  background-color: #f05a28;
+}
+
+.purchase-buttons .add-to-cart:hover {
+  background-color: #d04e1a;
+  box-shadow: 0 6px 18px rgba(208, 78, 26, 0.6);
+}
+
+.purchase-buttons .buy-now {
+  background-color: #ff6f3c;
+}
+
+.purchase-buttons .buy-now:hover {
+  background-color: #e65a1f;
+  box-shadow: 0 6px 18px rgba(230, 90, 31, 0.6);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.features-section h2{
+  position: relative;
+  top: 0px;
+    margin-bottom: 5px;
+}
