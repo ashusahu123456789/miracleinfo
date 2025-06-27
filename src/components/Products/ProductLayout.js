@@ -33,7 +33,7 @@ const ProductLayout = ({
   };
 
   return (
-    <div className="product-page-container">
+    <div className="product-page-container" data-aos="fade-in" data-aos-duration="1000">
       <header className="product-layout__header">
         <h1>{headerTitle}</h1>
       </header>
@@ -58,7 +58,7 @@ const ProductLayout = ({
             ))}
           </div>
         </div>
-        <div className="features-section">
+        <div className="features-section" data-aos="fade-in" data-aos-duration="1000">
           <ProductsFeatures features={features} />
           <div className="purchase-buttons">
             <button className="add-to-cart">Add to Cart</button>
@@ -66,15 +66,15 @@ const ProductLayout = ({
           </div>
         </div>
       </div>
-      <div className="about-section">
+      <div className="about-section" data-aos="fade-left" data-aos-duration="1000">
         <h2>About</h2>
         <p>{about}</p>
       </div>
-      <div className="details-section">
+      <div className="details-section" data-aos="slide-up" data-aos-delay="200" data-aos-duration="800">
         <h2>Some Details</h2>
         <p>{details}</p>
       </div>
-      <div className="reviews-section">
+      <div className="reviews-section" data-aos="zoom-in" data-aos-duration="1000">
         <h2>Reviews</h2>
         {reviews.length > 0 ? (
           reviews.map((review, idx) => (
@@ -84,12 +84,12 @@ const ProductLayout = ({
           <p>No reviews available</p>
         )}
       </div>
-      <div className="testimonials-section">
+      <div className="testimonials-section" data-aos="fade-up">
         <h2>Testimonials</h2>
         <div className="testimonials-list">
           {testimonials.length > 0 ? (
             testimonials.map((t, idx) => (
-              <div key={idx} className="testimonial">
+              <div key={idx} className="testimonial" data-aos="fade-up" data-aos-delay={idx * 150}>
                 <p>{t.text}</p>
                 <p><strong>{t.name}</strong></p>
               </div>
