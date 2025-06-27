@@ -2,7 +2,7 @@ import React from 'react';
 import ProductLayout from './ProductLayout';
 
 export const inventoryManagementData = {
-    title: 'Inventory Management',
+    title: 'Office Document Management',
   gallery: [
     '/assets/img/product-gallery/inventory-management-1.png',
     '/assets/img/product-gallery/inventory-management-2.png',
@@ -35,7 +35,7 @@ export const inventoryManagementData = {
 const InventoryManagement = () => {
   return (
     <ProductLayout
-      headerTitle="Inventory Management"
+      headerTitle="Office Document Management"
       gallery={inventoryManagementData.gallery}
       about={inventoryManagementData.about}
       details={inventoryManagementData.details}

@@ -4,7 +4,7 @@ import ProductLayout from './ProductLayout';
 
 
 export const ecommerceData = {
-  title: 'Ecommerce',
+  title: 'Ecommerce APP',
  
   gallery: [
     '/assets/img/product-gallery/ecommerce-1.png',
@@ -27,9 +27,9 @@ export const ecommerceData = {
     { name: 'Charlie', text: 'Customer service is top-notch.' },
   ],
   features: [
-    'Multiple payment gateway support',
-    'Real-time inventory tracking and management',
-    'Customizable product catalogs and storefronts',
+    'Easy order',
+    'Order tracking board',
+    'Upload slip options',
     'Order management and fulfillment tools',
     'Customer analytics and marketing integrations',
   ],

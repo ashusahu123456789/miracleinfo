@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Course3DSlideshow.css';
 import './ProductsHeading.css';
 import Course3DSlideshowpopup from './Products/Course3DSlideshowpopup';
 
 const sampleImages = [
-  'assets/img/details-1.png',
-  'assets/img/details-2.png',
-  'assets/img/details-3.png',
-  'assets/img/details-1.png',
-  'assets/img/details-2.png',
-  'assets/img/details-3.png',
-  'assets/img/details-1.png',
+  'assets/img/erp.png',
+  'assets/img/ghantn.png',
+  'assets/img/ecommerces.png',
+  'assets/img/document-managment.png',
+  'assets/img/bills.png',
+  'assets/img/osay.png',
+  'assets/img/backen.png',
 ];
 
 const imageTexts = [
   'School Erp',
-  'Push Notification Api',
-  'Ecommerce',
-  'Inventory Management',
+  'Ghanti APP Easy Notification APP',
+  'Ecommerce APP',
+  'Office Document Management',
   'Billing',
   'Web Design',
   'Backend',
@@ -34,8 +33,7 @@ const productIds = [
   'backend',
 ];
 
-function Course3DSlideshow() {
-  const navigate = useNavigate();
+function Course3DSlideshow({ onProductClick }) {
   const totalImages = sampleImages.length;
   const angleStep = 360 / totalImages;
   let zDistance;
@@ -51,7 +49,9 @@ function Course3DSlideshow() {
 
   const handleClick = (index) => {
     const productId = productIds[index];
-    navigate(`/products/${productId}`);
+    if (onProductClick) {
+      onProductClick(productId, 0);
+    }
   };
 
   return (

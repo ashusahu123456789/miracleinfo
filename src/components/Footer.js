@@ -9,12 +9,12 @@ const Footer = () => {
             <a href="index.html" className="logo d-flex align-items-center" style={{ justifyContent: 'center', textAlign: 'center' }}>
               <span className="sitename" style={{ display: 'block', width: '100%' }}>Miracle Infosoft</span>
             </a>
-            <div className="footer-contact pt-3">
-              <p>Plot No.80, 3rd Floor, Aakriti Complex, Zone-II, M.P. Nagar</p>
-              <p>Bhopal - 462011</p>
-              <p className="mt-3"><strong>Phone:</strong> <span>+91-7880003161</span></p>
-              <p><strong>Email:</strong> <span>info@miracleinfoserv.com</span></p>
-            </div>
+      <div className="footer-contact pt-3" style={{ textAlign: 'center', margin: '0 auto' }}>
+        <p>Plot No.80, 3rd Floor, Aakriti Complex, Zone-II, M.P. Nagar</p>
+        <p>Bhopal - 462011</p>
+        <p className="mt-3"><strong>Phone:</strong> <span>+91-7880003161</span></p>
+        <p><strong>Email:</strong> <span>info@miracleinfoserv.com</span></p>
+      </div>
             <div className="social-links d-flex mt-4">
               <a href="#!"><i className="bi bi-twitter-x" /></a>
               <a href="https://www.facebook.com/MiracleInfoserv/" target='blank'><i className="bi bi-facebook" /></a>

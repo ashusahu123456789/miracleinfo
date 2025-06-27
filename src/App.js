@@ -34,10 +34,17 @@ import LearningMaterialPopup from './components/LearningMaterialPopup';
 import Products from './components/Products/Products';
 import { useNavigate } from 'react-router-dom';
 
+import ProductPopup from './components/Products/ProductPopup';
+import productData from './components/Products/productData';
+
 function HomePage() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isLearningMaterialOpen, setIsLearningMaterialOpen] = React.useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false);
+  const [popupVisible, setPopupVisible] = React.useState(false);
+  const [selectedProductId, setSelectedProductId] = React.useState(null);
+  const [popupImageIndex, setPopupImageIndex] = React.useState(0);
+
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -104,6 +111,18 @@ function HomePage() {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
 
+  const openProductPopup = (productId, imageIndex = 0) => {
+    setSelectedProductId(productId);
+    setPopupImageIndex(imageIndex);
+    setPopupVisible(true);
+  };
+
+  const closeProductPopup = () => {
+    setPopupVisible(false);
+    setSelectedProductId(null);
+    setPopupImageIndex(0);
+  };
+
   return (
     <>
       <Header
@@ -115,7 +134,7 @@ function HomePage() {
       <HeroSection />
       <AboutSection />
       <FeaturesSection />
-      <Course3DSlideshow />
+      <Course3DSlideshow onProductClick={openProductPopup} />
       <StatsSection />
       <DetailsSection />
       <GallerySection />
@@ -128,6 +147,14 @@ function HomePage() {
       <Footer />
       {isLearningMaterialOpen && (
         <LearningMaterialPopup onClose={closeLearningMaterial} onNext={handleLearningMaterialNext} />
+      )}
+      {popupVisible && selectedProductId && (
+        <ProductPopup
+          visible={popupVisible}
+          onClose={closeProductPopup}
+          product={productData[selectedProductId]}
+          selectedImageIndex={popupImageIndex}
+        />
       )}
       {/* Removed ScrollTop and Preloader components */}
     </>

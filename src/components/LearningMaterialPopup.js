@@ -5,7 +5,7 @@
  * 2. LearningMaterialPopup: A popup modal component that collects user contact info, learning material selections, and preferences.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 /**
  * MultiSelectDropdown component
@@ -15,30 +15,43 @@ import React, { useState } from 'react';
  * - selectedOptions: Array of currently selected option values.
  * - setSelectedOptions: Function to update the selected options.
  */
-const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptions }) => {
-  // State to track whether the dropdown list is open or closed
-  const [isOpen, setIsOpen] = useState(false);
 
-  // Toggle the dropdown open/close state
+const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptions }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const closeTimeoutRef = useRef(null);
+
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  // Handle clicking an option: add or remove it from selectedOptions
   const handleOptionClick = (value) => {
     if (selectedOptions.includes(value)) {
-      // Remove option if already selected
       setSelectedOptions(selectedOptions.filter((v) => v !== value));
     } else {
-      // Add option if not selected
       setSelectedOptions([...selectedOptions, value]);
     }
   };
 
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 300);
+  };
+
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
   return (
-    <div className="multi-select-dropdown" style={{ marginBottom: '20px', position: 'relative'  }}>
-      {/* Label for the dropdown */}
+    <div
+      className="multi-select-dropdown"
+      style={{ marginBottom: '20px', position: 'relative' }}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+    >
       <label style={{ fontWeight: '600', display: 'block', marginBottom: '8px' }}>{label}</label>
 
-      {/* Dropdown header showing selected options or placeholder */}
       <div
         className="dropdown-header"
         onClick={toggleDropdown}
@@ -57,11 +70,9 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
           backgroundColor: '#fff',
         }}
       >
-        {/* Show placeholder text if no options selected */}
         {selectedOptions.length === 0 ? (
           <span style={{ color: '#999' }}>{options[0].text}</span>
         ) : (
-          // Show selected options as badges with remove buttons
           selectedOptions.map((value) => {
             const option = options.find((opt) => opt.value === value);
             return (
@@ -79,10 +90,9 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
                 }}
               >
                 {option ? option.text : value}
-                {/* Button to remove selected option */}
                 <button
                   onClick={(e) => {
-                    e.stopPropagation(); // Prevent dropdown toggle on button click
+                    e.stopPropagation();
                     handleOptionClick(value);
                   }}
                   style={{
@@ -102,29 +112,26 @@ const MultiSelectDropdown = ({ label, options, selectedOptions, setSelectedOptio
             );
           })
         )}
-        {/* Dropdown arrow indicator */}
         <span style={{ marginLeft: 'auto', fontSize: '16px', userSelect: 'none' }}>
           {isOpen ? '▲' : '▼'}
         </span>
       </div>
 
-      {/* Dropdown list of options, shown when open */}
       {isOpen && (
         <div
           className="dropdown-list"
-      style={{
-        border: '1px solid #ccc',
-        borderRadius: '5px',
-        marginTop: '4px',
-        maxHeight: '150px',
-        overflowY: 'auto',
-        backgroundColor: '#fff',
-        position: 'absolute',
-        zIndex: 1301,
-        width: '100%',
-      }}
+          style={{
+            border: '1px solid #ccc',
+            borderRadius: '5px',
+            marginTop: '4px',
+            maxHeight: '150px',
+            overflowY: 'auto',
+            backgroundColor: '#fff',
+            position: 'absolute',
+            zIndex: 1301,
+            width: '100%',
+          }}
         >
-          {/* Render each option with a checkbox */}
           {options.map((option) => (
             <label
               key={option.value}
@@ -226,7 +233,7 @@ const LearningMaterialPopup = ({ onClose, onNext }) => {
         alignItems: 'center',
         zIndex: 1300,
       }}
-      onClick={onClose}
+      // Removed onClick to prevent closing on outside click
     >
       {/* Popup content container */}
       <div

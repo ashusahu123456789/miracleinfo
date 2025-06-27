@@ -1,7 +1,7 @@
 import { billingData } from './Billing';
-import { inventoryManagementData } from './InventoryManagement';
+import { inventoryManagementData } from './OfficeDocumentManagement';
 import { backendData } from './Backend';
-import { pushNotificationApiData } from './PushNotificationApi';
+import { pushNotificationApiData } from './GhantiAPPEasyNotificationAPP';
 import { webDesignData } from './WebDesign';
 import { schoolErpData } from './SchoolErp';
 import { ecommerceData } from './Ecommerce';

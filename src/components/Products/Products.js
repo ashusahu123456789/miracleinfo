@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import SchoolErp from './SchoolErp';
-import PushNotificationApi from './PushNotificationApi';
+import PushNotificationApi from './GhantiAPPEasyNotificationAPP';
 import Ecommerce from './Ecommerce';
-import InventoryManagement from './InventoryManagement';
+import InventoryManagement from './OfficeDocumentManagement';
 import Billing from './Billing';
 import WebDesign from './WebDesign';
 import Backend from './Backend';

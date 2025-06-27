@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductsFeatures from './ProductsFeatures';
+import ProductPopup from './ProductPopup';
 import './ProductLayout.css';
 
 const ProductLayout = ({
@@ -12,6 +13,8 @@ const ProductLayout = ({
   features = [],
 }) => {
   const [mainImageIndex, setMainImageIndex] = useState(0);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupImageIndex, setPopupImageIndex] = useState(0);
 
   useEffect(() => {
     if (gallery.length === 0) return;
@@ -29,7 +32,12 @@ const ProductLayout = ({
   }, []);
 
   const handleThumbnailClick = (index) => {
-    setMainImageIndex(index);
+    setPopupImageIndex(index);
+    setPopupVisible(true);
+  };
+
+  const closePopup = () => {
+    setPopupVisible(false);
   };
 
   return (
@@ -61,8 +69,8 @@ const ProductLayout = ({
         <div className="features-section" data-aos="fade-in" data-aos-duration="1000">
           <ProductsFeatures features={features} />
           <div className="purchase-buttons">
-            <button className="add-to-cart">Add to Cart</button>
-            <button className="buy-now">Buy</button>
+            <button className="add-to-cart">Send Inquiry</button>
+            <button className="buy-now">Contact Us for More Info</button>
           </div>
         </div>
       </div>
@@ -99,6 +107,12 @@ const ProductLayout = ({
           )}
         </div>
       </div>
+      <ProductPopup
+        visible={popupVisible}
+        onClose={closePopup}
+        product={{ headerTitle, gallery, about, details, features, reviews, testimonials }}
+        selectedImageIndex={popupImageIndex}
+      />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.product-page-container {
+s.product-page-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -7,6 +7,20 @@
   color: #222;
   background-color: #fff8f0;
   animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.purchase-buttons .add-to-cart,
+.purchase-buttons .buy-now {
+  animation: rotate360 2s ease-in-out;
 }
 
 .product-layout__header {
@@ -155,7 +169,18 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 6px 18px rgba(101, 25, 0, 0.15);
-  animation: fadeInRight 1s ease forwards;
+  animation: slideInFromRight 1s ease forwards;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .twothreegal-onethreefeature {
@@ -185,7 +210,7 @@
 }
 
 .purchase-buttons .add-to-cart {
-  background-color: #f05a28;
+  background-color: #2d88ff;
 }
 
 .purchase-buttons .add-to-cart:hover {
@@ -194,7 +219,7 @@
 }
 
 .purchase-buttons .buy-now {
-  background-color: #ff6f3c;
+  background-color: #10e00d;
 }
 
 .purchase-buttons .buy-now:hover {
