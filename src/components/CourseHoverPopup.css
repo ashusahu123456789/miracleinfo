@@ -71,3 +71,10 @@
 .course-details li {
   margin-bottom: 4px;
 }
+
+/* Hide popup on mobile devices */
+@media (max-width: 768px) {
+  .course-popup {
+    display: none;
+  }
+}
