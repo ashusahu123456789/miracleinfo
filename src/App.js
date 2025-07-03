@@ -4,6 +4,7 @@ import AOS from 'aos';
 import CoursePage39 from './pages/CoursePage39';
 import CoursePage from './pages/CoursePage';
 import 'aos/dist/aos.css';
+import './components/scrolltotop.css';
 import PureCounter from '@srexi/purecounterjs';
 
 // Page Components
@@ -37,6 +38,8 @@ import { useNavigate } from 'react-router-dom';
 import ProductPopup from './components/Products/ProductPopup';
 import productData from './components/Products/productData';
 
+import ScrollToTopButton from './components/ScrollToTopButton';
+
 function HomePage() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isLearningMaterialOpen, setIsLearningMaterialOpen] = React.useState(false);
@@ -44,6 +47,7 @@ function HomePage() {
   const [popupVisible, setPopupVisible] = React.useState(false);
   const [selectedProductId, setSelectedProductId] = React.useState(null);
   const [popupImageIndex, setPopupImageIndex] = React.useState(0);
+  // Removed showScrollTop state and scroll logic from here
 
   const navigate = useNavigate();
 
@@ -123,6 +127,7 @@ function HomePage() {
     setPopupImageIndex(0);
   };
 
+
   return (
     <>
       <Header
@@ -157,6 +162,7 @@ function HomePage() {
         />
       )}
       {/* Removed ScrollTop and Preloader components */}
+      <ScrollToTopButton />
     </>
   );
 }

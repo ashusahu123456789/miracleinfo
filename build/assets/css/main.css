@@ -171,7 +171,10 @@ h6 {
 }
 
 .header.scrolled {
+  --background-color: #dd5d20; /* Medium/Deep Blue */
+  background-color: #dd5d20 !important;
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
 /* Global Header on Scroll
