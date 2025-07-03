@@ -2,8 +2,8 @@ import React from 'react';
 
 function StatsSection() {
   return (
-    <section id="stats" className="stats section light-background">  
-      <div className="container section-title" data-aos="fade-up">
+    <section id="stats" className="stats laba  section light-background">  
+      <div className="container section-title" data-aos="fade-up" >
         <h2>Clients</h2>
         <div><span>Our</span> <span className="description-title">Clients</span></div>
       </div>

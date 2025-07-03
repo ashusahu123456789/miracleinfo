@@ -56,8 +56,8 @@ function Course3DSlideshow({ onProductClick }) {
 
   return (
     <>
-      <section id='Products' className="section">
-        <div className="container section-title">
+      <section id='Products' className="section lank">
+        <div className="container section-title lanka">
           <h2>Products</h2>
           <div><span>Our</span> <span className="description-title">Products</span></div>
         </div>

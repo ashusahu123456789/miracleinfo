@@ -10,6 +10,10 @@
   padding-top: 0px; /* Increased padding to offset fixed header and search bar height */
 }
 
+.learning-search-results.filters-hidden .learning-search-filters-new {
+  display: none;
+}
+
 .course-card {
   position: relative;
 }
@@ -34,18 +38,11 @@
 .content-container {
   display: flex;
   max-width: 1200px;
-  position: sticky; 
-  /* top: 20px;  */
   left: 20px; 
-  /* below the fixed search bar at 95px + some margin */
   margin: 0;
   padding: 0 150px 0 0; 
-   /* gap: 0px; */
   justify-content: flex-start;
-   background-color: #fff; 
-   /* Align items to start
- */
-    
+  background-color: #fff; 
   position: relative;
   z-index: 1;
   padding-right: 150px;
@@ -498,4 +495,54 @@
   top: 100%;
   right: 10%;
   animation-delay: 0s;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 10px 0px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  user-select: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .pagination-controls {
+    font-size: 16px;
+  }
+  :hover.pagination-controls .btn {
+    background-color: blueviolet;
+    transform: scale(0.8);
+  }
+}
+
+.pagination-controls:hover {
+  background-color: #e9ecef;
+}
+
+.pagination-controls .btn {
+  background-color: #dc3545; /* Bootstrap danger red */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination-controls .btn:hover:not(:disabled) {
+  background-color: #b02a37; /* Darker red */
+  transform: scale(0.9);
+}
+
+.pagination-controls .btn:disabled {
+  background-color: #f5c6cb; /* Light red */
+  cursor: not-allowed;
+  transform: none;
 }

@@ -1,9 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProductsFeatures from './ProductsFeatures';
 import './ProductPopup.css';
 
 const ProductPopup = ({ visible, onClose, product, selectedImageIndex: initialSelectedImageIndex }) => {
   const [mainImageIndex, setMainImageIndex] = useState(initialSelectedImageIndex || 0);
+  const [animateTestimonials, setAnimateTestimonials] = useState(false);
+  const testimonialsRef = useRef(null);
+
+  useEffect(() => {
+    if (visible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [visible]);
 
   useEffect(() => {
     setMainImageIndex(initialSelectedImageIndex || 0);
@@ -16,6 +29,22 @@ const ProductPopup = ({ visible, onClose, product, selectedImageIndex: initialSe
     }, 3000);
     return () => clearInterval(interval);
   }, [product]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimateTestimonials(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (testimonialsRef.current) {
+      observer.observe(testimonialsRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   if (!visible || !product) return null;
 
@@ -46,22 +75,18 @@ const ProductPopup = ({ visible, onClose, product, selectedImageIndex: initialSe
           color: '#222',
         }}
       >
-        <header className="product-layout__header" style={{ marginTop: '10px', backgroundColor: '#fff3e0', padding: '10px 0', position: 'relative' }}>
-          <h1
-            style={{
-              color: '#222',
-              fontWeight: '700',
-              fontSize: '2.5rem',
-              letterSpacing: '1.5px',
-              textAlign: 'center',
-              marginTop: '30px',
-              zIndex: 2222222,
-              backgroundColor: '#fff3e0',
-              padding: '10px 0',
-            }}
-          >
-            {product.title || product.headerTitle}
-          </h1>
+        <header className="product-layout__header" style={{ marginTop: '0px', backgroundColor: '#fff3e0', padding: '10px 0', position: 'relative' }}>
+<h1
+  className="product-title"
+  style={{
+    marginTop: '30px',
+    zIndex: 2222222,
+    backgroundColor: '#fff3e0',
+    padding: '10px 0',
+  }}
+>
+  {product.title || product.headerTitle}
+</h1>
           <button className="popup-close-button" onClick={onClose} aria-label="Close popup" style={{ position: 'absolute', top: 0, right: 0 }}>
             &times;
           </button>
@@ -70,7 +95,7 @@ const ProductPopup = ({ visible, onClose, product, selectedImageIndex: initialSe
           <div className="twothreegal-onethreefeature" style={{ display: 'flex', gap: '20px' }}>
             <div
               className="gallery-section"
-              style={{ flex: '2 1 66.66%', display: 'flex', flexDirection: 'column', gap: '15px', height: '450px' }}
+              style={{ flex: '2 1 66.66%', display: 'flex', flexDirection: 'column', gap: '15px', height: '549px' }}
             >
               <div
                 className="main-image"
@@ -87,7 +112,7 @@ const ProductPopup = ({ visible, onClose, product, selectedImageIndex: initialSe
                   <img
                     src={product.gallery[mainImageIndex]}
                     alt={`Gallery ${mainImageIndex + 1}`}
-                    style={{ width: '100%', height: '100%', objectFit: 'contain', transition: 'transform 0.5s ease' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
                   />
                 ) : (
                   <div className="no-image">No images available</div>
@@ -182,75 +207,93 @@ const ProductPopup = ({ visible, onClose, product, selectedImageIndex: initialSe
                   Contact Us for More Info
                 </button>
               </div>
-              <div
-                className="about-section"
-                style={{
-                  marginTop: '30px', padding: '15px 20px', background: '#fff3e0', borderRadius: '10px', boxShadow: '0 6px 15px rgba(240, 90, 40, 0.1)',
-                }}
-              >
-                <h2
-                  style={{
-                    marginBottom: '15px',
-                    color: '#f05a28',
-                    fontWeight: '600',
-                    fontSize: '1.8rem',
-                    letterSpacing: '0.5px',
-                    borderBottom: '2px solid #f05a28',
-                    paddingBottom: '5px',
-                  }}
-                >
-                  About
-                </h2>
-                <p style={{ animation: 'typingLeft 1.5s steps(30, end) backwards' }}>
-                  {product.about}
-                </p>
-              </div>
-              <div
-                className="details-section"
-                style={{
-                  width: '100%',
-                  marginTop: '30px',
-                  padding: '15px 20px',
-                  background: '#fff3e0',
-                  borderRadius: '10px',
-                  boxShadow: '0 6px 15px rgba(240, 90, 40, 0.1)',
-                }}
-              >
-                <h2
-                  style={{
-                    marginBottom: '15px',
-                    color: '#f05a28',
-                    fontWeight: '600',
-                    fontSize: '1.8rem',
-                    letterSpacing: '0.5px',
-                    borderBottom: '2px solid #f05a28',
-                    paddingBottom: '5px',
-                  }}
-                >
-                  Some Details
-                </h2>
-                <p style={{ animation: 'typingRight 1.5s steps(30, end) forwards' }}>
-                  {product.details}
-                </p>
-              </div>
             </div>
           </div>
-          <div className="reviews-section" data-aos="zoom-in" data-aos-duration="1000" style={{ marginTop: '30px', padding: '15px 20px', background: '#fff3e0', borderRadius: '10px', boxShadow: '0 6px 15px rgba(240, 90, 40, 0.1)' }}>
-            <h2>Reviews</h2>
-            {product.reviews && product.reviews.length > 0 ? (
-              product.reviews.map((review, idx) => (
-                <p key={idx} className="review">{review}</p>
-              ))
-            ) : (
-              <p>No reviews available</p>
-            )}
+          <div
+            className="about-section"
+            style={{
+              marginTop: '30px',
+              padding: '15px 20px',
+              background: '#fff3e0',
+              borderRadius: '10px',
+              boxShadow: '0 6px 15px rgba(240, 90, 40, 0.1)',
+            }}
+          >
+            <h2
+              style={{
+                marginBottom: '15px',
+                color: '#f05a28',
+                fontWeight: '600',
+                fontSize: '1.8rem',
+                letterSpacing: '0.5px',
+                borderBottom: '2px solid #f05a28',
+                paddingBottom: '5px',
+              }}
+            >
+              About
+            </h2>
+            <p style={{ animation: 'typingLeft 1.5s steps(30, end) backwards' }}>
+              {product.about}
+            </p>
           </div>
-          <div className="testimonials-section" data-aos="fade-up" style={{ marginTop: '30px', padding: '15px 20px', background: '#fff3e0', borderRadius: '10px', boxShadow: '0 6px 15px rgba(240, 90, 40, 0.1)' }}>
+          <div
+            className="details-section"
+            style={{
+              width: '100%',
+              marginTop: '30px',
+              padding: '15px 20px',
+              background: '#fff3e0',
+              borderRadius: '10px',
+              boxShadow: '0 6px 15px rgba(240, 90, 40, 0.1)',
+            }}
+          >
+            <h2
+              style={{
+                marginBottom: '15px',
+                color: '#f05a28',
+                fontWeight: '600',
+                fontSize: '1.8rem',
+                letterSpacing: '0.5px',
+                borderBottom: '2px solid #f05a28',
+                paddingBottom: '5px',
+              }}
+            >
+              Some Details
+            </h2>
+            <p style={{ animation: 'typingRight 1.5s steps(30, end) forwards' }}>
+              {product.details}
+            </p>
+          </div>
+          <div
+            ref={testimonialsRef}
+            className="testimonials-section"
+            style={{
+              marginTop: '30px',
+              padding: '15px 20px',
+              background: '#fff3e0',
+              borderRadius: '10px',
+              boxShadow: '0 6px 15px rgba(240, 90, 40, 0.1)',
+              perspective: '1000px',
+            }}
+          >
             <h2>Testimonials</h2>
-            <div className="testimonials-list">
+            <div className="testimonials-list" style={{ display: 'flex', gap: '15px', justifyContent: 'center' }}>
               {product.testimonials && product.testimonials.length > 0 ? (
                 product.testimonials.map((t, idx) => (
-                  <div key={idx} className="testimonial" data-aos="fade-up" data-aos-delay={idx * 150}>
+                  <div
+                    key={idx}
+                    className="testimonial rolling-coin"
+                    style={{
+                      animation: animateTestimonials ? `rollIn 1s ease forwards` : 'none',
+                      animationDelay: animateTestimonials ? `${idx * 0.3}s` : '0s',
+                      boxShadow: '0 0 15px rgba(240, 90, 40, 0.8)',
+                      borderRadius: '10px',
+                      padding: '15px',
+                      backgroundColor: '#fff',
+                      transformStyle: 'preserve-3d',
+                      opacity: 0,
+                    }}
+                  >
                     <p>{t.text}</p>
                     <p><strong>{t.name}</strong></p>
                   </div>
@@ -262,33 +305,9 @@ const ProductPopup = ({ visible, onClose, product, selectedImageIndex: initialSe
           </div>
         </div>
       </div>
-      <div className="reviews-section" data-aos="zoom-in" data-aos-duration="1000" style={{ marginTop: '30px', padding: '15px 20px', background: '#fff3e0', borderRadius: '10px', boxShadow: '0 6px 15px rgba(240, 90, 40, 0.1)' }}>
-        <h2>Reviews</h2>
-        {product.reviews && product.reviews.length > 0 ? (
-          product.reviews.map((review, idx) => (
-            <p key={idx} className="review">{review}</p>
-          ))
-        ) : (
-          <p>No reviews available</p>
-        )}
-      </div>
-      <div className="testimonials-section" data-aos="fade-up" style={{ marginTop: '30px', padding: '15px 20px', background: '#fff3e0', borderRadius: '10px', boxShadow: '0 6px 15px rgba(240, 90, 40, 0.1)' }}>
-        <h2>Testimonials</h2>
-        <div className="testimonials-list">
-          {product.testimonials && product.testimonials.length > 0 ? (
-            product.testimonials.map((t, idx) => (
-              <div key={idx} className="testimonial" data-aos="fade-up" data-aos-delay={idx * 150}>
-                <p>{t.text}</p>
-                <p><strong>{t.name}</strong></p>
-              </div>
-            ))
-          ) : (
-            <p>No testimonials available</p>
-          )}
-        </div>
-      </div>
     </>
   );
 };
 
 export default ProductPopup;
+

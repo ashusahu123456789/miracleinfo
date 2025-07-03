@@ -85,6 +85,9 @@ function LearningSearchResults() {
   // Sidebar visibility state lifted here
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
+  // Filters visibility state for scroll hide/show
+  const [filtersVisible, setFiltersVisible] = React.useState(true);
+
   // Handle changes to filter values and reset to first page
   const handleFilterChange = (filterName, value) => {
     setFilters((prev) => ({ ...prev, [filterName]: value }));
@@ -95,6 +98,39 @@ function LearningSearchResults() {
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
   };
+
+  // Scroll event handler to toggle filters visibility
+  React.useEffect(() => {
+    const handleResize = () => {
+      const contentContainer = document.querySelector('.content-container');
+      if (!contentContainer) return;
+
+      const onScroll = () => {
+        if (window.innerWidth <= 768) {
+          if (contentContainer.scrollTop >= 50) {
+            setFiltersVisible(false);
+          } else {
+            setFiltersVisible(true);
+          }
+        } else {
+          setFiltersVisible(true);
+        }
+      };
+
+      contentContainer.addEventListener('scroll', onScroll);
+
+      return () => {
+        contentContainer.removeEventListener('scroll', onScroll);
+      };
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial call
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // Filter courses based on selected filters
   const filteredCourses = sampleCourses.filter((course) => {
@@ -182,7 +218,7 @@ function LearningSearchResults() {
         searchValue={filters.category}
         onSearchChange={(value) => handleFilterChange('category', value)}
       />
-      {/* Search bar for mobile above filters */}
+      {/* Search bar for mobile above filters */} 
       <div className="mobile-search-bar">
         <input
           type="text"
@@ -196,6 +232,7 @@ function LearningSearchResults() {
       <LearningSearchFilters
         sidebarVisible={sidebarVisible}
         toggleSidebar={toggleSidebar}
+        visible={filtersVisible}
       />
       {/* Close button removed for dedicated page */} 
 
@@ -260,7 +297,7 @@ function LearningSearchResults() {
                       View Details
                     </button>
                   )}
-                  <CourseHoverPopup course={course} />
+                  {window.innerWidth > 768 && <CourseHoverPopup course={course} />}
                 </div>
               ))} 
             </div>

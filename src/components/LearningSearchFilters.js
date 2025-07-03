@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './LearningSearchFilters.css';
 import './LearningSearchFilternew.css';
 import FilterSidebar from './FilterSidebar';
 
-function LearningSearchFilters() {
+function LearningSearchFilters({ visible = true }) {
   const [language, setLanguage] = useState('All Languages');
   const [ratings, setRatings] = useState('All Ratings');
   const [level, setLevel] = useState('All Levels');
@@ -43,6 +44,10 @@ function LearningSearchFilters() {
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
   };
+
+  if (!visible) {
+    return null;
+  }
 
   return (
     <div className={`learning-search-filters-new${sidebarVisible ? ' sidebar-visible' : ''}`}>
@@ -131,6 +136,13 @@ function LearningSearchFilters() {
             className="filter-overlay"
             onClick={toggleSidebar}
             aria-label="Close Filters Overlay"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                toggleSidebar();
+              }
+            }}
           />
           <div onClick={(e) => e.stopPropagation()}>
             <FilterSidebar
@@ -151,5 +163,9 @@ function LearningSearchFilters() {
     </div>
   );
 }
+
+LearningSearchFilters.propTypes = {
+  visible: PropTypes.bool,
+};
 
 export default LearningSearchFilters;

@@ -1246,13 +1246,34 @@ section,
   transition: 0.3s;
 }
 
-.features .features-item:hover {
+/* .features .features-item:hover {
   border-color: var(--accent-color);
+} */
+
+/* .features .features-item:hover h3 a {
+  color: var(--accent-color);
+} */
+.features-rolling-coina {
+transition: transform 1500ms ease;
+transform-style: preserve-3d;
+cursor: pointer;
 }
 
-.features .features-item:hover h3 a {
-  color: var(--accent-color);
+.features-rolling-coina:hover {
+animation: smoothRotateY 1500ms ease forwards;
+box-shadow: 2px 2px 15px 2px #f06d31;
+background-color: #f8e0cf;
 }
+
+@keyframes smoothRotateY {
+from {
+transform: rotateY(0deg);
+}
+to {
+transform: rotateY(360deg);
+}
+}
+
 
 /*--------------------------------------------------------------
 # Stats Section / Our Clients
@@ -1271,6 +1292,7 @@ section,
   justify-content: center;
   position: relative;
   z-index: 1;
+  padding-top: 0px;
 }
 
 .stats .stats-item {
@@ -1297,6 +1319,9 @@ section,
   margin: 0;
   font-family: var(--heading-font);
   font-size: 16px;
+}
+.laba{
+  padding-top: 2px;
 }
 
 /*--------------------------------------------------------------
@@ -1491,6 +1516,7 @@ section,
     transform: translateX(10%);
   }
 }
+
 
 /*--------------------------------------------------------------
 # Testimonials Section

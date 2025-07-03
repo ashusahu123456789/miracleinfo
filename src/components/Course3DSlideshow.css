@@ -16,7 +16,7 @@
   width: 100%;
   max-width: 350px;
   perspective: 1200px;
-  padding: 50px;
+  padding: 20px;
 }
 .content-carrousel figure {
   width: 320px;
@@ -34,7 +34,7 @@
 .content-carrousel figure {
   width: 208px;
   height: 156px;
-  margin: auto;
+  margin: 0 auto;
   border: 1px solid #ccc;
   overflow: hidden;
   position: absolute;
@@ -138,4 +138,10 @@
       text-shadow: 0 0 5px #73ff00, 0 0 10px #00ff00;
 
   }
+}
+.lank{
+  padding-bottom: 2px;
+}
+.lanka{
+  padding-bottom: 2px;
 }
